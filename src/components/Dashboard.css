@@ -1,0 +1,17 @@
+.header{
+    background-color: rgb(126, 120, 120);
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+.header li{
+    padding: 30px;
+}
+.header li a{
+    color: rgb(255, 255, 255);
+}
+.logo{
+    color: rgb(255, 255, 255);
+}

@@ -1,0 +1,10 @@
+.userhead{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.adduser{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}

@@ -31,13 +31,13 @@ const LogIn = () => {
             <h1>Log In</h1>
             <form onSubmit={handleSubmit}>
             <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label">Email address</label>
-                <input type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                <label for="InputEmail" className="form-label">Email address</label>
+                <input type="email" name="email" className="form-control" id="Email1" aria-describedby="emailHelp" />
                 <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div className="mb-3">
-                <label for="exampleInputPassword1" className="form-label">Password</label>
-                <input type="password" name="password" className="form-control" id="exampleInputPassword1" />
+                <label for="Password" className="form-label">Password</label>
+                <input type="password" name="password" className="form-control" id="Password1" />
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
             <Link to="/signup"><button className="btn btn-primary m-2">Sign In</button></Link>

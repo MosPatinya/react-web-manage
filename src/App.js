@@ -14,6 +14,7 @@ import User from './Navbar/User';
 import Create from './Create';
 import Place from './Navbar/Place';
 import ShowPlace from './ShowPlace';
+import Graf from './Navbar/graf';
 function App() {
   return (
     <AuthProvider>
@@ -30,6 +31,7 @@ function App() {
           <Route exact path='/user' component={User} />
           <Route exact path='/creat' component={Create}/>
           <Route exact path='/place' component={Place}/>
+          <Route exact path='/graf' component={Graf}/>
         </Switch>
       </Router>
     </AuthProvider>

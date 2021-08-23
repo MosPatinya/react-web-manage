@@ -40,13 +40,16 @@ class ShowPlace extends Component {
   render() {
     return (
       <div>
-        <DashBoard/>
+        <DashBoard />
         <div class="container">
           <div class="area">
             <div class="body">
               <dl>
                 <dt>Photo</dt>
-                <dd><img src={this.state.place.photo1}width="200" height="200"></img></dd>
+                <img src={this.state.place.photo1}width="500" height="300"></img>
+                <img src={this.state.place.photo2}width="500" height="300"></img>
+                <dd>
+                </dd>
                 <br></br>
                 <dt>Place_id:</dt>
                 <dd>{this.state.place.place_id}</dd>

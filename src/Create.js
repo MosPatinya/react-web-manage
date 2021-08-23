@@ -8,7 +8,6 @@ class Create extends Component {
     super();
     this.ref = firebase.firestore().collection('user');
     this.state = {
-      key:'',
       user_id: '',
       email: '',
       password: '',
@@ -23,7 +22,7 @@ class Create extends Component {
   }
 
   onSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const { user_id, email, password, tel, username, } = this.state;
     this.ref.add({
@@ -40,10 +39,9 @@ class Create extends Component {
         tel: '',
         username: '',
       });
-    })
-      .catch((error) => {
-        console.error("Error adding document: ", error);
-      });
+    }).catch((error) => {
+      console.error("Error adding document: ", error);
+    });
   }
 
   render() {
@@ -51,39 +49,39 @@ class Create extends Component {
     return (
       <div>
         <header>
-          <DashBoard/>
+          <DashBoard />
         </header>
-      <div class="container">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <br></br>
-            <h3 class="panel-title">
-              ADD User
-            </h3>
-          </div>
-          <div class="panel-body">
-            <form onSubmit={this.onSubmit}>
-              <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" name="username" value={username} onChange={this.onChange} placeholder="name" />
-              </div>
-              <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" name="email" value={email} onChange={this.onChange} placeholder="Email" />
-              </div>
-              <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" name="password" value={password} onChange={this.onChange} placeholder="Password" />
-              </div>
-              <div class="form-group">
-                <label for="tel">Tel:</label>
-                <input type="phone" class="form-control" name="tel" value={tel} onChange={this.onChange} placeholder="Telephone" />
-              </div><br></br>
-              <button type="submit" class="btn btn-success">Submit</button>
-            </form>
+        <div className="container">
+          <div className="panel panel-default">
+            <div className="panel-heading">
+              <br></br>
+              <h3 className="panel-title">
+                ADD User
+              </h3>
+            </div>
+            <div className="panel-body">
+              <form onSubmit={this.onSubmit}>
+                <div className="form-group">
+                  <label for="username">Username:</label>
+                  <input type="text" className="form-control" name="username" value={username} onChange={this.onChange} placeholder="name" />
+                </div>
+                <div className="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" className="form-control" name="email" value={email} onChange={this.onChange} placeholder="Email" />
+                </div>
+                <div className="form-group">
+                  <label for="password">Password:</label>
+                  <input type="password" className="form-control" name="password" value={password} onChange={this.onChange} placeholder="Password" />
+                </div>
+                <div className="form-group">
+                  <label for="tel">Tel:</label>
+                  <input type="phone" className="form-control" name="tel" value={tel} onChange={this.onChange} placeholder="Telephone" />
+                </div><br></br>
+                <button type="submit" className="btn btn-success">Submit</button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     );
   }

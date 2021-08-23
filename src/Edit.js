@@ -11,6 +11,7 @@ class Edit extends Component {
       email: '',
       tel: '',
       username: '',
+      password:'',
     };
   }
 
@@ -24,6 +25,7 @@ class Edit extends Component {
           email: user.email,
           tel: user.tel,
           username: user.username,
+          password: user.password,
         });
       } else {
         console.log("No such document!");
@@ -40,19 +42,21 @@ class Edit extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { email, tel, username } = this.state;
+    const { email, tel, username, password } = this.state;
 
     const updateRef = firebase.firestore().collection('user').doc(this.state.key);
     updateRef.set({
       email,
       tel,
       username,
+      password,
     }).then((docRef) => {
       this.setState({
         key: '',
         email: '',
         tel: '',
         username: '',
+        password: '',
       });
       this.props.history.push("/show/"+this.props.match.params.id)
     })
@@ -83,6 +87,10 @@ class Edit extends Component {
               <div class="form-group">
                 <label for="username">UserName:</label>
                 <input type="text" class="form-control" name="username" value={this.state.username} onChange={this.onChange} placeholder="username" />
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="text" class="form-control" name="password" value={this.state.password} onChange={this.onChange} placeholder="username" />
               </div>
               <button type="submit" class="btn btn-success">Submit</button>
             </form>

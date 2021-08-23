@@ -39,10 +39,10 @@ class List_Place extends Component {
 
     render() {
         return (
-            <div class="container">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <table class="table table-stripe">
+            <div className="container">
+                <div className="panel panel-default">
+                    <div className="panel-body">
+                        <table className="table table-stripe">
                             <thead>
                                 <tr>
                                     <th>Photo</th>
@@ -60,8 +60,7 @@ class List_Place extends Component {
                                     <tr>
                                         <td><img src={place.photo1}width="210" height="110"></img></td>
                                         <td>{place.business_name}</td>
-                                        <td>{place.type}</td>
-                                        <td>{place.type2}</td>
+                                        <td>{place.type}{place.type2}</td>
                                         <td>{place.detail}</td>
                                         <td>{place.email}</td>
                                         <td>{place.tel}</td>     

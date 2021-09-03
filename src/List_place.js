@@ -40,38 +40,38 @@ class List_Place extends Component {
     render() {
         return (
             <div className="container">
-                <div className="panel panel-default">
-                    <div className="panel-body">
-                        <table className="table table-stripe">
-                            <thead>
-                                <tr>
-                                    <th>Photo</th>
-                                    <th>Name</th>
-                                    <th>Category</th>
-                                    <th>Type</th>
-                                    <th>Detail</th>
-                                    <th>Email</th>
-                                    <th>Telephone</th>
-                                </tr>
-                            </thead>
-                            <br></br>
-                            <tbody>
-                                {this.state.place.map(place =>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <table class="table table-stripe">
+                                <thead>
                                     <tr>
-                                        <td><img src={place.photo1}width="210" height="110"></img></td>
+                                        <th>Photo</th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Detail</th>
+                                        <th>Email</th>
+                                        <th>Telephone</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <br></br>
+                                {this.state.place.map(place =>
+
+                                    <tr>
+                                        <td><img src={place.photo1} width="210" height="110"></img></td>
                                         <td>{place.business_name}</td>
                                         <td>{place.type}{place.type2}</td>
                                         <td>{place.detail}</td>
                                         <td>{place.email}</td>
-                                        <td>{place.tel}</td>     
+                                        <td>{place.tel}</td>
                                         <td><Link to={`/showplace/${place.key}`}><button type="button" class="btn btn-outline-warning">รายละเอียด</button></Link></td>
                                     </tr>
                                 )}
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
         );
     }
 }

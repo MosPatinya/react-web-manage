@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { AuthContext } from './Auth'
 import firebaseConfig from '../config'
 import { Link } from 'react-router-dom'
+import "./Login.css"
 
 const LogIn = () => {
 
@@ -26,9 +27,10 @@ const LogIn = () => {
     }
 
     return (
-        <>
+        <div className="body">
             <div className="container mt-5">
-            <h1>Log In</h1>
+                <div className="form">
+            <h1> Where are you </h1>
             <form onSubmit={handleSubmit}>
             <div className="mb-3">
                 <label for="InputEmail" className="form-label">Email address</label>
@@ -43,7 +45,8 @@ const LogIn = () => {
             <Link to="/signup"><button className="btn btn-primary m-2">Sign In</button></Link>
             </form>
             </div>
-        </>
+            </div>
+        </div>
     )
 }
 

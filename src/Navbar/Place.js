@@ -11,7 +11,7 @@ export class Place extends Component {
                     <DashBoard />
                 </header>
                 <div className="placehead">
-                    <h2>ข้อมูลร้านค้า</h2>
+                    
                 </div>
                 <List_Place/>
             </div>

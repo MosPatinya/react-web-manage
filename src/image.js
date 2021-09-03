@@ -16,11 +16,10 @@ function Image() {
       ref.getDownloadURL().then((url) => {
         setFile(null);
         setURL(url);
-        alert("อัพเดข้อมูลสำเร็จ")
+        alert('อัพเดตข้อมูลสำเร็จ')
       });
     });
   }
-  // storage.ref(`/picture/${image.name}`).put(image).on("state_changed" , alert("success") , alert);
 
 
   return (

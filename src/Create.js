@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import DashBoard from './components/Dashboard';
 import firebase from './config';
-
 class Create extends Component {
-
   constructor() {
     super();
     this.ref = firebase.firestore().collection('user');
@@ -13,8 +11,10 @@ class Create extends Component {
       password: '',
       tel: '',
       username: '',
+      url:'',
     };
   }
+
   onChange = (e) => {
     const state = this.state
     state[e.target.name] = e.target.value;
@@ -23,7 +23,6 @@ class Create extends Component {
 
   onSubmit = (e) => {
     e.preventDefault()
-
     const { user_id, email, password, tel, username, } = this.state;
     this.ref.add({
       user_id,
@@ -43,7 +42,6 @@ class Create extends Component {
       console.error("Error adding document: ", error);
     });
   }
-
   render() {
     const { email, password, tel, username, } = this.state;
     return (

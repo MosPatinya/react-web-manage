@@ -13,7 +13,7 @@ const DashBoard = () => {
 
         <div className="header">
             <div className='logo'>
-                <h2>Where are you</h2>
+                <h2>WHERE ARE YOU</h2>
             </div>
             <ul className="nav justify-content-end">
                 <li className="nav-item">

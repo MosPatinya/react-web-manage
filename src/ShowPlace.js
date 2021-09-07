@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import firebase from './config';
 import { Link } from 'react-router-dom';
 import DashBoard from './components/Dashboard';
-import './Show.css';
+import './ShowPlace.css';
 class ShowPlace extends Component {
 
   constructor(props) {
@@ -41,18 +41,13 @@ class ShowPlace extends Component {
     return (
       <div>
         <DashBoard />
-        <div class="container">
-          <div class="area">
-            <div class="body">
+        <div className="container">
+          <div className="area">
+          <div className='photo'>
+                <img src={this.state.place.photo1} width="500" height="300"></img>
+              </div>
+            <div className="body">  
               <dl>
-                <dt>Photo</dt>
-                <img src={this.state.place.photo1}width="500" height="300"></img>
-                <img src={this.state.place.photo2}width="500" height="300"></img>
-                <dd>
-                </dd>
-                <br></br>
-                <dt>Place_id:</dt>
-                <dd>{this.state.place.place_id}</dd>
                 <dt>ชื่อร้านค้า/สถานที่:</dt>
                 <dd>{this.state.place.business_name}</dd>
                 <dt>ชื่อแฝง:</dt>
@@ -70,10 +65,16 @@ class ShowPlace extends Component {
                 <dt>หมวดหมู่:</dt>
                 <dd>{this.state.place.type}</dd>
                 <dt>รายะเอียด:</dt>
-                <dd>{this.state.place.detail}</dd>
+                <dd>{this.state.place.detail}</dd><br></br>
+                <div className='button-area'>
+                <div className='btn'>
+                <Link to={`/editPlace/${this.state.key}`} class="btn btn-success">Edit</Link>
+                </div>
+                <div className='btn'>
+                <button onClick={this.delete.bind(this, this.state.key)} class="btn btn-danger">Delete</button>
+                </div>
+                </div>
               </dl>
-              <Link to={`/edit/${this.state.key}`} class="btn btn-success">Edit</Link>&nbsp;
-              <button onClick={this.delete.bind(this, this.state.key)} class="btn btn-danger">Delete</button>
             </div>
           </div>
         </div>

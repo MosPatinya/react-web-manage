@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { storage } from "./config";
 import './image.css'
+
 function Image() {
   const [file, setFile] = useState(null);
   const [url, setURL] = useState("");

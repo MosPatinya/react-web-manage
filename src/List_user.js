@@ -46,6 +46,7 @@ class Create_List extends Component {
                                     <th>Email</th>
                                     <th>Telephone</th>
                                     <th>Name</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>

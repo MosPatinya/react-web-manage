@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import DashBoard from './components/Dashboard';
 import firebase from './config';
+
 class Create extends Component {
   constructor() {
     super();
@@ -11,7 +12,6 @@ class Create extends Component {
       password: '',
       tel: '',
       username: '',
-      url:'',
     };
   }
 

@@ -16,6 +16,7 @@ import Place from './Navbar/Place';
 import ShowPlace from './ShowPlace';
 import Graf from './Navbar/graf';
 import EditPlace from './EditPlace';
+import ShowPlaceCheck from './ShowPlaceCheck';
 function App() {
   return (
     <AuthProvider>
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/dashboard" component={DashBoard} />
           <Route path='/show/:id' component={Show} />
           <Route path='/showplace/:id' component={ShowPlace}/>
+          <Route path='/showplacecheck/:id' component={ShowPlaceCheck}/>
           <Route path='/edit/:id' component={Edit} />
           <Route path='/editPlace/:id' component={EditPlace} />
           <Route path='/create_List' component={Create_List} />

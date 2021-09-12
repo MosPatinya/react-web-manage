@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from './config';
 import { Link } from 'react-router-dom';
+import DashBoard from './components/Dashboard';
 
 class Edit extends Component {
 
@@ -11,7 +12,7 @@ class Edit extends Component {
       email: '',
       tel: '',
       username: '',
-      password:'',
+      password: '',
     };
   }
 
@@ -36,7 +37,7 @@ class Edit extends Component {
   onChange = (e) => {
     const state = this.state
     state[e.target.name] = e.target.value;
-    this.setState({user:state});
+    this.setState({ user: state });
   }
 
   onSubmit = (e) => {
@@ -58,42 +59,47 @@ class Edit extends Component {
         username: '',
         password: '',
       });
-      this.props.history.push("/show/"+this.props.match.params.id)
+      this.props.history.push("/show/" + this.props.match.params.id)
     })
-    .catch((error) => {
-      console.error("Error adding document: ", error);
-    });
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
   }
 
   render() {
     return (
-      <div class="container">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              EDIT USER
-            </h3>
-          </div>
-          <div class="panel-body">
-            <form onSubmit={this.onSubmit}>
-              <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="text" class="form-control" name="email" value={this.state.email} onChange={this.onChange} placeholder="email" />
-              </div>
-              <div class="form-group">
-                <label for="tel">Tel:</label>
-                <input type="text" class="form-control" name="tel" value={this.state.tel} onChange={this.onChange} placeholder="tel" />
-              </div>
-              <div class="form-group">
-                <label for="username">UserName:</label>
-                <input type="text" class="form-control" name="username" value={this.state.username} onChange={this.onChange} placeholder="username" />
-              </div>
-              <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="text" class="form-control" name="password" value={this.state.password} onChange={this.onChange} placeholder="username" />
-              </div>
-              <button type="submit" class="btn btn-success">Submit</button>
-            </form>
+      <div>
+        <header>
+          <DashBoard />
+        </header>
+        <div class="container">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                EDIT USER
+              </h3>
+            </div>
+            <div class="panel-body">
+              <form onSubmit={this.onSubmit}>
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="text" class="form-control" name="email" value={this.state.email} onChange={this.onChange} placeholder="email" />
+                </div>
+                <div class="form-group">
+                  <label for="tel">Tel:</label>
+                  <input type="text" class="form-control" name="tel" value={this.state.tel} onChange={this.onChange} placeholder="tel" />
+                </div>
+                <div class="form-group">
+                  <label for="username">UserName:</label>
+                  <input type="text" class="form-control" name="username" value={this.state.username} onChange={this.onChange} placeholder="username" />
+                </div>
+                <div class="form-group">
+                  <label for="password">Password:</label>
+                  <input type="text" class="form-control" name="password" value={this.state.password} onChange={this.onChange} placeholder="username" />
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

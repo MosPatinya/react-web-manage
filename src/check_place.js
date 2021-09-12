@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import firebase from './config';
-import './List_place.css'
+import './check_place.css';
 
-class List_Place extends Component {
+class Check_Place extends Component {
     constructor(props) {
         super(props);
-        this.ref = firebase.firestore().collection('place').orderBy('array','asc');
+        this.ref = firebase.firestore().collection('place').where('check','==','false');
         this.unsubscribe = null;
         this.state = {
             place: []
@@ -16,18 +16,17 @@ class List_Place extends Component {
     onCollectionUpdate = (querySnapshot) => {
         const place = [];
         querySnapshot.forEach((doc) => {
-            const { email, tel, type, business_name, photo1, detail, type2, array } = doc.data();
+            const { email, tel, type, business_name, photo1, type2, array, } = doc.data();
             place.push({
                 key: doc.id,
                 doc, // DocumentSnapshot
-                array,
                 photo1,
                 email,
                 tel,
                 type,
                 type2,
                 business_name,
-                detail,
+                array,
             });
         });
         this.setState({
@@ -65,7 +64,7 @@ class List_Place extends Component {
                                         <td>{place.type}{place.type2}</td>
                                         <td>{place.email}</td>
                                         <td>{place.tel}</td>
-                                        <td><Link to={`/showplace/${place.key}`}><button type="button" class="btn btn-outline-warning">รายละเอียด</button></Link></td>
+                                        <td><Link to={`/showplacecheck/${place.key}`}><button type="button" class="btn btn-outline-warning">รายละเอียด</button></Link></td>
                                     </tr>
                                 )}
                                 </tbody>
@@ -77,4 +76,4 @@ class List_Place extends Component {
     }
 }
 
-export default List_Place;
+export default Check_Place;

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import Check_Place from '../check_place';
 import DashBoard from '../components/Dashboard';
+import './Home.css';
 
 
 export class Home extends Component {
@@ -9,7 +11,12 @@ export class Home extends Component {
             <header>
                 <DashBoard />
             </header>
-            <h1>Home</h1>
+            <div>
+            <div className='text-head'>
+                <h2>ตรวจสอบร้านค้า</h2>
+            </div>
+            </div>
+            <Check_Place/>
             </div>
         )
     }

@@ -18,6 +18,8 @@ class EditPlace extends Component {
       instagram:'',
       type:'',
       detail:'',
+      latitude:'',
+      longitude:'',
     };
   }
 
@@ -37,6 +39,8 @@ class EditPlace extends Component {
           instagram: place.instagram,
           type: place.type,
           detail: place.detail,
+          latitude: place.latitude,
+          longitude: place.longitude,
         });
       } else {
         console.log("No such document!");
@@ -53,7 +57,7 @@ class EditPlace extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { business_name, business_name1, business_name2, business_name3, email, facebook, instagram, type, detail,} = this.state;
+    const { business_name, business_name1, business_name2, business_name3, email, facebook, instagram, type, detail, latitude, longitude} = this.state;
 
     const updateRef = firebase.firestore().collection('place').doc(this.state.key);
     updateRef.set({
@@ -66,6 +70,8 @@ class EditPlace extends Component {
         instagram,
         type,
         detail,
+        latitude,
+        longitude,
     }).then((docRef) => {
       this.setState({
         key: '',
@@ -78,6 +84,8 @@ class EditPlace extends Component {
         instagram:'',
         type:'',
         detail:'',
+        latitude: '',
+        longitude: '',
       });
       this.props.history.push("/show/"+this.props.match.params.id)
     })
@@ -132,6 +140,14 @@ class EditPlace extends Component {
               <div class="form-group">
                 <label for="password">รายละเอียด:</label>
                 <input type="text" class="form-control" name="detail" value={this.state.detail} onChange={this.onChange} placeholder="detail" />
+              </div>
+              <div class="form-group">
+                <label for="latitude">ละติจูด:</label>
+                <input type="text" class="form-control" name="latitude" value={this.state.latitude} onChange={this.onChange} placeholder="latitude" />
+              </div>
+              <div class="form-group">
+                <label for="longitude">ลองจิจูด:</label>
+                <input type="text" class="form-control" name="longitude" value={this.state.longitude} onChange={this.onChange} placeholder="longitude" />
               </div>
               <button type="submit" class="btn btn-success">Submit</button>
             </form>

@@ -13,7 +13,7 @@ export class Home extends Component {
             </header>
             <div>
             <div className='text-head'>
-                <h2>ตรวจสอบร้านค้า</h2>
+                <h2>สถานที่/ร้านค้าที่ยังไม่ตรวจสอบ</h2>
             </div>
             </div>
             <Check_Place/>

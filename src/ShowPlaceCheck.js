@@ -28,6 +28,11 @@ class ShowPlaceCheck extends Component {
     });
   }
 
+  onClickSubmit = (e) => {
+    e.preventDefault();
+    alert('you click me');
+  }
+
   render() {
     return (
       <div>
@@ -59,7 +64,7 @@ class ShowPlaceCheck extends Component {
                 <dd>{this.state.place.detail}</dd><br></br>
                 <div className='button-area'>
                 <div className='btn'>
-                <button  class="btn btn-success">Confirm</button>
+                <button  class="btn btn-success" onClick={this.onClickSubmit}>Confirm</button>
                 </div>
                 <div className='btn'>
                 <Link to={`/Home`} class="btn btn-danger">Cancel</Link>

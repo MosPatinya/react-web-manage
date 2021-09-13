@@ -17,7 +17,7 @@ function Image() {
       ref.getDownloadURL().then((url) => {
         setFile(null);
         setURL(url);
-        alert('อัพเดตข้อมูลสำเร็จ')
+        alert(`อัพเดตข้อมูลสำเร็จ${url}`)
       });
     });
   }

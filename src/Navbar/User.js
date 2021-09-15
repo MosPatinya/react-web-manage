@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import '../Navbar/User.css'
 
 
+
 export class User extends Component {
     render() {
         return (
@@ -18,7 +19,7 @@ export class User extends Component {
                     </div>
                     <Create_List />
                     <div className='adduser'>
-                    <Link to='/creat'><button type="button" class="btn btn-success">เพิ่มผู้ใช้งาน</button></Link>
+                    <Link to='/add'><button type="button" class="btn btn-success">เพิ่มผู้ใช้งาน</button></Link>
                     </div>
                 </div>
             </div>

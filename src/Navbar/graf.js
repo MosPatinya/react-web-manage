@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import Chart from '../chart';
 import DashBoard from '../components/Dashboard'
-import ImageUpload from '../image'
+// import Add from '../add';
+
 
 
 
@@ -12,7 +14,8 @@ export class Graf extends Component {
                     <DashBoard />
                 </header>
                 <div>
-                   <ImageUpload/>
+                   <Chart/>
+                   {/* <Add/> */}
                 </div>
             </div>
         )

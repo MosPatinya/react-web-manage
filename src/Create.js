@@ -30,7 +30,8 @@ class Create extends Component {
       password,
       tel,
       username,
-    }).then((docRef) => {
+    })
+    .then((docRef) => {
       this.setState({
         user_id: '',
         email: '',
@@ -61,19 +62,31 @@ class Create extends Component {
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <label for="username">Username:</label>
-                  <input type="text" className="form-control" name="username" value={username} onChange={this.onChange} placeholder="name" />
+                  <input type="text" className="form-control" name="username" 
+                  value={username} 
+                  onChange={this.onChange} 
+                  placeholder="name" />
                 </div>
                 <div className="form-group">
                   <label for="email">Email:</label>
-                  <input type="email" className="form-control" name="email" value={email} onChange={this.onChange} placeholder="Email" />
+                  <input type="email" className="form-control" name="email" 
+                  value={email} 
+                  onChange={this.onChange} 
+                  placeholder="Email" />
                 </div>
                 <div className="form-group">
                   <label for="password">Password:</label>
-                  <input type="password" className="form-control" name="password" value={password} onChange={this.onChange} placeholder="Password" />
+                  <input type="password" className="form-control" name="password" 
+                  value={password} 
+                  onChange={this.onChange} 
+                  placeholder="Password" />
                 </div>
                 <div className="form-group">
                   <label for="tel">Tel:</label>
-                  <input type="phone" className="form-control" name="tel" value={tel} onChange={this.onChange} placeholder="Telephone" />
+                  <input type="phone" className="form-control" name="tel" 
+                  value={tel} 
+                  onChange={this.onChange} 
+                  placeholder="Telephone" />
                 </div><br></br>
                 <button type="submit" className="btn btn-success">Submit</button>
               </form>

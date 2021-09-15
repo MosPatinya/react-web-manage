@@ -6,7 +6,7 @@ import './check_place.css';
 class Check_Place extends Component {
     constructor(props) {
         super(props);
-        this.ref = firebase.firestore().collection('place').where('check','==','false');
+        this.ref = firebase.firestore().collection('place').where('check','==',false);
         this.unsubscribe = null;
         this.state = {
             place: []
@@ -16,7 +16,7 @@ class Check_Place extends Component {
     onCollectionUpdate = (querySnapshot) => {
         const place = [];
         querySnapshot.forEach((doc) => {
-            const { email, tel, type, business_name, photo1, type2, array, } = doc.data();
+            const { email, tel, type, business_name, photo1, type2,  } = doc.data();
             place.push({
                 key: doc.id,
                 doc, // DocumentSnapshot
@@ -26,7 +26,6 @@ class Check_Place extends Component {
                 type,
                 type2,
                 business_name,
-                array,
             });
         });
         this.setState({
@@ -45,7 +44,6 @@ class Check_Place extends Component {
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>No.</th>
                                         <th>Photo</th>
                                         <th>Name</th>
                                         <th>Category</th>
@@ -58,7 +56,6 @@ class Check_Place extends Component {
                                 <br></br>
                                 {this.state.place.map(place =>
                                     <tr>
-                                        <td>{place.array}</td>
                                         <td><img src={place.photo1} width="210" height="110"></img></td>
                                         <td>{place.business_name}</td>
                                         <td>{place.type}{place.type2}</td>

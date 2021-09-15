@@ -17,6 +17,8 @@ import ShowPlace from './ShowPlace';
 import Graf from './Navbar/graf';
 import EditPlace from './EditPlace';
 import ShowPlaceCheck from './ShowPlaceCheck';
+import Add from './add';
+import Addplace from './addPlace';
 function App() {
   return (
     <AuthProvider>
@@ -34,6 +36,8 @@ function App() {
           <Route exact path='/home' component={Home} />
           <Route exact path='/user' component={User} />
           <Route exact path='/creat' component={Create}/>
+          <Route exact path='/add' component={Add}/>
+          <Route exact path='/addplace' component={Addplace}/>
           <Route exact path='/place' component={Place}/>
           <Route exact path='/graf' component={Graf}/>
         </Switch>

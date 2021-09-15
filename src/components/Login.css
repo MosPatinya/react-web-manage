@@ -1,0 +1,28 @@
+.auth{
+    display: flex;
+    background-color: blue;
+    height: 100vh;
+}
+.areare{
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(192, 192, 192);
+}
+.form{
+    background-color: rgb(80, 255, 246);
+    height: 350px;
+    width: 500px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.form h1{
+    text-align: center;
+}
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -31,7 +31,6 @@ function Image() {
           <input type="file" onChange={handleChange} />
           <button disabled={!file}>upload to firebase</button>
         </form>
-
       </center>
     </div>
   );

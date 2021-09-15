@@ -45,8 +45,7 @@ class List_Place extends Component {
                         <div class="panel-body">
                             <table class="table">
                                 <thead>
-                                    <tr>
-                                        <th>No.</th>
+                                    <tr>                      
                                         <th>Photo</th>
                                         <th>Name</th>
                                         <th>Category</th>
@@ -59,7 +58,6 @@ class List_Place extends Component {
                                 <br></br>
                                 {this.state.place.map(place =>
                                     <tr>
-                                        <td>{place.array}</td>
                                         <td><img src={place.photo1} width="210" height="110"></img></td>
                                         <td>{place.business_name}</td>
                                         <td>{place.type}{place.type2}</td>

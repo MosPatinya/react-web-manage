@@ -5,6 +5,7 @@
     background-color: blue;
 } */
 .photo{
+    height: 50px;
     padding-right: 10rem;
     padding-bottom: 5rem;
 }

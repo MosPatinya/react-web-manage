@@ -3,3 +3,11 @@
     display: flex;
     justify-content: center;
 }
+/* .addplace{
+    display: flex;
+    justify-content: end;
+    padding-right: 10rem;
+} */
+.addplace{
+    padding-left: 1rem;
+}

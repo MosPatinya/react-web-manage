@@ -60,7 +60,7 @@ class EditPlace extends Component {
     const { business_name, business_name1, business_name2, business_name3, email, facebook, instagram, type, detail, latitude, longitude} = this.state;
 
     const updateRef = firebase.firestore().collection('place').doc(this.state.key);
-    updateRef.set({
+    updateRef.update({
         business_name,
         business_name1,
         business_name2,
@@ -87,7 +87,7 @@ class EditPlace extends Component {
         latitude: '',
         longitude: '',
       });
-      this.props.history.push("/show/"+this.props.match.params.id)
+      this.props.history.push("/showPlace/"+this.props.match.params.id)
     })
     .catch((error) => {
       console.error("Error adding document: ", error);

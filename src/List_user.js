@@ -16,13 +16,12 @@ class Create_List extends Component {
     onCollectionUpdate = (querySnapshot) => {
         const user = [];
         querySnapshot.forEach((doc) => {
-            const { email, tel, user_id, username } = doc.data();
+            const { email, tel, username } = doc.data();
             user.push({
                 key: doc.id,
                 doc, // DocumentSnapshot
                 email,
                 tel,
-                user_id,
                 username,
             });
         });
@@ -42,7 +41,6 @@ class Create_List extends Component {
                         <table class="table table-stripe">
                             <thead>
                                 <tr>
-                                    <th>User_ID</th>
                                     <th>Email</th>
                                     <th>Telephone</th>
                                     <th>Name</th>
@@ -52,7 +50,6 @@ class Create_List extends Component {
                             <tbody>
                                 {this.state.user.map(user =>
                                     <tr>
-                                        <td>{user.user_id}</td>
                                         <td>{user.email}</td>
                                         <td>{user.tel}</td>
                                         <td>{user.username}</td>

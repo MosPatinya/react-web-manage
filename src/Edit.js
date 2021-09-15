@@ -9,6 +9,8 @@ class Edit extends Component {
     super(props);
     this.state = {
       key: '',
+      user_id: '',
+      photo: '',
       email: '',
       tel: '',
       username: '',
@@ -23,6 +25,8 @@ class Edit extends Component {
         const user = doc.data();
         this.setState({
           key: doc.id,
+          photo: user.photo,
+          user_id: user.user_id,
           email: user.email,
           tel: user.tel,
           username: user.username,
@@ -43,10 +47,12 @@ class Edit extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { email, tel, username, password } = this.state;
+    const { photo, user_id, email, tel, username, password } = this.state;
 
     const updateRef = firebase.firestore().collection('user').doc(this.state.key);
-    updateRef.set({
+    updateRef.update({
+      photo,
+      user_id,
       email,
       tel,
       username,

@@ -4,10 +4,12 @@ import firebase from './config';
 import { storage } from "./config";
 
 function Add() {
+    const [user_id, setUser_id] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [tel, setTel] = useState('');
+    const [type, setType] = useState('ผู้ใช้งาน');
     const [file, setFile] = useState(null);
     const [url, setURL] = useState('');
 
@@ -15,19 +17,22 @@ function Add() {
         const ref = firebase.firestore().collection('user');
         ref
             .add(obj)
-            .then(() => {
-                console.log("add successfuly");
+            .then((value) => {
+                ref.doc(value.id).update({user_id:value.id})
+                // console.log('');
             })
             .catch((err) => console.log(err));
     };
     const submit = (e) => {
         e.preventDefault();
         const obj = {
+            user_id: user_id,
             photo: url,
             username: username,
             tel: tel,
             email: email,
             password: password,
+            type: type,
         };
         setURL('');
         setUsername('');

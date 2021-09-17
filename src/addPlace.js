@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DashBoard from "./components/Dashboard";
 import firebase from './config';
 import { storage } from "./config";
+import DropdownExampleMultipleSelection from "./dropdown";
 
 function Addplace() {
     const [array, setArray] = useState(0);
@@ -21,8 +22,8 @@ function Addplace() {
     const [website, setWebsite] = useState('');
     const [open, setOpen] = useState(false);
     const [price, setPrice] = useState('');
-    const [rating, setRating] = useState('');
-    const [status, setStatus] = useState('');
+    const [rating, setRating] = useState(0);
+    const [status, setStatus] = useState('false');
     const [type, setType] = useState('');
     const [type2, setType2] = useState('');
     const [type3, setType3] = useState('');
@@ -74,44 +75,138 @@ function Addplace() {
     return (
         <div>
             <header>
-                <DashBoard/>
-                </header>
-        <div className='container'>
-            <div className='1'>
-                <h2>Add User</h2>
-            </div>
-            <div className="image">
-                <center>
-                    <form onSubmit={handleUpload}>
-                        <img src={url}/>
-                        <input type="file" onChange={handleChange} />
-                        <button disabled={!file}>upload to firebase</button>
+                <DashBoard />
+            </header>
+            <div className='container'>
+                <div className='1'>
+                    <h2>Add User</h2>
+                </div>
+                <div className="image">
+                    <center>
+                        <form onSubmit={handleUpload}>
+                            <img src={url} />
+                            <input type="file" onChange={handleChange} />
+                            <button className='btn btn-success mt-3' disabled={!file}>ยืนยันอัปโหลด</button>
+                        </form>
+                    </center>
+                </div>
+                <div>
+                    <form onSubmit={submit}>
+                        <div className="form-group">
+                            <label>Business_name:</label>
+                            <input type="text" className="form-control"
+                                value={business_name}
+                                onChange={(e) => setBusiness_name(e.target.value)}
+                                placeholder="business_name" />
+                        </div>
+                        <div className="form-group">
+                            <label>Business_name1:</label>
+                            <input type="text" className="form-control"
+                                value={business_name1}
+                                onChange={(e) => setBusiness_name1(e.target.value)}
+                                placeholder="business_name1" />
+                        </div>
+                        <div className="form-group">
+                            <label>Business_name2:</label>
+                            <input type="text" className="form-control"
+                                value={business_name2}
+                                onChange={(e) => setBusiness_name2(e.target.value)}
+                                placeholder="business_name2" />
+                        </div>
+                        <div className="form-group">
+                            <label>Business_name3:</label>
+                            <input type="text" className="form-control"
+                                value={business_name3}
+                                onChange={(e) => setBusiness_name3(e.target.value)}
+                                placeholder="business_name3" />
+                        </div>
+                        <div className="form-group">
+                            <label>Business_name3:</label>
+                            <input type="text" className="form-control"
+                                value={business_name_english}
+                                onChange={(e) => setBusiness_name_english(e.target.value)}
+                                placeholder="business_name_english" />
+                        </div>
+                        <div className="form-group">
+                            <label>Day:</label>
+                            <input type="day" className="form-control"
+                                value={day}
+                                onChange={(e) => setDay(e.target.value)}
+                                placeholder="Day" />
+                        </div>
+                        <div className="form-group">
+                            <label>Detail:</label>
+                            <input type="text" className="form-control"
+                                value={detail}
+                                onChange={(e) => setDetail(e.target.value)}
+                                placeholder="Detail" />
+                        </div>
+                        <div className="form-group">
+                            <label>Detail:</label>
+                            <input type="text" className="form-control"
+                                value={address}
+                                onChange={(e) => setAddress(e.target.value)}
+                                placeholder="Address" />
+                        </div>
+                        <div className="form-group">
+                            <label>Email:</label>
+                            <input type="text" className="form-control"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Email" />
+                        </div>
+                        <div className="form-group">
+                            <label>Email:</label>
+                            <input type="text" className="form-control"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Email" />
+                        </div>
+                        <div className="form-group">
+                            <label>Facebook:</label>
+                            <input type="text" className="form-control"
+                                value={facebook}
+                                onChange={(e) => setFacebook(e.target.value)}
+                                placeholder="Facebook" />
+                        </div>
+                        <div className="form-group">
+                            <label>Instagram:</label>
+                            <input type="text" className="form-control"
+                                value={instagram}
+                                onChange={(e) => setInstagram(e.target.value)}
+                                placeholder="Instagram" />
+                        </div>
+                        <div className="form-group">
+                            <label>Line:</label>
+                            <input type="text" className="form-control"
+                                value={line}
+                                onChange={(e) => setLine(e.target.value)}
+                                placeholder="Line" />
+                        </div>
+                        <div className="form-group">
+                            <label>Website:</label>
+                            <input type="text" className="form-control"
+                                value={website}
+                                onChange={(e) => setWebsite(e.target.value)}
+                                placeholder="Website" />
+                        </div>
+                        <div className="form-group">
+                            <label>Pirce:</label>
+                            <input type="text" className="form-control"
+                                value={price}
+                                onChange={(e) => setPrice(e.target.value)}
+                                placeholder=" xxxx - xxxx " />
+                        </div>
+                        <div>
+                        
+                        </div>
+                        <div>
+                            <button type='submit' className="btn btn-success mt-3">Submit</button>
+                        </div>
                     </form>
-                </center>
-            </div>
-            <div>
-                <form onSubmit={submit}>
-                    <div className="form-group">
-                        <label>Email:</label>
-                        <input type="text" className="form-control"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Email" />
-                    </div>
-                    <div className="form-group">
-                        <label>Tel:</label>
-                        <input type="text" className="form-control"
-                            value={tel}
-                            onChange={(e) => setTel(e.target.value)}
-                            placeholder="Tel" />
-                    </div>
-                    <div>
-                        <button type='submit' className="btn btn-success mt-3">Submit</button>
-                    </div>
-                </form>
 
+                </div>
             </div>
-        </div>
         </div>
     );
 }

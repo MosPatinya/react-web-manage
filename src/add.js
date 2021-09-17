@@ -4,12 +4,12 @@ import firebase from './config';
 import { storage } from "./config";
 
 function Add() {
-    const [user_id, setUser_id] = useState('');
+    const user_id = '';
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [tel, setTel] = useState('');
-    const [type, setType] = useState('ผู้ใช้งาน');
+    const type = 'ผู้ใช้งาน';
     const [file, setFile] = useState(null);
     const [url, setURL] = useState('');
 
@@ -34,7 +34,7 @@ function Add() {
             password: password,
             type: type,
         };
-        setURL('');
+        setURL(null);
         setUsername('');
         setTel('');
         setEmail('');
@@ -47,7 +47,7 @@ function Add() {
     }
     function handleUpload(e) {
         e.preventDefault();
-        const ref = storage.ref(`/User/${file.name}`);
+        const ref = storage.ref(`/User/${Math.random(999) + file.name}`);
         const uploadTask = ref.put(file);
         uploadTask.on("state_changed", console.log, console.error, () => {
             ref.getDownloadURL().then((url) => {
@@ -71,7 +71,7 @@ function Add() {
                     <form onSubmit={handleUpload}>
                         <img src={url}/>
                         <input type="file" onChange={handleChange} />
-                        <button disabled={!file}>upload to firebase</button>
+                        <button className='btn btn-success' disabled={!file}>ยืนยันอัปโหลด</button>
                     </form>
                 </center>
             </div>
@@ -100,13 +100,13 @@ function Add() {
                     </div>
                     <div className="form-group">
                         <label>Password:</label>
-                        <input type="text" className="form-control"
+                        <input type="password" className="form-control"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Password" />
                     </div>
                     <div>
-                        <button type='submit' className="btn btn-success mt-3">Submit</button>
+                        <button type='submit' className="btn btn-success mt-3">เพิ่มผู้ใช้งาน</button>
                     </div>
                 </form>
 

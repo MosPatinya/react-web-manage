@@ -14,7 +14,7 @@ export class Place extends Component {
                 <div className="placehead">
                     <h2>ข้อมูลร้านค้า</h2>
                     <div className='addplace'>
-                    {/* <Link to='/addplace'><button type="button" class="btn btn-success">เพิ่มข้อมูลร้านค้า</button></Link> */}
+                    <Link to='/addplace'><button type="button" class="btn btn-success">เพิ่มข้อมูลร้านค้า</button></Link>
                     </div>
                 </div>
                 <List_Place/>

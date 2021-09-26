@@ -10,19 +10,14 @@ function Add() {
     const [username, setUsername] = useState('');
     const [tel, setTel] = useState('');
     const type = 'ผู้ใช้งาน';
-    const [file, setFile] = useState(null);
+    const [file, setFile] = useState('');
     const [url, setURL] = useState('');
 
-    const addUser = (obj) => {
-        const ref = firebase.firestore().collection('user');
-        ref
-            .add(obj)
-            .then((value) => {
-                ref.doc(value.id).update({user_id:value.id})
-                // console.log('');
-            })
-            .catch((err) => console.log(err));
-    };
+    // const isEmpty = (string) => {
+    //     if(string.trim() === '') return true;
+    //     else return false;
+    // }
+
     const submit = (e) => {
         e.preventDefault();
         const obj = {
@@ -34,12 +29,23 @@ function Add() {
             password: password,
             type: type,
         };
-        setURL(null);
+        setURL('');
         setUsername('');
         setTel('');
         setEmail('');
         setPassword('');
         addUser(obj);
+    };
+
+    const addUser = (obj) => {
+        const ref = firebase.firestore().collection('user');
+        ref
+            .add(obj)
+            .then((value) => {
+                ref.doc(value.id).update({user_id:value.id})
+                alert('บันทึกสำเร็จ')
+            })
+            .catch((err) => console.log(err));
     };
 
     function handleChange(e) {
@@ -62,9 +68,10 @@ function Add() {
             <header>
                 <DashBoard/>
                 </header>
+                <br/>
         <div className='container'>
             <div className='1'>
-                <h2>Add User</h2>
+                <h2>เพิ่มผู้ใช้งาน</h2>
             </div>
             <div className="image">
                 <center>
@@ -86,14 +93,14 @@ function Add() {
                     </div>
                     <div className="form-group">
                         <label>Email:</label>
-                        <input type="text" className="form-control"
+                        <input type="email" className="form-control"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Email" />
                     </div>
                     <div className="form-group">
                         <label>Tel:</label>
-                        <input type="text" className="form-control"
+                        <input type="tel" className="form-control"
                             value={tel}
                             onChange={(e) => setTel(e.target.value)}
                             placeholder="Tel" />

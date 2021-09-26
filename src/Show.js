@@ -37,9 +37,10 @@ class Show extends Component {
     });
   }
 
+  
   render() {
     const showphoto = this.state.user.photo;
-    const photoUser = <img src ={showphoto} width='200' height='200' />
+
     return (
       <div>
         <DashBoard/>
@@ -48,7 +49,7 @@ class Show extends Component {
             <div class="body">
               <dl>
                 <dt>Photo</dt>
-                <dd>{photoUser}</dd>
+                <dd><img src ={showphoto} width='200' height='200' /></dd>
                 <br></br>
                 <dt>User_id:</dt>
                 <dd>{this.state.user.user_id}</dd>

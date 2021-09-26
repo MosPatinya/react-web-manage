@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState,useMemo } from "react";
 import DashBoard from "./components/Dashboard";
 import firebase from './config';
 import { storage } from "./config";
 import DropdownExampleMultipleSelection from "./dropdown";
 
 function Addplace() {
-    const [array, setArray] = useState(0);
+    const array = 0;
     const [business_name, setBusiness_name] = useState('');
     const [business_name1, setBusiness_name1] = useState('');
     const [business_name2, setBusiness_name2] = useState('');
     const [business_name3, setBusiness_name3] = useState('');
     const [business_name_english, setBusiness_name_english] = useState('');
-    const [check, setCheck] = useState(false);
+    const check = false;
     const [day, setDay] = useState('');
     const [detail, setDetail] = useState('');
     const [address, setAddress] = useState('');
@@ -20,10 +20,10 @@ function Addplace() {
     const [instagram, setInstagram] = useState('');
     const [line, setLine] = useState('');
     const [website, setWebsite] = useState('');
-    const [open, setOpen] = useState(false);
+    const open  = false;
     const [price, setPrice] = useState('');
-    const [rating, setRating] = useState(0);
-    const [status, setStatus] = useState('false');
+    const rating = '';
+    const status = 'false';
     const [type, setType] = useState('');
     const [type2, setType2] = useState('');
     const [type3, setType3] = useState('');
@@ -35,26 +35,71 @@ function Addplace() {
     const [file, setFile] = useState(null);
     const [url, setURL] = useState('');
 
-    const addUser = (obj) => {
-        const ref = firebase.firestore().collection('user');
+    
+    const submit = (e) => {
+        e.preventDefault();
+        const obj = {
+            array:array,
+            business_name:business_name,
+            business_name1:business_name1,
+            business_name2:business_name2,
+            business_name3:business_name3,
+            business_name_english:business_name_english,
+            check:check,
+            day:day,
+            detail:detail,
+            address:address,
+            email:email,
+            facebook:facebook,
+            instagram:instagram,
+            line:line,
+            website:website,
+            open:open,
+            price:price,
+            rating:rating,
+            status:status,
+            type:type,
+            type2:type2,
+            type3:type3,
+            type4:type4,
+            type5:type5,
+            latitude:latitude,
+            longitude:longitude,
+            tel: tel,
+            photo: url,
+          
+          
+        };
+        setBusiness_name('');
+        setBusiness_name1('');
+        setBusiness_name2('');
+        setBusiness_name3('');
+        setBusiness_name_english('');
+        setDay('');
+        setDetail('');
+        setAddress('');
+        setEmail('');
+        setFacebook('');
+        setInstagram('');
+        setLine('');
+        setWebsite('');
+        setPrice('');
+        setLatitude('');
+        setLongitude('');
+        setTel('');
+        setURL('');
+        setTel('');
+        addPlace(obj);
+    };
+
+    const addPlace = (obj) => {
+        const ref = firebase.firestore().collection('users');
         ref
             .add(obj)
             .then(() => {
                 console.log("add successfuly");
             })
             .catch((err) => console.log(err));
-    };
-    const submit = (e) => {
-        e.preventDefault();
-        const obj = {
-            photo: url,
-            tel: tel,
-            email: email,
-        };
-        setURL('');
-        setTel('');
-        setEmail('');
-        addUser(obj);
     };
 
     function handleChange(e) {
@@ -156,13 +201,6 @@ function Addplace() {
                                 placeholder="Email" />
                         </div>
                         <div className="form-group">
-                            <label>Email:</label>
-                            <input type="text" className="form-control"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Email" />
-                        </div>
-                        <div className="form-group">
                             <label>Facebook:</label>
                             <input type="text" className="form-control"
                                 value={facebook}
@@ -197,14 +235,87 @@ function Addplace() {
                                 onChange={(e) => setPrice(e.target.value)}
                                 placeholder=" xxxx - xxxx " />
                         </div>
-                        <div>
-                        
+                        <div className="form-group">
+                            <label>Tel:</label>
+                            <input type="tel" className="form-control"
+                                value={tel}
+                                onChange={(e) => setPrice(e.target.value)}
+                                placeholder="Tel" />
+                        </div>
+                        <div className="container p-0">
+                            <label for="category">หมวดหมู่:</label><br />
+                            <select onChange={(e) => setType(e.target.value)}>
+                                <option >เลือกหมวดหมู่</option>
+                                <option value="ร้านอาหาร">ร้านอาหาร</option>
+                                <option value="ร้านกาแฟ">ร้านกาแฟ</option>
+                                <option value="ร้านเครื่องเขียน">ร้านเครื่องเขียน</option>
+                                <option value="ร้านเสริมสวย">ร้านเสริมสวย</option>
+                                <option value="คลินิก/ขายยา">คลินิก/ขายยา</option>
+                                <option value="ร้านทั่วไป">ร้านทั่วไป</option>
+                                <option value="สถานที่ในRMUTT">สถานที่ในRMUTT</option>
+                                <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
+                            </select>
+                        </div>
+                        <div className="container p-0">
+                            <label for="category">หมวดหมู่ 2:</label><br />
+                            <select onChange={(e) => setType2(e.target.value)}>
+                                <option >เลือกหมวดหมู่</option>
+                                <option value="ร้านอาหาร">ร้านอาหาร</option>
+                                <option value="ร้านกาแฟ">ร้านกาแฟ</option>
+                                <option value="ร้านเครื่องเขียน">ร้านเครื่องเขียน</option>
+                                <option value="ร้านเสริมสวย">ร้านเสริมสวย</option>
+                                <option value="คลินิก/ขายยา">คลินิก/ขายยา</option>
+                                <option value="ร้านทั่วไป">ร้านทั่วไป</option>
+                                <option value="สถานที่ในRMUTT">สถานที่ในRMUTT</option>
+                                <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
+                            </select>
+                        </div>
+                        <div className="container p-0">
+                            <label for="category">หมวดหมู่ 3:</label><br />
+                            <select onChange={(e) => setType3(e.target.value)}>
+                                <option >เลือกหมวดหมู่</option>
+                                <option value="ร้านอาหาร">ร้านอาหาร</option>
+                                <option value="ร้านกาแฟ">ร้านกาแฟ</option>
+                                <option value="ร้านเครื่องเขียน">ร้านเครื่องเขียน</option>
+                                <option value="ร้านเสริมสวย">ร้านเสริมสวย</option>
+                                <option value="คลินิก/ขายยา">คลินิก/ขายยา</option>
+                                <option value="ร้านทั่วไป">ร้านทั่วไป</option>
+                                <option value="สถานที่ในRMUTT">สถานที่ในRMUTT</option>
+                                <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
+                            </select>
+                        </div>
+                        <div className="container p-0">
+                            <label for="category">หมวดหมู่ 4:</label><br />
+                            <select onChange={(e) => setType4(e.target.value)}>
+                                <option >เลือกหมวดหมู่</option>
+                                <option value="ร้านอาหาร">ร้านอาหาร</option>
+                                <option value="ร้านกาแฟ">ร้านกาแฟ</option>
+                                <option value="ร้านเครื่องเขียน">ร้านเครื่องเขียน</option>
+                                <option value="ร้านเสริมสวย">ร้านเสริมสวย</option>
+                                <option value="คลินิก/ขายยา">คลินิก/ขายยา</option>
+                                <option value="ร้านทั่วไป">ร้านทั่วไป</option>
+                                <option value="สถานที่ในRMUTT">สถานที่ในRMUTT</option>
+                                <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
+                            </select>
+                        </div>
+                        <div className="container p-0">
+                            <label for="category">หมวดหมู่ 5:</label><br />
+                            <select onChange={(e) => setType5(e.target.value)}>
+                                <option >เลือกหมวดหมู่</option>
+                                <option value="ร้านอาหาร">ร้านอาหาร</option>
+                                <option value="ร้านกาแฟ">ร้านกาแฟ</option>
+                                <option value="ร้านเครื่องเขียน">ร้านเครื่องเขียน</option>
+                                <option value="ร้านเสริมสวย">ร้านเสริมสวย</option>
+                                <option value="คลินิก/ขายยา">คลินิก/ขายยา</option>
+                                <option value="ร้านทั่วไป">ร้านทั่วไป</option>
+                                <option value="สถานที่ในRMUTT">สถานที่ในRMUTT</option>
+                                <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
+                            </select>
                         </div>
                         <div>
                             <button type='submit' className="btn btn-success mt-3">Submit</button>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>

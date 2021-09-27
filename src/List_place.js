@@ -65,7 +65,7 @@ class List_Place extends Component {
                                         <td>{place.tel}</td>
                                         <td><Link to={`/showplace/${place.key}`}><button type="button" class="btn btn-outline-warning">รายละเอียด</button></Link></td>
                                     </tr>
-                                )}
+                                )} 
                                 </tbody>
                             </table>
                         </div>

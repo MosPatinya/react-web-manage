@@ -2,6 +2,7 @@ import React, { useState,useMemo } from "react";
 import DashBoard from "./components/Dashboard";
 import firebase from './config';
 import { storage } from "./config";
+import './addPlace.css'
 import DropdownExampleMultipleSelection from "./dropdown";
 
 function Addplace() {
@@ -242,7 +243,7 @@ function Addplace() {
                                 onChange={(e) => setPrice(e.target.value)}
                                 placeholder="Tel" />
                         </div>
-                        <div className="container p-0">
+                        <div className="select">
                             <label for="category">หมวดหมู่:</label><br />
                             <select onChange={(e) => setType(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
@@ -256,7 +257,7 @@ function Addplace() {
                                 <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
                             </select>
                         </div>
-                        <div className="container p-0">
+                        <div className="select">
                             <label for="category">หมวดหมู่ 2:</label><br />
                             <select onChange={(e) => setType2(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
@@ -270,7 +271,7 @@ function Addplace() {
                                 <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
                             </select>
                         </div>
-                        <div className="container p-0">
+                        <div className="select">
                             <label for="category">หมวดหมู่ 3:</label><br />
                             <select onChange={(e) => setType3(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
@@ -284,7 +285,7 @@ function Addplace() {
                                 <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
                             </select>
                         </div>
-                        <div className="container p-0">
+                        <div className="select">
                             <label for="category">หมวดหมู่ 4:</label><br />
                             <select onChange={(e) => setType4(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
@@ -298,7 +299,7 @@ function Addplace() {
                                 <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
                             </select>
                         </div>
-                        <div className="container p-0">
+                        <div className="select">
                             <label for="category">หมวดหมู่ 5:</label><br />
                             <select onChange={(e) => setType5(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
@@ -311,6 +312,20 @@ function Addplace() {
                                 <option value="สถานที่ในRMUTT">สถานที่ในRMUTT</option>
                                 <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
                             </select>
+                        </div>
+                        <div className="form-group">
+                            <label>Tel:</label>
+                            <input type="Latitude" className="form-control"
+                                value={tel}
+                                onChange={(e) => setLatitude(e.target.value)}
+                                placeholder="Latitude" />
+                        </div>
+                        <div className="form-group">
+                            <label>Tel:</label>
+                            <input type="Longitude" className="form-control"
+                                value={tel}
+                                onChange={(e) => setLongitude(e.target.value)}
+                                placeholder="Longitude" />
                         </div>
                         <div>
                             <button type='submit' className="btn btn-success mt-3">Submit</button>

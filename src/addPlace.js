@@ -6,7 +6,7 @@ import './addPlace.css'
 import DropdownExampleMultipleSelection from "./dropdown";
 
 function Addplace() {
-    const array = 0;
+    const place_id = '';
     const [business_name, setBusiness_name] = useState('');
     const [business_name1, setBusiness_name1] = useState('');
     const [business_name2, setBusiness_name2] = useState('');
@@ -38,9 +38,11 @@ function Addplace() {
 
     
     const submit = (e) => {
+        let array = 0
         e.preventDefault();
         const obj = {
-            array:array,
+            array: array,
+            place_id: place_id,
             business_name:business_name,
             business_name1:business_name1,
             business_name2:business_name2,
@@ -94,14 +96,46 @@ function Addplace() {
     };
 
     const addPlace = (obj) => {
+        let array = 0 ;
         const ref = firebase.firestore().collection('users');
+        if (ref.doc.length == 0){
         ref
             .add(obj)
-            .then(() => {
-                console.log("add successfuly");
+            .then((value) => {
+                ref.doc(value.id).update({place_id:value.id})
             })
             .catch((err) => console.log(err));
-    };
+            console.log(ref.doc.length)
+            alert('บันทึกขอมูลสำเร็จ')
+    } else {
+        ref
+        .orderBy('array', 'desc')
+        .limit(1)
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.docs.forEach((result) => {
+             array = result.data()['array'] + 1 ;
+               ref
+               .add(obj)
+               .then((value) => {
+                ref.doc(value.id).update({
+                    place_id:value.id,
+                    array:array,
+
+                })
+                console.log(place_id)
+               })
+               .catch((err) => console.log(err));
+                console.log(array)
+                alert('บันทึกขอมูลสำเร็จ')
+            })
+        }
+        )
+       
+            
+
+    }
+} 
 
     function handleChange(e) {
         setFile(e.target.files[0]);

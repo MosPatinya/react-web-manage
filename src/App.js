@@ -19,6 +19,13 @@ import EditPlace from './EditPlace';
 import ShowPlaceCheck from './ShowPlaceCheck';
 import Add from './add';
 import Addplace from './addPlace';
+import Grafshop from './Navbar/grafshop';
+import Grafbeautiful from './Navbar/grafbeautiful';
+import Grafcoffee from './Navbar/grafcoffee';
+import Grafgeneral from './Navbar/grafgeneral';
+import Grafstationery from './Navbar/grafstationery';
+import Grafrmutt from './Navbar/grafrmutt';
+import Grafplacegeneral from './Navbar/grafplacegeneral';
 function App() {
   return (
     <AuthProvider>
@@ -40,6 +47,13 @@ function App() {
           <Route exact path='/addplace' component={Addplace}/>
           <Route exact path='/place' component={Place}/>
           <Route exact path='/graf' component={Graf}/>
+          <Route exact path='/grafshop' component={Grafshop}/>
+          <Route exact path='/grafbeautiful' component={Grafbeautiful}/>
+          <Route exact path='/grafcoffee' component={Grafcoffee}/>
+          <Route exact path='/grafgeneral' component={Grafgeneral}/>
+          <Route exact path='/grafstationery' component={Grafstationery}/>
+          <Route exact path='/grafrmutt' component={Grafrmutt}/>
+          <Route exact path='/grafplacegeneral' component={Grafplacegeneral}/>
         </Switch>
       </Router>
     </AuthProvider>

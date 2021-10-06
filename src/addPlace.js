@@ -1,11 +1,13 @@
-import React, { useState,useMemo } from "react";
+import React, { useState, useContext } from "react";
 import DashBoard from "./components/Dashboard";
 import firebase from './config';
-import { storage } from "./config";
-import './addPlace.css'
-import DropdownExampleMultipleSelection from "./dropdown";
+import { Link } from 'react-router-dom';
+import firebaseConfig, { storage } from "./config";
+import './addPlace.css';
 
 function Addplace() {
+    var bro
+    const user_id = '';
     const place_id = '';
     const [business_name, setBusiness_name] = useState('');
     const [business_name1, setBusiness_name1] = useState('');
@@ -21,7 +23,7 @@ function Addplace() {
     const [instagram, setInstagram] = useState('');
     const [line, setLine] = useState('');
     const [website, setWebsite] = useState('');
-    const open  = false;
+    const open = false;
     const [price, setPrice] = useState('');
     const rating = '';
     const status = 'false';
@@ -30,48 +32,208 @@ function Addplace() {
     const [type3, setType3] = useState('');
     const [type4, setType4] = useState('');
     const [type5, setType5] = useState('');
+    const [type6, setType6] = useState('');
+    const [type7, setType7] = useState('');
+    const [type8, setType8] = useState('');
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
     const [tel, setTel] = useState('');
-    const [file, setFile] = useState(null);
-    const [url, setURL] = useState('');
-
+    const [images, setImages] = useState([]);
+    const [urls, setUrls] = useState([]);
+    const [progress, setProgress] = useState(0);
+    var photo1 
+    var photo2
+    var photo3 
+    var photo4
+    var photo5 
+    var photo6
+    var photo7 
+    var photo8
+    var photo9 
+    var photo10
+    const result = images.length
+    // const [file, setFile] = useState(null);
+    // const [url, setURL] = useState('');
+    // const [file1, setFile1] = useState(null);
+    // const [url1, setURL1] = useState('');
+    // const [file2, setFile2] = useState(null);
+    // const [url2, setURL2] = useState('');
     
+
+    if (result == 10) {
+        photo10 = urls[9];
+        photo9 = urls[8];
+        photo8 = urls[7];
+        photo7 = urls[6];
+        photo6 = urls[5];
+        photo5 = urls[4];
+        photo4 = urls[3];
+        photo3 = urls[2];
+        photo2 = urls[1];
+        photo1 = urls[0];
+    } else if (result == 9){
+        photo10 = '';
+        photo9 = urls[8];
+        photo8 = urls[7];
+        photo7 = urls[6];
+        photo6 = urls[5];
+        photo5 = urls[4];
+        photo4 = urls[3];
+        photo3 = urls[2];
+        photo2 = urls[1];
+        photo1 = urls[0];
+    } else if (result == 8){
+        photo10 = '';
+        photo9 = '';
+        photo8 = urls[7];
+        photo7 = urls[6];
+        photo6 = urls[5];
+        photo5 = urls[4];
+        photo4 = urls[3];
+        photo3 = urls[2];
+        photo2 = urls[1];
+        photo1 = urls[0];
+    } else if (result == 7){
+        photo10 = '';
+        photo9 = '';
+        photo8 = '';
+        photo7 = urls[6];
+        photo6 = urls[5];
+        photo5 = urls[4];
+        photo4 = urls[3];
+        photo3 = urls[2];
+        photo2 = urls[1];
+        photo1 = urls[0];
+    } else if (result == 6){
+        photo10 = '';
+        photo9 = '';
+        photo8 = '';
+        photo7 = '';
+        photo6 = urls[5];
+        photo5 = urls[4];
+        photo4 = urls[3];
+        photo3 = urls[2];
+        photo2 = urls[1];
+        photo1 = urls[0];
+    } else if (result == 5){
+        photo10 = '';
+        photo9 = '';
+        photo8 = '';
+        photo7 = '';
+        photo6 = '';
+        photo5 = urls[4];
+        photo4 = urls[3];
+        photo3 = urls[2];
+        photo2 = urls[1];
+        photo1 = urls[0];
+    } else if (result == 4){
+        photo10 = '';
+        photo9 = '';
+        photo8 = '';
+        photo7 = '';
+        photo6 = '';
+        photo5 = '';
+        photo4 = urls[3];
+        photo3 = urls[2];
+        photo2 = urls[1];
+        photo1 = urls[0];
+    } else if (result == 3){
+        photo10 = '';
+        photo9 = '';
+        photo8 = '';
+        photo7 = '';
+        photo6 = '';
+        photo5 = '';
+        photo4 = '';
+        photo3 = urls[2];
+        photo2 = urls[1];
+        photo1 = urls[0];
+    } else if (result == 2){
+        photo10 = '';
+        photo9 = '';
+        photo8 = '';
+        photo7 = '';
+        photo6 = '';
+        photo5 = '';
+        photo4 = '';
+        photo3 = '';
+        photo2 = urls[1];
+        photo1 = urls[0];
+    } else if (result == 1){
+        photo10 = '';
+        photo9 = '';
+        photo8 = '';
+        photo7 = '';
+        photo6 = '';
+        photo5 = '';
+        photo4 = '';
+        photo3 = '';
+        photo2 = '';
+        photo1 = urls[0];
+    } else if (result == 0){
+        photo10 = '';
+        photo9 = '';
+        photo8 = '';
+        photo7 = '';
+        photo6 = '';
+        photo5 = '';
+        photo4 = '';
+        photo3 = '';
+        photo2 = '';
+        photo1 = '';
+    }
+
+
     const submit = (e) => {
         let array = 0
+        console.log(result)
         e.preventDefault();
         const obj = {
+            user_id: user_id,
             array: array,
             place_id: place_id,
-            business_name:business_name,
-            business_name1:business_name1,
-            business_name2:business_name2,
-            business_name3:business_name3,
-            business_name_english:business_name_english,
-            check:check,
-            day:day,
-            detail:detail,
-            address:address,
-            email:email,
-            facebook:facebook,
-            instagram:instagram,
-            line:line,
-            website:website,
-            open:open,
-            price:price,
-            rating:rating,
-            status:status,
-            type:type,
-            type2:type2,
-            type3:type3,
-            type4:type4,
-            type5:type5,
-            latitude:latitude,
-            longitude:longitude,
+            business_name: business_name,
+            business_name1: business_name1,
+            business_name2: business_name2,
+            business_name3: business_name3,
+            business_name_english: business_name_english,
+            check: check,
+            day: day,
+            detail: detail,
+            address: address,
+            email: email,
+            facebook: facebook,
+            instagram: instagram,
+            line: line,
+            website: website,
+            open: open,
+            price: price,
+            rating: rating,
+            status: status,
+            type: type,
+            type2: type2,
+            type3: type3,
+            type4: type4,
+            type5: type5,
+            type6: type6,
+            type7: type7,
+            type8: type8,
+            latitude: latitude,
+            longitude: longitude,
             tel: tel,
-            photo: url,
-          
-          
+            photo1: photo1,
+            photo2: photo2,
+            photo3: photo3,
+            photo4: photo4,
+            photo5: photo5,
+            photo6: photo6,
+            photo7: photo7,
+            photo8: photo8,
+            photo9: photo9,
+            photo10: photo10,
+            // photo: url,
+            // photo1: url1,
+            // photo2: url2,
         };
         setBusiness_name('');
         setBusiness_name1('');
@@ -90,68 +252,100 @@ function Addplace() {
         setLatitude('');
         setLongitude('');
         setTel('');
-        setURL('');
+        // setURL('');
+        // setURL1('');
+        // setURL2('');
         setTel('');
         addPlace(obj);
     };
 
+
+
+
     const addPlace = (obj) => {
-        let array = 0 ;
+        let array = 0;
+        const user = firebase.auth().currentUser
         const ref = firebase.firestore().collection('users');
-        if (ref.doc.length == 0){
-        ref
-            .add(obj)
-            .then((value) => {
-                ref.doc(value.id).update({place_id:value.id})
-            })
-            .catch((err) => console.log(err));
-            console.log(ref.doc.length)
-            alert('บันทึกขอมูลสำเร็จ')
-    } else {
-        ref
-        .orderBy('array', 'desc')
-        .limit(1)
-        .get()
-        .then((querySnapshot) => {
-            querySnapshot.docs.forEach((result) => {
-             array = result.data()['array'] + 1 ;
-               ref
-               .add(obj)
-               .then((value) => {
-                ref.doc(value.id).update({
-                    place_id:value.id,
-                    array:array,
-
+        if (ref.doc.length == 0) {
+            ref
+                .add(obj)
+                .then((value) => {
+                    ref.doc(value.id).update({
+                        place_id: value.id,
+                        user_id: user.uid
+                    })
                 })
-                console.log(place_id)
-               })
-               .catch((err) => console.log(err));
-                console.log(array)
-                alert('บันทึกขอมูลสำเร็จ')
-            })
+                .catch((err) => console.log(err));
+            alert('บันทึกขอมูลสำเร็จ')
+        } else {
+            ref
+                .orderBy('array', 'desc')
+                .limit(1)
+                .get()
+                .then((querySnapshot) => {
+                    querySnapshot.docs.forEach((result) => {
+                        array = result.data()['array'] + 1;
+                        ref
+                            .add(obj)
+                            .then((value) => {
+                                ref.doc(value.id).update({
+                                    place_id: value.id,
+                                    array: array,
+                                    user_id: user.uid,
+
+                                })
+                                console.log(place_id)
+                            })
+                            .catch((err) => console.log(err));
+                        console.log(array)
+                        console.log(user.uid)
+                        alert('บันทึกขอมูลสำเร็จ')
+                        
+                    })
+                }
+                )
         }
-        )
-       
-            
-
     }
-} 
 
-    function handleChange(e) {
-        setFile(e.target.files[0]);
-    }
-    function handleUpload(e) {
-        e.preventDefault();
-        const ref = storage.ref(`/User/${file.name}`);
-        const uploadTask = ref.put(file);
-        uploadTask.on("state_changed", console.log, console.error, () => {
-            ref.getDownloadURL().then((url) => {
-                setFile(null);
-                setURL(url);
-                // alert(`อัพเดตข้อมูลสำเร็จ${url}`);
-            });
+    const handleChange = (e) => {
+        for (let i = 0; i < e.target.files.length; i++) {
+            const newImage = e.target.files[i];
+            newImage["id"] = Math.random();
+            setImages((prevState) => [...prevState, newImage]);
+        }
+    };
+
+    const handleUpload = () => {
+        const promises = [];
+        images.map((image) => {
+            const uploadTask = storage.ref(`images/${Math.random(999)+image.name}`).put(image);
+            promises.push(uploadTask);
+            uploadTask.on("state_changed",
+                (snapshot) => {
+                    const progress = Math.round(
+                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                    );
+                    setProgress(progress);
+                },
+                (error) => {
+                    console.log(error);
+                },
+                async () => {
+                    await storage
+                        .ref("images")
+                        .child(image.name)
+                        .getDownloadURL()
+                        .then((urls) => {
+                            setUrls((prevState) => [...prevState, urls]);
+                        });
+                }
+            );
         });
-    }
+        Promise.all(promises)
+            .then(() => alert("อัพโหลดรูปสำเร็จ"))
+            .catch((err) => console.log(err));
+    };
+
     return (
         <div>
             <header>
@@ -159,16 +353,26 @@ function Addplace() {
             </header>
             <div className='container'>
                 <div className='1'>
-                    <h2>Add User</h2>
+                    <h2>Add Place</h2>
                 </div>
-                <div className="image">
-                    <center>
-                        <form onSubmit={handleUpload}>
-                            <img src={url} />
-                            <input type="file" onChange={handleChange} />
-                            <button className='btn btn-success mt-3' disabled={!file}>ยืนยันอัปโหลด</button>
-                        </form>
-                    </center>
+                <div className='boximage'>
+                    <div className="imageup">
+                        <center>
+                            <div>
+                                <br />
+                                <div className='photourl'>
+                                {urls.map((url, i) => (
+                                    <img key={i} style={{ width: "500px" }} src={url} alt="firebase-image"/>
+                                ))}
+                                </div>
+                                <progress value={progress} max="100" />
+                                <br/>
+                                <input type="file" multiple onChange={handleChange} />
+                                <button className='btn btn-success' onClick={handleUpload}>ยืนยันอัปโหลด (อัพโหลดสูงสุด10รูป)</button>
+                                <br />
+                            </div>
+                        </center>
+                    </div>
                 </div>
                 <div>
                     <form onSubmit={submit}>
@@ -292,7 +496,6 @@ function Addplace() {
                             </select>
                         </div>
                         <div className="select">
-                            <label for="category">หมวดหมู่ 2:</label><br />
                             <select onChange={(e) => setType2(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
                                 <option value="ร้านอาหาร">ร้านอาหาร</option>
@@ -306,7 +509,6 @@ function Addplace() {
                             </select>
                         </div>
                         <div className="select">
-                            <label for="category">หมวดหมู่ 3:</label><br />
                             <select onChange={(e) => setType3(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
                                 <option value="ร้านอาหาร">ร้านอาหาร</option>
@@ -320,7 +522,6 @@ function Addplace() {
                             </select>
                         </div>
                         <div className="select">
-                            <label for="category">หมวดหมู่ 4:</label><br />
                             <select onChange={(e) => setType4(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
                                 <option value="ร้านอาหาร">ร้านอาหาร</option>
@@ -334,7 +535,85 @@ function Addplace() {
                             </select>
                         </div>
                         <div className="select">
-                            <label for="category">หมวดหมู่ 5:</label><br />
+                            <select onChange={(e) => setType5(e.target.value)}>
+                                <option >เลือกหมวดหมู่</option>
+                                <option value="ร้านอาหาร">ร้านอาหาร</option>
+                                <option value="ร้านกาแฟ">ร้านกาแฟ</option>
+                                <option value="ร้านเครื่องเขียน">ร้านเครื่องเขียน</option>
+                                <option value="ร้านเสริมสวย">ร้านเสริมสวย</option>
+                                <option value="คลินิก/ขายยา">คลินิก/ขายยา</option>
+                                <option value="ร้านทั่วไป">ร้านทั่วไป</option>
+                                <option value="สถานที่ในRMUTT">สถานที่ในRMUTT</option>
+                                <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
+                            </select>
+                        </div>
+                        <div className="select">
+                            <select onChange={(e) => setType6(e.target.value)}>
+                                <option >เลือกหมวดหมู่</option>
+                                <option value="ร้านอาหาร">ร้านอาหาร</option>
+                                <option value="ร้านกาแฟ">ร้านกาแฟ</option>
+                                <option value="ร้านเครื่องเขียน">ร้านเครื่องเขียน</option>
+                                <option value="ร้านเสริมสวย">ร้านเสริมสวย</option>
+                                <option value="คลินิก/ขายยา">คลินิก/ขายยา</option>
+                                <option value="ร้านทั่วไป">ร้านทั่วไป</option>
+                                <option value="สถานที่ในRMUTT">สถานที่ในRMUTT</option>
+                                <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
+                            </select>
+                        </div>
+                        <div className="select">
+                            <select onChange={(e) => setType7(e.target.value)}>
+                                <option >เลือกหมวดหมู่</option>
+                                <option value="ร้านอาหาร">ร้านอาหาร</option>
+                                <option value="ร้านกาแฟ">ร้านกาแฟ</option>
+                                <option value="ร้านเครื่องเขียน">ร้านเครื่องเขียน</option>
+                                <option value="ร้านเสริมสวย">ร้านเสริมสวย</option>
+                                <option value="คลินิก/ขายยา">คลินิก/ขายยา</option>
+                                <option value="ร้านทั่วไป">ร้านทั่วไป</option>
+                                <option value="สถานที่ในRMUTT">สถานที่ในRMUTT</option>
+                                <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
+                            </select>
+                        </div>
+                        <div className="select">
+                            <select onChange={(e) => setType8(e.target.value)}>
+                                <option >เลือกหมวดหมู่</option>
+                                <option value="ร้านอาหาร">ร้านอาหาร</option>
+                                <option value="ร้านกาแฟ">ร้านกาแฟ</option>
+                                <option value="ร้านเครื่องเขียน">ร้านเครื่องเขียน</option>
+                                <option value="ร้านเสริมสวย">ร้านเสริมสวย</option>
+                                <option value="คลินิก/ขายยา">คลินิก/ขายยา</option>
+                                <option value="ร้านทั่วไป">ร้านทั่วไป</option>
+                                <option value="สถานที่ในRMUTT">สถานที่ในRMUTT</option>
+                                <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
+                            </select>
+                        </div>
+                        <div className="select">
+                            <label for="category">หมวดหมู่ย่อย:</label><br />
+                            <select onChange={(e) => setType(e.target.value)}>
+                                <option >เลือกหมวดหมู่</option>
+                                <option value="ร้านอาหาร">ร้านอาหาร</option>
+                                <option value="ร้านกาแฟ">ร้านกาแฟ</option>
+                                <option value="ร้านเครื่องเขียน">ร้านเครื่องเขียน</option>
+                                <option value="ร้านเสริมสวย">ร้านเสริมสวย</option>
+                                <option value="คลินิก/ขายยา">คลินิก/ขายยา</option>
+                                <option value="ร้านทั่วไป">ร้านทั่วไป</option>
+                                <option value="สถานที่ในRMUTT">สถานที่ในRMUTT</option>
+                                <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
+                            </select>
+                        </div>
+                        <div className="select">
+                            <select onChange={(e) => setType5(e.target.value)}>
+                                <option >เลือกหมวดหมู่</option>
+                                <option value="ร้านอาหาร">ร้านอาหาร</option>
+                                <option value="ร้านกาแฟ">ร้านกาแฟ</option>
+                                <option value="ร้านเครื่องเขียน">ร้านเครื่องเขียน</option>
+                                <option value="ร้านเสริมสวย">ร้านเสริมสวย</option>
+                                <option value="คลินิก/ขายยา">คลินิก/ขายยา</option>
+                                <option value="ร้านทั่วไป">ร้านทั่วไป</option>
+                                <option value="สถานที่ในRMUTT">สถานที่ในRMUTT</option>
+                                <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
+                            </select>
+                        </div>
+                        <div className="select">
                             <select onChange={(e) => setType5(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
                                 <option value="ร้านอาหาร">ร้านอาหาร</option>

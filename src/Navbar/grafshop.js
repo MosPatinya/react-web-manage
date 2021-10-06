@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import Chart from '../chart';
+import Chartshop from '../chartshop';
 import DashBoard from '../components/Dashboard'
 // import Add from '../add';
 
 
 
 
-export class Graf extends Component {
+export class Grafshop extends Component {
     render() {
         return (
             <div>
@@ -14,11 +14,12 @@ export class Graf extends Component {
                     <DashBoard />
                 </header>
                 <div>
-                   <Chart/>
+                   <Chartshop/>
+                   {/* <Add/> */}
                 </div>
             </div>
         )
     }
 }
 
-export default Graf;
+export default Grafshop;

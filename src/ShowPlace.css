@@ -4,10 +4,30 @@
     align-content: center;
     background-color: blue;
 } */
-.photo{
-    height: 50px;
-    padding-right: 10rem;
-    padding-bottom: 5rem;
+.container1{
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
 }
-
-
+.photo{
+    margin-right: 250px;
+    overflow: auto;
+    height: 620px;
+    width: 430px;
+}
+.photo1{
+    border: 2px solid black;
+    margin: 3px;
+}
+.body{
+    padding: 10px;
+}
+.box{
+    overflow: auto;
+    height: 620px;
+    width: 520px;
+    margin-right: 250px;
+}

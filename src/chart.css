@@ -1,0 +1,19 @@
+.chart-header{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.chart-bar{
+    padding: 15px;
+    list-style: none;
+    background-color: rgb(43, 43, 43);
+}
+.chart-link:hover {
+    color: black;
+}
+.chart-link{
+    text-decoration: none;
+    padding: 10px;
+    color: rgb(250, 192, 1);
+    font-size: 20px;
+}

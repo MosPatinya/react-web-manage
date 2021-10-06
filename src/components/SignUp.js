@@ -28,7 +28,7 @@ const SignUp = () => {
             <div className="auth">
                 <div className='areare'>
                     <div className='form'>
-            <h1>Sign Up</h1>
+            <h1>สมัครสมาชิก</h1>
             <form onSubmit={handleSubmit}>
             <div className="mb-2">
                 <label for="exampleInputEmail1" className="form-label">Email address</label>
@@ -40,8 +40,8 @@ const SignUp = () => {
                 <input type="password" name="password" className="form-control" id="exampleInputPassword1" />
             </div>
             <div className='button'>
-            <button type="submit" className="btn btn-primary">Submit</button>
-            <Link to="/"><button className="btn btn-primary m-2">LogIn</button></Link>
+            <button type="submit" className="btn btn-primary">สมัครสมาชิก</button>
+            <Link to="/"><button className="btn btn-primary m-2">ลงชื่อเขาใช้</button></Link>
             </div>
             </form>
             </div>

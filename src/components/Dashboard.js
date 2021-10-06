@@ -5,7 +5,6 @@ import firebaseConfig from '../config'
 import '../components/Dashboard.css'
 const DashBoard = () => {
     const { currentUser } = useContext(AuthContext);
-
     if (!currentUser) {
         return <Redirect to="/" />
     }
@@ -26,7 +25,7 @@ const DashBoard = () => {
                     <Link className="nav-link" to="/place">ข้อมูลร้านค้า</Link>
                 </li>
                 <li className="nav-item">
-                    <a class="nav-link" href="/graf">อันดับสถานที่</a>
+                <Link className="nav-link" to="/graf">อันดับสถานที่</Link>
                 </li>
                 <li className="nav-item">
                     <button onClick={() => firebaseConfig.auth().signOut()} class="btn btn-danger">Sign Out</button>

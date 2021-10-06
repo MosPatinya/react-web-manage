@@ -4,11 +4,11 @@ import { Bar } from 'react-chartjs-2'
 import { Link, Redirect, Route, Router } from 'react-router-dom'
 import './chart.css'
 
-class Chart extends Component {
+class Chartrmutt extends Component {
     constructor(props) {
         super(props);
         this.ref = firebase.firestore().collection('place')
-            .where('type', '==', 'คลินิก/ขายยา')
+            .where('type', '==', 'สถานที่ใน Rmutt')
             .orderBy('rating', 'desc')
             .limit(5)
             .onSnapshot(this.onCollection)
@@ -45,7 +45,7 @@ class Chart extends Component {
                     data={{
                         labels: label,
                         datasets: [{
-                            label: 'คลินิก/ขายยา',
+                            label: 'สถานที่ในRMUTT',
                             data: rating,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
@@ -73,7 +73,7 @@ class Chart extends Component {
                         <Link className="chart-link" to="/grafstationery">ร้านเครื่องเขียน</Link>
                     </li>
                     <li className="chart-bar">
-                        <Link className="chart-link" to="/grafbeautiful">ร้านเสริมสวย</Link>
+                        <Link className="chart-link" to="/grafbeautiful" >ร้านเสริมสวย</Link>
                     </li>
                     <li className="chart-bar">
                         <Link className="chart-link" to="/graf">คลินิก/ขายยา</Link>
@@ -94,4 +94,4 @@ class Chart extends Component {
     }
 }
 
-export default Chart;
+export default Chartrmutt;

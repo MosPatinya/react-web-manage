@@ -42,8 +42,8 @@ const LogIn = () => {
                 <input type="password" name="password" className="form-control" id="Password1" />
             </div>
             <div className='button'>
-            <button type="submit" className="btn btn-primary">Submit</button>
-            <Link to="/signup"><button className="btn btn-primary m-2">Sign In</button></Link>
+            <button type="submit" className="btn btn-primary">ลงชื่อเขาใช้</button>
+            <Link to="/signup"><button className="btn btn-primary m-2">สมัครสมาชิก</button></Link>
             </div>
             </form>
             </div>

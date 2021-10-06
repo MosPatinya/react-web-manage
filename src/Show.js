@@ -49,7 +49,13 @@ class Show extends Component {
             <div class="body">
               <dl>
                 <dt>Photo</dt>
-                <dd><img src ={showphoto} width='200' height='200' /></dd>
+                <dd>
+                  { showphoto ? (
+                    <img src={this.state.user.photo}  width='200' height='200'></img>
+                  ) :(
+                    <label>ไม่มีรูปภาพ</label>
+                  )}
+                </dd>
                 <br></br>
                 <dt>User_id:</dt>
                 <dd>{this.state.user.user_id}</dd>
@@ -69,5 +75,5 @@ class Show extends Component {
     );
   }
 }
-
+{/* <img src ={showphoto} width='200' height='200' /> */}
 export default Show;

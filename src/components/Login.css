@@ -1,6 +1,5 @@
 .auth{
     display: flex;
-    background-color: blue;
     height: 100vh;
 }
 .areare{
@@ -8,20 +7,21 @@
     width: 100vw;
     align-items: center;
     justify-content: center;
-    background-color: rgb(192, 192, 192);
+    background-image: url("../images/bg.jpg");
 }
 .form{
-    background-color: rgb(80, 255, 246);
+    background-color: rgb(187, 184, 184);
     height: 350px;
     width: 500px;
     padding: 10px;
-    border: 2px solid black;
+    border: 2px solid rgb(168, 167, 167);
     border-radius: 10px;
 }
 .form h1{
     text-align: center;
 }
 .button{
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;

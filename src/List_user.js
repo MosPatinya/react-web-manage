@@ -35,32 +35,32 @@ class Create_List extends Component {
 
     render() {
         return (
-            <div class="container">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <table class="table table-stripe">
-                            <thead>
-                                <tr>
-                                    <th>Email</th>
-                                    <th>Telephone</th>
-                                    <th>Name</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {this.state.user.map(user =>
+                <div class="container">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <table class="table table-stripe">
+                                <thead>
                                     <tr>
-                                        <td>{user.email}</td>
-                                        <td>{user.tel}</td>
-                                        <td>{user.username}</td>
-                                        <td><Link to={`/show/${user.key}`}><button type="button" class="btn btn-outline-warning">รายละเอียด</button></Link></td>
+                                        <th>Email</th>
+                                        <th>Telephone</th>
+                                        <th>Name</th>
+                                        <th>Action</th>
                                     </tr>
-                                )}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    {this.state.user.map(user =>
+                                        <tr>
+                                            <td>{user.email}</td>
+                                            <td>{user.tel}</td>
+                                            <td>{user.username}</td>
+                                            <td><Link to={`/show/${user.key}`}><button type="button" class="btn btn-outline-warning">รายละเอียด</button></Link></td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
         );
     }
 }

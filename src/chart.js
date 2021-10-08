@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import firebase from './config';
-import { Bar } from 'react-chartjs-2'
+import { Bar,Line } from 'react-chartjs-2'
 import { Link, Redirect, Route, Router } from 'react-router-dom'
 import './chart.css'
 

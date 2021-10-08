@@ -34,16 +34,27 @@ const LogIn = () => {
             <form onSubmit={handleSubmit}>
             <div className="mb-2">
                 <label for="InputEmail" className="form-label">Email address</label>
-                <input type="email" name="email" className="form-control" id="Email1" aria-describedby="emailHelp" />
+                <input
+                pattern="[^ @]*@[^ @]*" 
+                type="email" 
+                name="email" 
+                className="form-control" 
+                id="Email1" 
+                aria-describedby="emailHelp" />
                 <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div className="mb-2">
                 <label for="Password" className="form-label">Password</label>
-                <input type="password" name="password" className="form-control" id="Password1" />
+                <input
+                required min='1' 
+                type="password" 
+                name="password" 
+                className="form-control"
+                id="Password1" />
             </div>
             <div className='button'>
-            <button type="submit" className="btn btn-primary">ลงชื่อเขาใช้</button>
-            <Link to="/signup"><button className="btn btn-primary m-2">สมัครสมาชิก</button></Link>
+            <button type="submit" className="btn btn-danger">ลงชื่อเขาใช้</button>
+            {/* <Link to="/signup"><button className="btn btn-primary m-2">สมัครสมาชิก</button></Link> */}
             </div>
             </form>
             </div>

@@ -14,28 +14,25 @@ function Add() {
     const [file, setFile] = useState('');
     const [url, setURL] = useState('');
 
-    // const isEmpty = (string) => {
-    //     if(string.trim() === '') return true;
-    //     else return false;
-    // }
+    // setEmail(e.target.value)
 
     const submit = (e) => {
         e.preventDefault();
-        const obj = {
-            user_id: user_id,
-            photo: url,
-            username: username,
-            tel: tel,
-            email: email,
-            password: password,
-            type: type,
-        };
+            const obj = {
+                user_id: user_id,
+                photo: url,
+                username: username,
+                tel: tel,
+                email: email,
+                password: password,
+                type: type,
+            };
         setURL('');
         setUsername('');
         setTel('');
         setEmail('');
         setPassword('');
-        addUser(obj);
+        addUser(obj); 
     };
 
     const addUser = (obj) => {
@@ -97,6 +94,7 @@ function Add() {
                         <div className="form-group">
                             <label>Username:</label>
                             <input type="text" className="form-control"
+                                required min='1'
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                                 placeholder="name" />
@@ -104,6 +102,7 @@ function Add() {
                         <div className="form-group">
                             <label>Email:</label>
                             <input type="email" className="form-control"
+                                pattern="[^ @]*@[^ @]*"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Email" />
@@ -118,6 +117,7 @@ function Add() {
                         <div className="form-group">
                             <label>Password:</label>
                             <input type="password" className="form-control"
+                                required min= '6'
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Password" />

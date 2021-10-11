@@ -10,7 +10,7 @@ class Chart extends Component {
         this.ref = firebase.firestore().collection('place')
             .where('type', '==', 'คลินิก/ขายยา')
             .orderBy('rating', 'desc')
-            .limit(5)
+            .limit(10)
             .onSnapshot(this.onCollection)
         this.state = {
             place: []

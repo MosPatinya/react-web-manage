@@ -12,7 +12,7 @@ export class Place extends Component {
                     <DashBoard />
                 </header>
                 <div className="placehead">
-                    <h2>ข้อมูลร้านค้า</h2>
+                    <h2>ร้านค้า/สถานที่</h2>
                     <div className='addplace'>
                     </div>
                     <Link to='/addplace'><button type="button" class="btn btn-success">เพิ่มข้อมูลร้านค้า</button></Link>

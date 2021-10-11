@@ -55,6 +55,11 @@ class ShowPlace extends Component {
     const photo8 = this.state.place.photo8;
     const photo9 = this.state.place.photo9;
     const photo10 = this.state.place.photo10;
+    const type = this.state.place.type
+    const type2 = this.state.place.type2
+    const type3 = this.state.place.type3
+    const type4 = this.state.place.type4
+    const type5 = this.state.place.type5
     return (
       <div>
         <DashBoard />
@@ -133,15 +138,43 @@ class ShowPlace extends Component {
                 <dt>instagram:</dt>
                 <dd>{this.state.place.instagram}</dd>
                 <dt>หมวดหมู่:</dt>
-                <dd>{this.state.place.type}</dd>
-                <dt>หมวดหมู่:</dt>
-                <dd>{this.state.place.type1}</dd>
-                <dt>หมวดหมู่:</dt>
-                <dd>{this.state.place.type2}</dd>
-                <dt>หมวดหมู่:</dt>
-                <dd>{this.state.place.type3}</dd>
-                <dt>หมวดหมู่:</dt>
-                <dd>{this.state.place.type4}</dd>
+                <dd>
+                  {type ? (
+                    <div>
+                      <label>{type}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {type2 ? (
+                    <div>
+                      <label>{type2}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {type3 ? (
+                    <div>
+                      <label>{type3}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {type4 ? (
+                    <div>
+                      <label>{type4}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {type5 ? (
+                    <div>
+                      <label>{type5}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                </dd>
                 <dt>รายะเอียด:</dt>
                 <dd>{this.state.place.detail}</dd>
                 <dt>คำอธิบายรูปภาพ:</dt>
@@ -150,6 +183,8 @@ class ShowPlace extends Component {
                 <dd>{this.state.place.day}</dd>
                 <dt>เวลาเปิด/ปิด:</dt>
                 <dd>{this.state.place.time}</dd>
+                <dt>ที่อยู่:</dt>
+                <dd>{this.state.place.address}</dd>
                 <br></br>
                 <div className='button-area'>
                   <div className='btn'>

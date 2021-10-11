@@ -34,7 +34,9 @@ class Show extends Component {
       this.props.history.push("/user")
     }).catch((error) => {
       console.error("Error removing document: ", error);
-    });
+    }
+    );
+    alert("ลบข้อมูลสำเร็จ")
   }
 
   

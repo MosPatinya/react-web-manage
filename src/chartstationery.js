@@ -10,7 +10,7 @@ class Chartstationery extends Component {
         this.ref = firebase.firestore().collection('place')
             .where('type', '==', 'ร้านเครื่องเขียน')
             .orderBy('rating', 'desc')
-            .limit(5)
+            .limit(10)
             .onSnapshot(this.onCollection)
         this.state = {
             place: []

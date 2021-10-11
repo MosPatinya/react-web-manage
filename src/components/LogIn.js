@@ -33,7 +33,7 @@ const LogIn = () => {
             <h1> Where are you </h1>
             <form onSubmit={handleSubmit}>
             <div className="mb-2">
-                <label for="InputEmail" className="form-label">Email address</label>
+                <label for="InputEmail" className="form-label">Email </label>
                 <input
                 pattern="[^ @]*@[^ @]*" 
                 type="email" 

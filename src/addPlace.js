@@ -5,7 +5,6 @@ import firebaseConfig, { storage } from "./config";
 import './addPlace.css';
 
 function Addplace() {
-    var bro
     const user_id = '';
     const place_id = '';
     const [business_name, setBusiness_name] = useState('');
@@ -15,6 +14,7 @@ function Addplace() {
     const [business_name_english, setBusiness_name_english] = useState('');
     const check = false;
     const [day, setDay] = useState('');
+    const [time, setTime] = useState('')
     const [detail, setDetail] = useState('');
     const [address, setAddress] = useState('');
     const [email, setEmail] = useState('');
@@ -42,6 +42,7 @@ function Addplace() {
     const [images, setImages] = useState([]);
     const [urls, setUrls] = useState([]);
     const [progress, setProgress] = useState(0);
+    const [photodetail, setPhotodetail] = useState('')
     var photo1
     var photo2
     var photo3
@@ -53,13 +54,6 @@ function Addplace() {
     var photo9
     var photo10
     const result = images.length;
-    const [show, setShow] = useState(true)
-    // const [file, setFile] = useState(null);
-    // const [url, setURL] = useState('');
-    // const [file1, setFile1] = useState(null);
-    // const [url1, setURL1] = useState('');
-    // const [file2, setFile2] = useState(null);
-    // const [url2, setURL2] = useState('');
 
 
     if (result == 10) {
@@ -201,6 +195,7 @@ function Addplace() {
             business_name_english: business_name_english,
             check: check,
             day: day,
+            time: time,
             detail: detail,
             address: address,
             email: email,
@@ -235,6 +230,7 @@ function Addplace() {
             photo8: photo8,
             photo9: photo9,
             photo10: photo10,
+            photodetail,photodetail
         };
         console.log(obj)
         setBusiness_name('');
@@ -243,6 +239,7 @@ function Addplace() {
         setBusiness_name3('');
         setBusiness_name_english('');
         setDay('');
+        setTime('');
         setDetail('');
         setAddress('');
         setEmail('');
@@ -264,6 +261,7 @@ function Addplace() {
         setType9('');
         setType10('');
         setTel('');
+        setPhotodetail('');
         addPlace(obj);
     };
 
@@ -273,7 +271,7 @@ function Addplace() {
     const addPlace = (obj) => {
         let array = 0;
         const user = firebase.auth().currentUser
-        const ref = firebase.firestore().collection('users');
+        const ref = firebase.firestore().collection('place');
         if (ref.doc.length == 0) {
             ref
                 .add(obj)
@@ -318,16 +316,11 @@ function Addplace() {
     
 
     const handleChange = (e) => {
-        if (e.target.files.length  < 11) {
-            alert("รูปภาพเกิน")
-        } else {
-            for (let i = 0; i < e.target.files.length; i++) {
+            for (let i = 0; i < e.target.files.length && i < 10; i++) {
                 const newImage = e.target.files[i];
                 newImage["id"] = Math.random();
                 setImages((prevState) => [...prevState, newImage]);
                 console.log(e.target.files.length)
-            } 
-            
         }
         
     };
@@ -385,7 +378,7 @@ function Addplace() {
                                 <progress value={progress} max="100" />
                                 <br />
                                 <input type="file" multiple onChange={handleChange} />
-                                <button className='btn btn-success' onClick={handleUpload}>ยืนยันอัปโหลด (อัพโหลดสูงสุด10รูป)</button>
+                                <button className='btn btn-success'  onClick={handleUpload}>ยืนยันอัปโหลด (อัพโหลดสูงสุด10รูป)</button>
                                 <br />
                             </div>
                         </center>
@@ -396,58 +389,66 @@ function Addplace() {
                         <div className="form-group">
                             <label>Business_name:</label>
                             <input type="text" className="form-control"
+                                required
                                 value={business_name}
                                 onChange={(e) => setBusiness_name(e.target.value)}
-                                placeholder="business_name" />
+                                placeholder="ชื่อร้านค้า/สถานที่" />
                         </div>
                         <div className="form-group">
                             <label>Business_name1:</label>
                             <input type="text" className="form-control"
                                 value={business_name1}
                                 onChange={(e) => setBusiness_name1(e.target.value)}
-                                placeholder="business_name1" />
+                                placeholder="นามแฝง" />
                         </div>
                         <div className="form-group">
                             <label>Business_name2:</label>
                             <input type="text" className="form-control"
                                 value={business_name2}
                                 onChange={(e) => setBusiness_name2(e.target.value)}
-                                placeholder="business_name2" />
+                                placeholder="นามแฝง" />
                         </div>
                         <div className="form-group">
                             <label>Business_name3:</label>
                             <input type="text" className="form-control"
                                 value={business_name3}
                                 onChange={(e) => setBusiness_name3(e.target.value)}
-                                placeholder="business_name3" />
+                                placeholder="นามแฝง" />
                         </div>
                         <div className="form-group">
                             <label>Business_name3:</label>
                             <input type="text" className="form-control"
                                 value={business_name_english}
                                 onChange={(e) => setBusiness_name_english(e.target.value)}
-                                placeholder="business_name_english" />
+                                placeholder="ชื่อร้านค้า/สถานที่ภาษาอังกฤษ" />
                         </div>
                         <div className="form-group">
                             <label>Day:</label>
                             <input type="day" className="form-control"
                                 value={day}
                                 onChange={(e) => setDay(e.target.value)}
-                                placeholder="Day" />
+                                placeholder="วันที่เปิด จ-อา" />
+                        </div>
+                        <div className="form-group">
+                            <label>Time:</label>
+                            <input type="day" className="form-control"
+                                value={time}
+                                onChange={(e) => setTime(e.target.value)}
+                                placeholder="เวลาที่เปิด" />
                         </div>
                         <div className="form-group">
                             <label>Detail:</label>
                             <input type="text" className="form-control"
                                 value={detail}
                                 onChange={(e) => setDetail(e.target.value)}
-                                placeholder="Detail" />
+                                placeholder="รายละเอียดร้านค้า/สถานที่" />
                         </div>
                         <div className="form-group">
-                            <label>Detail:</label>
+                            <label>Address:</label>
                             <input type="text" className="form-control"
                                 value={address}
                                 onChange={(e) => setAddress(e.target.value)}
-                                placeholder="Address" />
+                                placeholder="ที่อยู่" />
                         </div>
                         <div className="form-group">
                             <label>Email:</label>
@@ -496,7 +497,7 @@ function Addplace() {
                             <input type="tel" className="form-control"
                                 value={tel}
                                 onChange={(e) => setTel(e.target.value)}
-                                placeholder="Tel" />
+                                placeholder="เบอร์โทรศัพท์" />
                         </div>
                         <div className="form-group">
                             <label>Latitude:</label>
@@ -504,7 +505,7 @@ function Addplace() {
                                 required
                                 value={latitude}
                                 onChange={(e) => setLatitude(e.target.value)}
-                                placeholder="ตัวอย่าง 00.00000000" />
+                                placeholder="ตัวอย่าง 14.0372643" />
                         </div>
                         <div className="form-group">
                             <label>Longitude:</label>
@@ -512,7 +513,15 @@ function Addplace() {
                                 required
                                 value={longitude}
                                 onChange={(e) => setLongitude(e.target.value)}
-                                placeholder="ตัวอย่าง 00.00000000" />
+                                placeholder="ตัวอย่าง 100.7354359" />
+                        </div>
+                        <div className="form-group">
+                            <label>Photodetail:</label>
+                            <input type="Photodetail" className="form-control"
+                                required
+                                value={photodetail}
+                                onChange={(e) => setPhotodetail(e.target.value)}
+                                placeholder="รายละเอียดรูปภาพ" />
                         </div>
                         <div className="select">
                             <label  for="category">หมวดหมู่:</label><br />

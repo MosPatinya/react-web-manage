@@ -71,19 +71,31 @@ class Edit extends Component {
         console.error("Error adding document: ", error);
       });
   }
+  
 
   render() {
+    const showphoto = this.state.photo
     return (
       <div>
         <header>
           <DashBoard />
         </header>
+        <br />
         <div class="container">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3 class="panel-title">
                 EDIT USER
               </h3>
+            </div>
+            <div>
+              <center>
+                {showphoto ? (
+                  <img src={this.state.photo} width='200' height='200'></img>
+                ) : (
+                  <label>ไม่มีรูปภาพ</label>
+                )}
+              </center>
             </div>
             <div class="panel-body">
               <form onSubmit={this.onSubmit}>
@@ -101,8 +113,9 @@ class Edit extends Component {
                 </div>
                 <div class="form-group">
                   <label for="password">Password:</label>
-                  <input type="text" class="form-control" name="password" value={this.state.password} onChange={this.onChange} placeholder="username" />
+                  <input type="password" id="myInput" class="form-control" name="password" value={this.state.password} onChange={this.onChange} placeholder="username" />
                 </div>
+                <br/>
                 <button type="submit" class="btn btn-success">Submit</button>
               </form>
             </div>

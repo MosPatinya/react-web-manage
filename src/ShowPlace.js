@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebase from './config';
+import firebase, { storage } from './config';
 import { Link } from 'react-router-dom';
 import DashBoard from './components/Dashboard';
 import './ShowPlace.css';
@@ -9,7 +9,7 @@ class ShowPlace extends Component {
     super(props);
     this.state = {
       place: {},
-      key: ''
+      key: '',
     };
   }
 
@@ -29,22 +29,47 @@ class ShowPlace extends Component {
   }
 
   delete(id) {
+    var photoArray = [
+      this.state.place.photo1,
+      this.state.place.photo2,
+      this.state.place.photo3,
+      this.state.place.photo4,
+      this.state.place.photo5,
+      this.state.place.photo6,
+      this.state.place.photo7,
+      this.state.place.photo8,
+      this.state.place.photo9,
+      this.state.place.photo10,
+    ]
     firebase.firestore().collection('place').doc(id).delete().then(() => {
+      for (let i = 0; i < photoArray.length; i++) {
+        if (photoArray[i] !== '' ) {
+          let pictureRef = storage.refFromURL(photoArray[i])
+          pictureRef.delete();
+        }
+      }
       console.log("Document successfully deleted!");
       this.props.history.push("/place")
     }).catch((error) => {
       console.error("Error removing document: ", error);
     });
   }
-  showimage() {
-    if (this.state.place.photo10 = '') {
-      return <img src={this.state.place.photo1} width="500" height="300"></img>
-    } else {
-      return <img src={this.state.place.photo1} width="500" height="300"></img>
-    }
-  }
+
 
   render() {
+    var photoArray = [
+      this.state.place.photo1,
+      this.state.place.photo2,
+      this.state.place.photo3,
+      this.state.place.photo4,
+      this.state.place.photo5,
+      this.state.place.photo6,
+      this.state.place.photo7,
+      this.state.place.photo8,
+      this.state.place.photo9,
+      this.state.place.photo10,
+    ]
+    console.log(photoArray)
     const photo1 = this.state.place.photo1;
     const photo2 = this.state.place.photo2;
     const photo3 = this.state.place.photo3;

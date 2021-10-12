@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebase from './config';
+import firebase, { storage } from './config';
 import { Link } from 'react-router-dom';
 import DashBoard from './components/Dashboard';
 import './Show.css';
@@ -9,7 +9,7 @@ class Show extends Component {
     super(props);
     this.state = {
       user: {},
-      key: ''
+      key: '',
     };
   }
 
@@ -28,33 +28,38 @@ class Show extends Component {
     });
   }
 
+  
   delete(id) {
+    var photoArray = this.state.user.photo
     firebase.firestore().collection('user').doc(id).delete().then(() => {
+      if ( photoArray !== ''){
+        let pictureRef = storage.refFromURL(photoArray);
+        pictureRef.delete();
+      }
       console.log("Document successfully deleted!");
       this.props.history.push("/user")
     }).catch((error) => {
       console.error("Error removing document: ", error);
-    }
-    );
+    });
     alert("ลบข้อมูลสำเร็จ")
   }
 
-  
+
   render() {
     const showphoto = this.state.user.photo;
-
+    console.log(showphoto)
     return (
       <div>
-        <DashBoard/>
+        <DashBoard />
         <div class="container">
           <div class="area">
             <div class="body">
               <dl>
                 <dt>Photo</dt>
                 <dd>
-                  { showphoto ? (
-                    <img src={this.state.user.photo}  width='200' height='200'></img>
-                  ) :(
+                  {showphoto ? (
+                    <img src={this.state.user.photo} width='200' height='200'></img>
+                  ) : (
                     <label>ไม่มีรูปภาพ</label>
                   )}
                 </dd>
@@ -77,5 +82,5 @@ class Show extends Component {
     );
   }
 }
-{/* <img src ={showphoto} width='200' height='200' /> */}
+{/* <img src ={showphoto} width='200' height='200' /> */ }
 export default Show;

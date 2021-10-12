@@ -3,6 +3,7 @@ import DashBoard from "./components/Dashboard";
 import firebase from './config';
 import { storage } from "./config";
 import './add.css'
+import Swal from 'sweetalert2'
 
 function Add() {
     const user_id = '';
@@ -32,6 +33,7 @@ function Add() {
         setTel('');
         setEmail('');
         setPassword('');
+        setFile('')
         addUser(obj);
     };
 
@@ -41,9 +43,20 @@ function Add() {
             .add(obj)
             .then((value) => {
                 ref.doc(value.id).update({ user_id: value.id })
-                alert('บันทึกสำเร็จ')
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.log(err)).then(() => {
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'บันทึกสำเร็จ',
+                    showConfirmButton: false,
+                    timer: 1500
+                  }).then(() =>{
+                    window.location.href = "/user"
+                  })
+               
+            })
+            
     };
 
     function handleChange(e) {

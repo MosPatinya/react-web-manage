@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import firebase from './config';
+import firebase, { storage } from './config';
 import { Link } from 'react-router-dom';
 import DashBoard from './components/Dashboard';
+import Swal from 'sweetalert2'
+import { file } from '@babel/types';
 
 class Edit extends Component {
 
@@ -15,6 +17,9 @@ class Edit extends Component {
       tel: '',
       username: '',
       password: '',
+      file: null,
+      url: null,
+      photonew: '',
     };
   }
 
@@ -60,18 +65,53 @@ class Edit extends Component {
     }).then((docRef) => {
       this.setState({
         key: '',
+        photo: '',
         email: '',
         tel: '',
         username: '',
         password: '',
       });
+      Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: 'แก้ไขข้อมูลสำเร็จ',
+        showConfirmButton: false,
+        timer: 1500
+      })
       this.props.history.push("/show/" + this.props.match.params.id)
     })
       .catch((error) => {
         console.error("Error adding document: ", error);
       });
   }
-  
+
+  handleChange = (e) => {
+    const file = e.target.files[0];
+    if(file){
+      this.setState({file})
+    }
+  }
+
+  handleUpload = (e) => {
+    e.preventDefault();
+    const updateRef = firebase.firestore().collection('user').doc(this.state.key);
+    const file = this.state.file
+    const photo = this.state.photo
+    const  ref = storage.ref(`/User/${Math.random(999) + file.name}`);
+    const uploadTask = ref.put(file);
+    if (photo !== '') {
+      let pictureRef = storage.refFromURL(photo);
+      pictureRef.delete();
+    }
+    uploadTask.on("state_changed", console.log, console.error, () => {
+      ref.getDownloadURL().then((url) => {
+        updateRef.update({photo:url}).then(()=>{
+          window.location.reload();
+        })
+          // alert(`อัพเดตข้อมูลสำเร็จ${url}`);
+      })
+  });
+  }
 
   render() {
     const showphoto = this.state.photo
@@ -96,6 +136,22 @@ class Edit extends Component {
                   <label>ไม่มีรูปภาพ</label>
                 )}
               </center>
+              <br />
+              <form onSubmit={this.handleUpload}>
+              <center>
+                {/* <form onSubmit={this.handleSubmit}>
+                  <input
+                    onChange={this.addFile}
+                    // disabled={uploadState === 'uploading'}
+                    name="file"
+                    type="file"
+                  />
+                  <button className='btn btn-primary'>Post</button>
+                </form> */}
+                 <input type="file" onChange={this.handleChange} />
+                <button className='btn btn-success' disabled={this.file}>ยืนยันอัปโหลด</button> 
+              </center>
+              </form>
             </div>
             <div class="panel-body">
               <form onSubmit={this.onSubmit}>
@@ -115,7 +171,7 @@ class Edit extends Component {
                   <label for="password">Password:</label>
                   <input type="password" id="myInput" class="form-control" name="password" value={this.state.password} onChange={this.onChange} placeholder="username" />
                 </div>
-                <br/>
+                <br />
                 <button type="submit" class="btn btn-success">Submit</button>
               </form>
             </div>

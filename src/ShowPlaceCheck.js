@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import firebase from './config';
 import { Link } from 'react-router-dom';
 import DashBoard from './components/Dashboard';
-
+import Swal from 'sweetalert2'
 class ShowPlaceCheck extends Component {
 
   constructor(props) {
@@ -31,6 +31,7 @@ class ShowPlaceCheck extends Component {
       detail: '',
       latitude: '',
       longitude: '',
+      tel: '',
     };
   }
 
@@ -63,6 +64,7 @@ class ShowPlaceCheck extends Component {
           detail: place.detail,
           latitude: place.latitude,
           longitude: place.longitude,
+          tel: place.tel,
         });
       } else {
         console.log("No such document!");
@@ -78,6 +80,13 @@ class ShowPlaceCheck extends Component {
     updateRef.update({
       check: true,
     });
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      title: 'เผยเเพร่ข้อมูลสำเร็จ',
+      showConfirmButton: false,
+      timer: 1500
+    })
     this.props.history.push("/showPlace/" + this.props.match.params.id)
   }
 
@@ -168,6 +177,8 @@ class ShowPlaceCheck extends Component {
               <dd>{this.state.facebook}</dd>
               <dt>instagram:</dt>
               <dd>{this.state.instagram}</dd>
+              <dt>เบอร์โทร:</dt>
+              <dd>{this.state.tel}</dd>
               <dt>หมวดหมู่:</dt>
               <dd>{this.state.type}</dd>
               <dt>รายะเอียด:</dt>

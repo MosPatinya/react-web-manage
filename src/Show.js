@@ -3,6 +3,7 @@ import firebase, { storage } from './config';
 import { Link } from 'react-router-dom';
 import DashBoard from './components/Dashboard';
 import './Show.css';
+import Swal from 'sweetalert2'
 class Show extends Component {
 
   constructor(props) {
@@ -41,7 +42,13 @@ class Show extends Component {
     }).catch((error) => {
       console.error("Error removing document: ", error);
     });
-    alert("ลบข้อมูลสำเร็จ")
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      title: 'ลบข้อมูลสำเร็จ',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
 

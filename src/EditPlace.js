@@ -3,6 +3,8 @@ import firebase from './config';
 import { Link } from 'react-router-dom';
 import DashBoard from './components/Dashboard';
 import "./EditPlace.css"
+import Swal from 'sweetalert2'
+
 class EditPlace extends Component {
 
   constructor(props) {
@@ -190,6 +192,13 @@ class EditPlace extends Component {
       .catch((error) => {
         console.error("Error adding document: ", error);
       });
+      Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: 'แก้ไขข้อมูลสำเร็จ',
+        showConfirmButton: false,
+        timer: 1500
+      })
   }
 
   render() {

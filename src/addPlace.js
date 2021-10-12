@@ -3,7 +3,7 @@ import DashBoard from "./components/Dashboard";
 import firebase from './config';
 import firebaseConfig, { storage } from "./config";
 import './addPlace.css';
-
+import Swal from 'sweetalert2'
 function Addplace() {
     const user_id = '';
     const place_id = '';
@@ -230,7 +230,7 @@ function Addplace() {
             photo8: photo8,
             photo9: photo9,
             photo10: photo10,
-            photodetail,photodetail
+            photodetail, photodetail
         };
         console.log(obj)
         setBusiness_name('');
@@ -281,8 +281,17 @@ function Addplace() {
                         user_id: user.uid
                     })
                 })
-                .catch((err) => console.log(err));
-            alert('บันทึกขอมูลสำเร็จ')
+                .catch((err) => console.log(err)).then(() => {
+                    Swal.fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: 'บันทึกสำเร็จ',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }).then(() => {
+                    window.location.href = "/place"
+                })
         } else {
             ref
                 .orderBy('array', 'desc')
@@ -300,29 +309,38 @@ function Addplace() {
                                     user_id: user.uid,
                                 })
                                 console.log(place_id)
-                                
+
                             })
-                            .catch((err) => console.log(err));
+                            .catch((err) => console.log(err)).then(() => {
+                                Swal.fire({
+                                    position: 'top',
+                                    icon: 'success',
+                                    title: 'บันทึกสำเร็จ',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                }).then(() => {
+                                    window.location.href = "/place"
+                                })
+                            })
                         console.log(array)
                         console.log(user.uid)
-                        alert('บันทึกขอมูลสำเร็จ')
                     })
                 }
                 )
-                
+
         }
-       
+
     }
-    
+
 
     const handleChange = (e) => {
-            for (let i = 0; i < e.target.files.length && i < 10; i++) {
-                const newImage = e.target.files[i];
-                newImage["id"] = Math.random();
-                setImages((prevState) => [...prevState, newImage]);
-                console.log(e.target.files.length)
+        for (let i = 0; i < e.target.files.length && i < 10; i++) {
+            const newImage = e.target.files[i];
+            newImage["id"] = Math.random();
+            setImages((prevState) => [...prevState, newImage]);
+            console.log(e.target.files.length)
         }
-        
+
     };
 
     const handleUpload = () => {
@@ -378,7 +396,7 @@ function Addplace() {
                                 <progress value={progress} max="100" />
                                 <br />
                                 <input type="file" multiple onChange={handleChange} />
-                                <button className='btn btn-success'  onClick={handleUpload}>ยืนยันอัปโหลด (อัพโหลดสูงสุด10รูป)</button>
+                                <button className='btn btn-success' onClick={handleUpload}>ยืนยันอัปโหลด (อัพโหลดสูงสุด10รูป)</button>
                                 <br />
                             </div>
                         </center>
@@ -518,14 +536,13 @@ function Addplace() {
                         <div className="form-group">
                             <label>Photodetail:</label>
                             <input type="Photodetail" className="form-control"
-                                required
                                 value={photodetail}
                                 onChange={(e) => setPhotodetail(e.target.value)}
                                 placeholder="รายละเอียดรูปภาพ" />
                         </div>
                         <div className="select">
-                            <label  for="category">หมวดหมู่:</label><br />
-                            <select required aria-required="true" style={{ width: 300, height : 30, borderRadius : 5, textAlign : "center"}} onChange={(e) => setType(e.target.value)}>
+                            <label for="category">หมวดหมู่:</label><br />
+                            <select required aria-required="true" style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={(e) => setType(e.target.value)}>
                                 <option value="">เลือกหมวดหมู่</option>
                                 <option value="ร้านอาหาร">ร้านอาหาร</option>
                                 <option value="ร้านกาแฟ">ร้านกาแฟ</option>
@@ -538,7 +555,7 @@ function Addplace() {
                             </select>
                         </div>
                         <div className="select">
-                            <select style={{ width: 300, height : 30, borderRadius : 5, textAlign : "center"}}  onChange={(e) => setType2(e.target.value)}>
+                            <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={(e) => setType2(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
                                 <option value="ร้านอาหาร">ร้านอาหาร</option>
                                 <option value="ร้านกาแฟ">ร้านกาแฟ</option>
@@ -551,7 +568,7 @@ function Addplace() {
                             </select>
                         </div>
                         <div className="select">
-                            <select style={{ width: 300, height : 30, borderRadius : 5, textAlign : "center"}} onChange={(e) => setType3(e.target.value)}>
+                            <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={(e) => setType3(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
                                 <option value="ร้านอาหาร">ร้านอาหาร</option>
                                 <option value="ร้านกาแฟ">ร้านกาแฟ</option>
@@ -564,7 +581,7 @@ function Addplace() {
                             </select>
                         </div>
                         <div className="select">
-                            <select style={{ width: 300, height : 30, borderRadius : 5, textAlign : "center"}} onChange={(e) => setType4(e.target.value)}>
+                            <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={(e) => setType4(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
                                 <option value="ร้านอาหาร">ร้านอาหาร</option>
                                 <option value="ร้านกาแฟ">ร้านกาแฟ</option>
@@ -577,7 +594,7 @@ function Addplace() {
                             </select>
                         </div>
                         <div className="select">
-                            <select style={{ width: 300, height : 30, borderRadius : 5, textAlign : "center"}} onChange={(e) => setType5(e.target.value)}>
+                            <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={(e) => setType5(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
                                 <option value="ร้านอาหาร">ร้านอาหาร</option>
                                 <option value="ร้านกาแฟ">ร้านกาแฟ</option>
@@ -591,24 +608,7 @@ function Addplace() {
                         </div>
                         <div className="select">
                             <label for="category">หมวดหมู่ย่อย:</label><br />
-                            <select style={{ width: 300, height : 30, borderRadius : 5, textAlign : "center"}} onChange={(e) => setType6(e.target.value)}>
-                            <option >เลือกหมวดหมู่</option>
-                                <option value="คาเฟ่">คาเฟ่</option>
-                                <option value="ชานมไข่มุก">ชานมไข่มุก</option>
-                                <option value="หมูกระทะ">หมูกระทะ</option>
-                                <option value="ชาบู/ปิ้งย่าง">ชาบู/ปิ้งย่าง</option>
-                                <option value="ตามสั่ง">ตามสั่ง</option>
-                                <option value="จานด่วน">จานด่วน</option>
-                                <option value="เกาหลี">เกาหลี</option>
-                                <option value="ญี่ปุ่น">ญี่ปุ่น</option>
-                                <option value="ไทย">ไทย</option>
-                                <option value="ของหวาน">ของหวาน</option>
-                                <option value="ฟาสต์ฟูด">ฟาสต์ฟูด</option>
-                                <option value="อื่นๆ">อื่นๆ</option>
-                            </select>
-                        </div>
-                        <div className="select">
-                            <select style={{ width: 300, height : 30, borderRadius : 5, textAlign : "center"}} onChange={(e) => setType7(e.target.value)}>
+                            <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={(e) => setType6(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
                                 <option value="คาเฟ่">คาเฟ่</option>
                                 <option value="ชานมไข่มุก">ชานมไข่มุก</option>
@@ -625,7 +625,7 @@ function Addplace() {
                             </select>
                         </div>
                         <div className="select">
-                            <select style={{ width: 300, height : 30, borderRadius : 5, textAlign : "center"}} onChange={(e) => setType8(e.target.value)}>
+                            <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={(e) => setType7(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
                                 <option value="คาเฟ่">คาเฟ่</option>
                                 <option value="ชานมไข่มุก">ชานมไข่มุก</option>
@@ -642,7 +642,7 @@ function Addplace() {
                             </select>
                         </div>
                         <div className="select">
-                            <select style={{ width: 300, height : 30, borderRadius : 5, textAlign : "center"}} onChange={(e) => setType9(e.target.value)}>
+                            <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={(e) => setType8(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
                                 <option value="คาเฟ่">คาเฟ่</option>
                                 <option value="ชานมไข่มุก">ชานมไข่มุก</option>
@@ -659,7 +659,24 @@ function Addplace() {
                             </select>
                         </div>
                         <div className="select">
-                            <select  style={{ width: 300, height : 30, borderRadius : 5, textAlign : "center"}} onChange={(e) => setType10(e.target.value)}>
+                            <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={(e) => setType9(e.target.value)}>
+                                <option >เลือกหมวดหมู่</option>
+                                <option value="คาเฟ่">คาเฟ่</option>
+                                <option value="ชานมไข่มุก">ชานมไข่มุก</option>
+                                <option value="หมูกระทะ">หมูกระทะ</option>
+                                <option value="ชาบู/ปิ้งย่าง">ชาบู/ปิ้งย่าง</option>
+                                <option value="ตามสั่ง">ตามสั่ง</option>
+                                <option value="จานด่วน">จานด่วน</option>
+                                <option value="เกาหลี">เกาหลี</option>
+                                <option value="ญี่ปุ่น">ญี่ปุ่น</option>
+                                <option value="ไทย">ไทย</option>
+                                <option value="ของหวาน">ของหวาน</option>
+                                <option value="ฟาสต์ฟูด">ฟาสต์ฟูด</option>
+                                <option value="อื่นๆ">อื่นๆ</option>
+                            </select>
+                        </div>
+                        <div className="select">
+                            <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={(e) => setType10(e.target.value)}>
                                 <option value=''>เลือกหมวดหมู่</option>
                                 <option value="คาเฟ่">คาเฟ่</option>
                                 <option value="ชานมไข่มุก">ชานมไข่มุก</option>

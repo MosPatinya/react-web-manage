@@ -159,7 +159,7 @@ class ShowPlaceCheck extends Component {
               <></>
             )}
           </div>
-          <div class="body">
+          <div className="body">
             <dl>
               <dt>ชื่อร้านค้า/สถานที่:</dt>
               <dd>{this.state.business_name}</dd>
@@ -188,7 +188,7 @@ class ShowPlaceCheck extends Component {
               <dt>ลองจิจูด:</dt>
               <dd>{this.state.longitude}</dd>
               <form onSubmit={this.onSubmit}>
-                <button type="submit" class="btn btn-success">เผยเเพร่</button>
+                <button type="submit" className="btn btn-success">เผยเเพร่</button>
               </form>
             </dl>
           </div>

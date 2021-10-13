@@ -41,9 +41,9 @@ class List_Place extends Component {
     render() {
         return (
             <div className="container">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <table class="table">
+                    <div className="panel panel-default">
+                        <div className="panel-body">
+                            <table className="table">
                                 <thead>
                                     <tr>                      
                                         <th>Photo</th>
@@ -63,7 +63,7 @@ class List_Place extends Component {
                                         <td>{place.type}{place.type2}</td>
                                         <td>{place.email}</td>
                                         <td>{place.tel}</td>
-                                        <td><Link to={`/showplace/${place.key}`}><button type="button" class="btn btn-outline-warning">รายละเอียด</button></Link></td>
+                                        <td><Link to={`/showplace/${place.key}`}><button type="button" className="btn btn-outline-warning">รายละเอียด</button></Link></td>
                                     </tr>
                                 )} 
                                 </tbody>

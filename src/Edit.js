@@ -3,7 +3,7 @@ import firebase, { storage } from './config';
 import { Link } from 'react-router-dom';
 import DashBoard from './components/Dashboard';
 import Swal from 'sweetalert2'
-import { file } from '@babel/types';
+
 
 class Edit extends Component {
 
@@ -19,7 +19,6 @@ class Edit extends Component {
       password: '',
       file: null,
       url: null,
-      photonew: '',
     };
   }
 
@@ -87,8 +86,8 @@ class Edit extends Component {
 
   handleChange = (e) => {
     const file = e.target.files[0];
-    if(file){
-      this.setState({file})
+    if (file) {
+      this.setState({ file })
     }
   }
 
@@ -97,34 +96,46 @@ class Edit extends Component {
     const updateRef = firebase.firestore().collection('user').doc(this.state.key);
     const file = this.state.file
     const photo = this.state.photo
-    const  ref = storage.ref(`/User/${Math.random(999) + file.name}`);
-    const uploadTask = ref.put(file);
     if (photo !== '') {
+      const ref = storage.ref(`/User/${Math.random(999) + file.name}`);
+      const uploadTask = ref.put(file);
       let pictureRef = storage.refFromURL(photo);
       pictureRef.delete();
-    }
-    uploadTask.on("state_changed", console.log, console.error, () => {
-      ref.getDownloadURL().then((url) => {
-        updateRef.update({photo:url}).then(()=>{
-          window.location.reload();
-        })
+      uploadTask.on("state_changed", console.log, console.error, () => {
+        ref.getDownloadURL().then((url) => {
+          updateRef.update({ photo: url }).then(() => {
+            window.location.reload();
+          })
           // alert(`อัพเดตข้อมูลสำเร็จ${url}`);
-      })
-  });
+        })
+      });
+    } else{
+      const ref = storage.ref(`/User/${Math.random(999) + file.name}`);
+      const uploadTask = ref.put(file);
+      uploadTask.on("state_changed", console.log, console.error, () => {
+        ref.getDownloadURL().then((url) => {
+          updateRef.update({ photo: url }).then(() => {
+            window.location.reload();
+          })
+          // alert(`อัพเดตข้อมูลสำเร็จ${url}`);
+        })
+      });
+    }
   }
 
   render() {
     const showphoto = this.state.photo
+    console.log(this.state.key)
     return (
       <div>
         <header>
           <DashBoard />
         </header>
         <br />
-        <div class="container">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">
+        <div className="container">
+          <div className="panel panel-default">
+            <div className="panel-heading">
+              <h3 className="panel-title">
                 EDIT USER
               </h3>
             </div>
@@ -138,8 +149,8 @@ class Edit extends Component {
               </center>
               <br />
               <form onSubmit={this.handleUpload}>
-              <center>
-                {/* <form onSubmit={this.handleSubmit}>
+                <center>
+                  {/* <form onSubmit={this.handleSubmit}>
                   <input
                     onChange={this.addFile}
                     // disabled={uploadState === 'uploading'}
@@ -148,31 +159,31 @@ class Edit extends Component {
                   />
                   <button className='btn btn-primary'>Post</button>
                 </form> */}
-                 <input type="file" onChange={this.handleChange} />
-                <button className='btn btn-success' disabled={this.file}>ยืนยันอัปโหลด</button> 
-              </center>
+                  <input type="file" onChange={this.handleChange} />
+                  <button className='btn btn-success' >ยืนยันอัปโหลด</button>
+                </center>
               </form>
             </div>
-            <div class="panel-body">
+            <div className="panel-body">
               <form onSubmit={this.onSubmit}>
-                <div class="form-group">
+                <div className="form-group">
                   <label for="email">Email:</label>
-                  <input type="text" class="form-control" name="email" value={this.state.email} onChange={this.onChange} placeholder="email" />
+                  <input type="text" className="form-control" name="email" value={this.state.email} onChange={this.onChange} placeholder="email" />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <label for="tel">Tel:</label>
-                  <input type="text" class="form-control" name="tel" value={this.state.tel} onChange={this.onChange} placeholder="tel" />
+                  <input type="text" className="form-control" name="tel" value={this.state.tel} onChange={this.onChange} placeholder="tel" />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <label for="username">UserName:</label>
-                  <input type="text" class="form-control" name="username" value={this.state.username} onChange={this.onChange} placeholder="username" />
+                  <input type="text" className="form-control" name="username" value={this.state.username} onChange={this.onChange} placeholder="username" />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <label for="password">Password:</label>
-                  <input type="password" id="myInput" class="form-control" name="password" value={this.state.password} onChange={this.onChange} placeholder="username" />
+                  <input type="password" id="myInput" className="form-control" name="password" value={this.state.password} onChange={this.onChange} placeholder="username" />
                 </div>
                 <br />
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" className="btn btn-success">Submit</button>
               </form>
             </div>
           </div>

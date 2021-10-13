@@ -35,10 +35,10 @@ class Create_List extends Component {
 
     render() {
         return (
-                <div class="container">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <table class="table table-stripe">
+                <div className="container">
+                    <div className="panel panel-default">
+                        <div className="panel-body">
+                            <table className="table table-stripe">
                                 <thead>
                                     <tr>
                                         <th>Email</th>
@@ -53,7 +53,7 @@ class Create_List extends Component {
                                             <td>{user.email}</td>
                                             <td>{user.tel}</td>
                                             <td>{user.username}</td>
-                                            <td><Link to={`/show/${user.key}`}><button type="button" class="btn btn-outline-warning">รายละเอียด</button></Link></td>
+                                            <td><Link to={`/show/${user.key}`}><button type="button" className="btn btn-outline-warning">รายละเอียด</button></Link></td>
                                         </tr>
                                     )}
                                 </tbody>

@@ -58,9 +58,9 @@ class Show extends Component {
     return (
       <div>
         <DashBoard />
-        <div class="container">
-          <div class="area">
-            <div class="body">
+        <div className="container">
+          <div className="area">
+            <div className="body">
               <dl>
                 <dt>Photo</dt>
                 <dd>
@@ -80,8 +80,8 @@ class Show extends Component {
                 <dt>Tel:</dt>
                 <dd>{this.state.user.tel}</dd>
               </dl>
-              <Link to={`/edit/${this.state.key}`} class="btn btn-success">Edit</Link>&nbsp;
-              <button onClick={this.delete.bind(this, this.state.key)} class="btn btn-danger">Delete</button>
+              <Link to={`/edit/${this.state.key}`} className="btn btn-success">Edit</Link>&nbsp;
+              <button onClick={this.delete.bind(this, this.state.key)} className="btn btn-danger">Delete</button>
             </div>
           </div>
         </div>

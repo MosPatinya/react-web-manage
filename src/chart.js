@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import firebase from './config';
-import { Bar,Line } from 'react-chartjs-2'
+import { Bar, Line } from 'react-chartjs-2'
 import { Link, Redirect, Route, Router } from 'react-router-dom'
 import './chart.css'
 
@@ -60,34 +60,34 @@ class Chart extends Component {
                     height={105}
                     width={260}
                 />
-                <br/>
+                <br />
                 <div>
-                <ul className="chart-header">
-                    <li className="chart-bar">
-                        <Link className="chart-link" to="/grafshop">ร้านอาหาร</Link>
-                    </li>
-                    <li className="chart-bar">
-                        <Link className="chart-link" to="/grafcoffee">ร้านกาแฟ</Link>
-                    </li>
-                    <li className="chart-bar">
-                        <Link className="chart-link" to="/grafstationery">ร้านเครื่องเขียน</Link>
-                    </li>
-                    <li className="chart-bar">
-                        <Link className="chart-link" to="/grafbeautiful">ร้านเสริมสวย</Link>
-                    </li>
-                    <li className="chart-bar">
-                        <Link className="chart-link" to="/graf">คลินิก/ขายยา</Link>
-                    </li>
-                    <li className="chart-bar">
-                        <Link className="chart-link" to="/grafgeneral">ร้านทั่วไป</Link>
-                    </li>
-                    <li className="chart-bar">
-                        <Link className="chart-link" to="/grafplacegeneral">สถานที่ทั่วไป</Link>
-                    </li>
-                    <li className="chart-bar">
-                        <Link className="chart-link" to="/grafrmutt">สถานที่ในRMUTT</Link>
-                    </li>
-            </ul>
+                    <ul className="chart-header">
+                        <li className="chart-bar">
+                            <Link className="chart-link" to="/grafshop">ร้านอาหาร</Link>
+                        </li>
+                        <li className="chart-bar">
+                            <Link className="chart-link" to="/grafcoffee">ร้านกาแฟ</Link>
+                        </li>
+                        <li className="chart-bar">
+                            <Link className="chart-link" to="/grafstationery">ร้านเครื่องเขียน</Link>
+                        </li>
+                        <li className="chart-bar">
+                            <Link className="chart-link" to="/grafbeautiful">ร้านเสริมสวย</Link>
+                        </li>
+                        <li className="chart-bar">
+                            <Link className="chart-link" to="/graf">คลินิก/ขายยา</Link>
+                        </li>
+                        <li className="chart-bar">
+                            <Link className="chart-link" to="/grafgeneral">ร้านทั่วไป</Link>
+                        </li>
+                        <li className="chart-bar">
+                            <Link className="chart-link" to="/grafplacegeneral">สถานที่ทั่วไป</Link>
+                        </li>
+                        <li className="chart-bar">
+                            <Link className="chart-link" to="/grafrmutt">สถานที่ในRMUTT</Link>
+                        </li>
+                    </ul>
                 </div>
             </div>
         );

@@ -24,7 +24,7 @@ function Addplace() {
     const [website, setWebsite] = useState('');
     const open = false;
     const [price, setPrice] = useState('');
-    const rating = '';
+    const rating = 0;
     const status = 'false';
     const [type, setType] = useState('');
     const [type2, setType2] = useState('');
@@ -43,6 +43,7 @@ function Addplace() {
     const [urls, setUrls] = useState([]);
     const [progress, setProgress] = useState(0);
     const [photodetail, setPhotodetail] = useState('')
+    const [map,setMap] = useState('')
     var photo1
     var photo2
     var photo3
@@ -205,7 +206,7 @@ function Addplace() {
             website: website,
             open: open,
             price: price,
-            rating: rating,
+            rating: parseFloat(rating),
             status: status,
             type: type,
             type2: type2,
@@ -230,7 +231,8 @@ function Addplace() {
             photo8: photo8,
             photo9: photo9,
             photo10: photo10,
-            photodetail, photodetail
+            photodetail: photodetail,
+            map: map,
         };
         console.log(obj)
         setBusiness_name('');

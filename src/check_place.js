@@ -39,18 +39,16 @@ class Check_Place extends Component {
     render() {
         return (
             <div className="container">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <table class="table">
+                    <div className="panel panel-default">
+                        <div className="panel-body">
+                            <table className="table">
                                 <thead>
-                                    <tr>
                                         <th>Photo</th>
                                         <th>Name</th>
                                         <th>Category</th>
                                         <th>Email</th>
                                         <th>Telephone</th>
                                         <th>Action</th>
-                                    </tr>
                                 </thead>
                                 <tbody>
                                 <br></br>

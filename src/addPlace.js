@@ -694,9 +694,10 @@ function Addplace() {
                                 <option value="อื่นๆ">อื่นๆ</option>
                             </select>
                         </div>
-                        <div>
-                            <button type='submit' className="btn btn-success mt-3">Submit</button>
-                        </div>
+                        <center>
+                        <button type='submit' className="btn btn-success mt-3">Submit</button>
+                        </center>
+                        <br/>
                     </form>
                 </div>
             </div>

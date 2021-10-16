@@ -136,8 +136,11 @@ function Add() {
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Password" />
                         </div>
+                        <center>
+                        <button type='submit' className="btn btn-success mt-3">Submit</button>
+                        </center>
+                        <br/>
                     </form>
-
                 </div>
             </div>
         </div>

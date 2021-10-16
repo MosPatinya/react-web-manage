@@ -44,7 +44,7 @@ class ShowPlace extends Component {
     ]
     firebase.firestore().collection('place').doc(id).delete().then(() => {
       for (let i = 0; i < photoArray.length; i++) {
-        if (photoArray[i] !== '' ) {
+        if (photoArray[i] !== '') {
           let pictureRef = storage.refFromURL(photoArray[i])
           pictureRef.delete();
         }
@@ -78,6 +78,7 @@ class ShowPlace extends Component {
       this.state.place.photo10,
     ]
     console.log(photoArray)
+    console.log(this.state.place.check)
     const photo1 = this.state.place.photo1;
     const photo2 = this.state.place.photo2;
     const photo3 = this.state.place.photo3;
@@ -162,6 +163,8 @@ class ShowPlace extends Component {
                 <dd>{this.state.place.business_name2}</dd>
                 <dt>ชื่อแฝง3:</dt>
                 <dd>{this.state.place.business_name3}</dd>
+                <dt>ชื่อภาษาอังกฤษ:</dt>
+                <dd>{this.state.place.business_name_english}</dd>
                 <dt>เบอร์โทร:</dt>
                 <dd>{this.state.place.tel}</dd>
                 <dt>อีเมล:</dt>
@@ -170,6 +173,14 @@ class ShowPlace extends Component {
                 <dd>{this.state.place.facebook}</dd>
                 <dt>instagram:</dt>
                 <dd>{this.state.place.instagram}</dd>
+                <dt>Status</dt>
+                <dd>
+                  {this.state.place.open == true ? (
+                    <div className = 'open'>สถานที่เปิดอยู่</div>
+                ) : (
+                  <div className = 'close'>สถานที่ปิดอยู่</div>
+                )}
+                </dd>
                 <dt>หมวดหมู่:</dt>
                 <dd>
                   {type ? (
@@ -211,13 +222,21 @@ class ShowPlace extends Component {
                 <dt>รายะเอียด:</dt>
                 <dd>{this.state.place.detail}</dd>
                 <dt>คำอธิบายรูปภาพ:</dt>
-                <dd>{this.state.place.Photodetaii}</dd>
-                <dt>วันที่เปิด:</dt>
+                <dd>{this.state.place.photodetail}</dd>
+                <dt>วันที่เปิด/ปิด:</dt>
                 <dd>{this.state.place.day}</dd>
                 <dt>เวลาเปิด/ปิด:</dt>
                 <dd>{this.state.place.time}</dd>
                 <dt>ที่อยู่:</dt>
                 <dd>{this.state.place.address}</dd>
+                <dt>สถานะ :</dt>
+                <dd>
+                  {this.state.place.check == true ? (
+                    'ตรวจสอบเเล้ว'
+                  ) : (
+                    'ยังไม่ตรวจสอบ'
+                )}
+                </dd>
                 <br></br>
                 <div className='button-area'>
                   <div className='btn'>

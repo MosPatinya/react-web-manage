@@ -3,3 +3,7 @@
     display: flex;
     justify-content: center;
 }
+.profile img{
+    border: 1px solid black;
+    border-radius: 100px;
+}

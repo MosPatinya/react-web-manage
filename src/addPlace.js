@@ -398,7 +398,7 @@ function Addplace() {
                                 <progress value={progress} max="100" />
                                 <br />
                                 <input type="file" multiple onChange={handleChange} />
-                                <button className='btn btn-success' onClick={handleUpload}>ยืนยันอัปโหลด (อัพโหลดสูงสุด10รูป)</button>
+                                <button className='btn btn-success'  onClick={handleUpload}>ยืนยันอัปโหลด (อัพโหลดสูงสุด10รูป)</button>
                                 <br />
                             </div>
                         </center>
@@ -447,7 +447,7 @@ function Addplace() {
                             <input type="day" className="form-control"
                                 value={day}
                                 onChange={(e) => setDay(e.target.value)}
-                                placeholder="วันที่เปิด จ-อา" />
+                                placeholder="วันที่เปิด จ.-อา." />
                         </div>
                         <div className="form-group">
                             <label>Time:</label>

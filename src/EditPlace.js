@@ -158,6 +158,7 @@ class EditPlace extends Component {
       photodetail,
       time,
       address,
+      day,
 
     } = this.state;
 
@@ -188,6 +189,7 @@ class EditPlace extends Component {
       photodetail,
       time,
       address,
+      day,
     }).then((docRef) => {
       this.setState({
         key: '',
@@ -233,28 +235,52 @@ class EditPlace extends Component {
     const updateRef = firebase.firestore().collection('place').doc(this.state.key);
     const file = this.state.file;
     const photo1 = this.state.photo1;
-    if (photo1 !== '') {
-      const ref = storage.ref(`/images/${Math.random(999) + file.name}`);
-      const uploadTask = ref.put(file);
-      let pictureRef = storage.refFromURL(photo1);
-      pictureRef.delete();
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo1: url }).then(() => {
-            // window.location.reload();
+    try{
+      if (photo1 !== '') {
+        const ref = storage.ref(`/images/${Math.random(999) + file.name}`);
+        const uploadTask = ref.put(file);
+        let pictureRef = storage.refFromURL(photo1);
+        pictureRef.delete();
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo1: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
-    } else {
-      const ref = storage.ref(`/images/${Math.random(999) + file.name}`);
-      const uploadTask = ref.put(file);
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo1: url }).then(() => {
-            // window.location.reload();
+        });
+      } else {
+        const ref = storage.ref(`/images/${Math.random(999) + file.name}`);
+        const uploadTask = ref.put(file);
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo1: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
+        });
+      }
+    } catch(e){
+      Swal.fire({
+        position: 'top',
+        icon: 'error',
+        title: 'ยังไม่ใส่รูป',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
 
@@ -271,28 +297,52 @@ class EditPlace extends Component {
     const updateRef = firebase.firestore().collection('place').doc(this.state.key);
     const file2 = this.state.file2
     const photo2 = this.state.photo2;
-    if (photo2 !== '') {
-      const ref = storage.ref(`/images/${Math.random(999) + file2.name}`);
-      const uploadTask = ref.put(file2);
-      let pictureRef = storage.refFromURL(photo2);
-      pictureRef.delete();
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo2: url }).then(() => {
-            // window.location.reload();
+    try {
+      if (photo2 !== '') {
+        const ref = storage.ref(`/images/${Math.random(999) + file2.name}`);
+        const uploadTask = ref.put(file2);
+        let pictureRef = storage.refFromURL(photo2);
+        pictureRef.delete();
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo2: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
-    } else {
-      const ref = storage.ref(`/images/${Math.random(999) + file2.name}`);
-      const uploadTask = ref.put(file2);
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo2: url }).then(() => {
-            // window.location.reload();
+        });
+      } else {
+        const ref = storage.ref(`/images/${Math.random(999) + file2.name}`);
+        const uploadTask = ref.put(file2);
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo2: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
+        });
+      }
+    } catch (e) {
+      Swal.fire({
+        position: 'top',
+        icon: 'error',
+        title: 'ยังไม่ใส่รูป',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
 
@@ -308,28 +358,52 @@ class EditPlace extends Component {
     const updateRef = firebase.firestore().collection('place').doc(this.state.key);
     const file3 = this.state.file3
     const photo3 = this.state.photo3;
-    if (photo3 !== '') {
-      const ref = storage.ref(`/images/${Math.random(999) + file3.name}`);
-      const uploadTask = ref.put(file3);
-      let pictureRef = storage.refFromURL(photo3);
-      pictureRef.delete();
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo3: url }).then(() => {
-            // window.location.reload();
+    try {
+      if (photo3 !== '') {
+        const ref = storage.ref(`/images/${Math.random(999) + file3.name}`);
+        const uploadTask = ref.put(file3);
+        let pictureRef = storage.refFromURL(photo3);
+        pictureRef.delete();
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo3: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
-    } else {
-      const ref = storage.ref(`/images/${Math.random(999) + file3.name}`);
-      const uploadTask = ref.put(file3);
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo3: url }).then(() => {
-            // window.location.reload();
+        });
+      } else {
+        const ref = storage.ref(`/images/${Math.random(999) + file3.name}`);
+        const uploadTask = ref.put(file3);
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo3: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
+        });
+      }
+    } catch (e) {
+      Swal.fire({
+        position: 'top',
+        icon: 'error',
+        title: 'ยังไม่ใส่รูป',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
 
@@ -345,28 +419,52 @@ class EditPlace extends Component {
     const updateRef = firebase.firestore().collection('place').doc(this.state.key);
     const file4 = this.state.file4;
     const photo4 = this.state.photo4;
-    if (photo4 !== '') {
-      const ref = storage.ref(`/images/${Math.random(999) + file4.name}`);
-      const uploadTask = ref.put(file4);
-      let pictureRef = storage.refFromURL(photo4);
-      pictureRef.delete();
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo4: url }).then(() => {
-            // window.location.reload();
+    try {
+      if (photo4 !== '') {
+        const ref = storage.ref(`/images/${Math.random(999) + file4.name}`);
+        const uploadTask = ref.put(file4);
+        let pictureRef = storage.refFromURL(photo4);
+        pictureRef.delete();
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo4: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
-    } else {
-      const ref = storage.ref(`/images/${Math.random(999) + file4.name}`);
-      const uploadTask = ref.put(file4);
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo4: url }).then(() => {
-            // window.location.reload();
+        });
+      } else {
+        const ref = storage.ref(`/images/${Math.random(999) + file4.name}`);
+        const uploadTask = ref.put(file4);
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo4: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
+        });
+      }
+    } catch (e) {
+      Swal.fire({
+        position: 'top',
+        icon: 'error',
+        title: 'ยังไม่ใส่รูป',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
 
@@ -382,29 +480,54 @@ class EditPlace extends Component {
     const updateRef = firebase.firestore().collection('place').doc(this.state.key);
     const file5 = this.state.file5;
     const photo5 = this.state.photo5;
-    if (photo5 !== '') {
-      const ref = storage.ref(`/images/${Math.random(999) + file5.name}`);
-      const uploadTask = ref.put(file5);
-      let pictureRef = storage.refFromURL(photo5);
-      pictureRef.delete();
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo5: url }).then(() => {
-            // window.location.reload();
+    try {
+      if (photo5 !== '') {
+        const ref = storage.ref(`/images/${Math.random(999) + file5.name}`);
+        const uploadTask = ref.put(file5);
+        let pictureRef = storage.refFromURL(photo5);
+        pictureRef.delete();
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo5: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
-    } else {
-      const ref = storage.ref(`/images/${Math.random(999) + file5.name}`);
-      const uploadTask = ref.put(file5);
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo5: url }).then(() => {
-            // window.location.reload();
+        });
+      } else {
+        const ref = storage.ref(`/images/${Math.random(999) + file5.name}`);
+        const uploadTask = ref.put(file5);
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo5: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
+        });
+      }
+    } catch (e) {
+      Swal.fire({
+        position: 'top',
+        icon: 'error',
+        title: 'ยังไม่ใส่รูป',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
+
   }
 
   handleChange6 = (e) => {
@@ -419,28 +542,52 @@ class EditPlace extends Component {
     const updateRef = firebase.firestore().collection('place').doc(this.state.key);
     const file6 = this.state.file6;
     const photo6 = this.state.photo6;
-    if (photo6 !== '') {
-      const ref = storage.ref(`/images/${Math.random(999) + file6.name}`);
-      const uploadTask = ref.put(file6);
-      let pictureRef = storage.refFromURL(photo6);
-      pictureRef.delete();
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo6: url }).then(() => {
-            // window.location.reload();
+    try {
+      if (photo6 !== '') {
+        const ref = storage.ref(`/images/${Math.random(999) + file6.name}`);
+        const uploadTask = ref.put(file6);
+        let pictureRef = storage.refFromURL(photo6);
+        pictureRef.delete();
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo6: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
-    } else {
-      const ref = storage.ref(`/images/${Math.random(999) + file6.name}`);
-      const uploadTask = ref.put(file6);
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo6: url }).then(() => {
-            // window.location.reload();
+        });
+      } else {
+        const ref = storage.ref(`/images/${Math.random(999) + file6.name}`);
+        const uploadTask = ref.put(file6);
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo6: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
+        });
+      }
+    } catch (e) {
+      Swal.fire({
+        position: 'top',
+        icon: 'error',
+        title: 'ยังไม่ใส่รูป',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
 
@@ -456,29 +603,54 @@ class EditPlace extends Component {
     const updateRef = firebase.firestore().collection('place').doc(this.state.key);
     const file7 = this.state.file7;
     const photo7 = this.state.photo7;
-    if (photo7 !== '') {
-      const ref = storage.ref(`/images/${Math.random(999) + file7.name}`);
-      const uploadTask = ref.put(file7);
-      let pictureRef = storage.refFromURL(photo7);
-      pictureRef.delete();
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo7: url }).then(() => {
-            // window.location.reload();
+    try {
+      if (photo7 !== '') {
+        const ref = storage.ref(`/images/${Math.random(999) + file7.name}`);
+        const uploadTask = ref.put(file7);
+        let pictureRef = storage.refFromURL(photo7);
+        pictureRef.delete();
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo7: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
-    } else {
-      const ref = storage.ref(`/images/${Math.random(999) + file7.name}`);
-      const uploadTask = ref.put(file7);
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo7: url }).then(() => {
-            // window.location.reload();
+        });
+      } else {
+        const ref = storage.ref(`/images/${Math.random(999) + file7.name}`);
+        const uploadTask = ref.put(file7);
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo7: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
+        });
+      }
+    } catch (e) {
+      Swal.fire({
+        position: 'top',
+        icon: 'error',
+        title: 'ยังไม่ใส่รูป',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
+
   }
 
   handleChange8 = (e) => {
@@ -493,28 +665,52 @@ class EditPlace extends Component {
     const updateRef = firebase.firestore().collection('place').doc(this.state.key);
     const file8 = this.state.file8;
     const photo8 = this.state.photo8;
-    if (photo8 !== '') {
-      const ref = storage.ref(`/images/${Math.random(999) + file8.name}`);
-      const uploadTask = ref.put(file8);
-      let pictureRef = storage.refFromURL(photo8);
-      pictureRef.delete();
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo8: url }).then(() => {
-            // window.location.reload();
+    try {
+      if (photo8 !== '') {
+        const ref = storage.ref(`/images/${Math.random(999) + file8.name}`);
+        const uploadTask = ref.put(file8);
+        let pictureRef = storage.refFromURL(photo8);
+        pictureRef.delete();
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo8: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
-    } else {
-      const ref = storage.ref(`/images/${Math.random(999) + file8.name}`);
-      const uploadTask = ref.put(file8);
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo8: url }).then(() => {
-            // window.location.reload();
+        });
+      } else {
+        const ref = storage.ref(`/images/${Math.random(999) + file8.name}`);
+        const uploadTask = ref.put(file8);
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo8: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
+        });
+      }
+    } catch (e) {
+      Swal.fire({
+        position: 'top',
+        icon: 'error',
+        title: 'ยังไม่ใส่รูป',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
 
@@ -530,30 +726,56 @@ class EditPlace extends Component {
     const updateRef = firebase.firestore().collection('place').doc(this.state.key);
     const file9 = this.state.file9;
     const photo9 = this.state.photo9;
-    if (photo9 !== '') {
-      const ref = storage.ref(`/images/${Math.random(999) + file9.name}`);
-      const uploadTask = ref.put(file9);
-      let pictureRef = storage.refFromURL(photo9);
-      pictureRef.delete();
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo9: url }).then(() => {
-            // window.location.reload();
+    try {
+      if (photo9 !== '') {
+        const ref = storage.ref(`/images/${Math.random(999) + file9.name}`);
+        const uploadTask = ref.put(file9);
+        let pictureRef = storage.refFromURL(photo9);
+        pictureRef.delete();
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo9: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
-    } else {
-      const ref = storage.ref(`/images/${Math.random(999) + file9.name}`);
-      const uploadTask = ref.put(file9);
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo9: url }).then(() => {
-            // window.location.reload();
+        });
+      } else {
+        const ref = storage.ref(`/images/${Math.random(999) + file9.name}`);
+        const uploadTask = ref.put(file9);
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo9: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
           })
-        })
-      });
+        });
+      }
+    } catch (e) {
+      Swal.fire({
+        position: 'top',
+        icon: 'error',
+        title: 'ยังไม่ใส่รูป',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
+
   }
+
 
   handleChange10 = (e) => {
     const file10 = e.target.files[0];
@@ -567,28 +789,253 @@ class EditPlace extends Component {
     const updateRef = firebase.firestore().collection('place').doc(this.state.key);
     const file10 = this.state.file10;
     const photo10 = this.state.photo10;
+    try {
+      if (photo10 !== '') {
+        const ref = storage.ref(`/images/${Math.random(999) + file10.name}`);
+        const uploadTask = ref.put(file10);
+        let pictureRef = storage.refFromURL(photo10);
+        pictureRef.delete();
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo10: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
+          })
+        });
+      } else {
+        const ref = storage.ref(`/images/${Math.random(999) + file10.name}`);
+        const uploadTask = ref.put(file10);
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            updateRef.update({ photo10: url }).then(() => {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              // window.location.reload();
+            })
+          })
+        });
+      }
+    } catch (e) {
+      Swal.fire({
+        position: 'top',
+        icon: 'error',
+        title: 'ยังไม่ใส่รูป',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+
+  }
+
+  delete = (e) => {
+    e.preventDefault();
+    const updateRef = firebase.firestore().collection('place').doc(this.state.key);
+    const photo1 = this.state.photo1
+    if (photo1 !== '') {
+      let pictureRef = storage.refFromURL(photo1);
+      pictureRef.delete().then(() => {
+        updateRef.update({ photo1: '' }).then(() => {
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'ลบรูปภาพสำเร็จ',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        })
+      })
+    }
+  }
+
+  delete2 = (e) => {
+    e.preventDefault();
+    const updateRef = firebase.firestore().collection('place').doc(this.state.key);
+    const photo2 = this.state.photo2
+    if (photo2 !== '') {
+      let pictureRef = storage.refFromURL(photo2);
+      pictureRef.delete().then(() => {
+        updateRef.update({ photo2: '' }).then(() => {
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'ลบรูปภาพสำเร็จ',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        })
+      })
+    }
+  }
+
+  delete3 = (e) => {
+    e.preventDefault();
+    const updateRef = firebase.firestore().collection('place').doc(this.state.key);
+    const photo3 = this.state.photo3
+    if (photo3 !== '') {
+      let pictureRef = storage.refFromURL(photo3);
+      pictureRef.delete().then(() => {
+        updateRef.update({ photo3: '' }).then(() => {
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'ลบรูปภาพสำเร็จ',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        })
+      })
+    }
+  }
+
+  delete4 = (e) => {
+    e.preventDefault();
+    const updateRef = firebase.firestore().collection('place').doc(this.state.key);
+    const photo4 = this.state.photo4
+    if (photo4 !== '') {
+      let pictureRef = storage.refFromURL(photo4);
+      pictureRef.delete().then(() => {
+        updateRef.update({ photo4: '' }).then(() => {
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'ลบรูปภาพสำเร็จ',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        })
+      })
+    }
+  }
+
+  delete5 = (e) => {
+    e.preventDefault();
+    const updateRef = firebase.firestore().collection('place').doc(this.state.key);
+    const photo5 = this.state.photo5
+    if (photo5 !== '') {
+      let pictureRef = storage.refFromURL(photo5);
+      pictureRef.delete().then(() => {
+        updateRef.update({ photo5: '' }).then(() => {
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'ลบรูปภาพสำเร็จ',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        })
+      })
+    }
+  }
+
+  delete6 = (e) => {
+    e.preventDefault();
+    const updateRef = firebase.firestore().collection('place').doc(this.state.key);
+    const photo6 = this.state.photo6
+    if (photo6 !== '') {
+      let pictureRef = storage.refFromURL(photo6);
+      pictureRef.delete().then(() => {
+        updateRef.update({ photo6: '' }).then(() => {
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'ลบรูปภาพสำเร็จ',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        })
+      })
+    }
+  }
+
+  delete7 = (e) => {
+    e.preventDefault();
+    const updateRef = firebase.firestore().collection('place').doc(this.state.key);
+    const photo7 = this.state.photo7
+    if (photo7 !== '') {
+      let pictureRef = storage.refFromURL(photo7);
+      pictureRef.delete().then(() => {
+        updateRef.update({ photo7: '' }).then(() => {
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'ลบรูปภาพสำเร็จ',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        })
+      })
+    }
+  }
+
+  delete8 = (e) => {
+    e.preventDefault();
+    const updateRef = firebase.firestore().collection('place').doc(this.state.key);
+    const photo8 = this.state.photo8
+    if (photo8 !== '') {
+      let pictureRef = storage.refFromURL(photo8);
+      pictureRef.delete().then(() => {
+        updateRef.update({ photo8: '' }).then(() => {
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'ลบรูปภาพสำเร็จ',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        })
+      })
+    }
+  }
+
+  delete9 = (e) => {
+    e.preventDefault();
+    const updateRef = firebase.firestore().collection('place').doc(this.state.key);
+    const photo9 = this.state.photo9
+    if (photo9 !== '') {
+      let pictureRef = storage.refFromURL(photo9);
+      pictureRef.delete().then(() => {
+        updateRef.update({ photo9: '' }).then(() => {
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'ลบรูปภาพสำเร็จ',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        })
+      })
+    }
+  }
+
+  delete10 = (e) => {
+    e.preventDefault();
+    const updateRef = firebase.firestore().collection('place').doc(this.state.key);
+    const photo10 = this.state.photo10
     if (photo10 !== '') {
-      const ref = storage.ref(`/images/${Math.random(999) + file10.name}`);
-      const uploadTask = ref.put(file10);
       let pictureRef = storage.refFromURL(photo10);
-      pictureRef.delete();
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo10: url }).then(() => {
-            // window.location.reload();
+      pictureRef.delete().then(() => {
+        updateRef.update({ photo10: '' }).then(() => {
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'ลบรูปภาพสำเร็จ',
+            showConfirmButton: false,
+            timer: 1500
           })
         })
-      });
-    } else {
-      const ref = storage.ref(`/images/${Math.random(999) + file10.name}`);
-      const uploadTask = ref.put(file10);
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          updateRef.update({ photo10: url }).then(() => {
-            // window.location.reload();
-          })
-        })
-      });
+      })
     }
   }
 
@@ -614,52 +1061,92 @@ class EditPlace extends Component {
 
               <div className="phoplace">
                 {this.state.photo1 ? (
-                  <img src={this.state.photo1} width='400' height='300'></img>
+                  <div className="Editimg">
+                    <img src={this.state.photo1} width='400' height='300'></img>
+                    <br />
+                    <button className='btn btn-danger' onClick={this.delete}>ลบรูปภาพ</button>
+                  </div>
                 ) : (
                   <></>
                 )}
                 {this.state.photo2 ? (
-                  <img src={this.state.photo2} width='400' height='300'></img>
+                  <div className="Editimg">
+                    <img src={this.state.photo2} width='400' height='300'></img>
+                    <br />
+                    <button className='btn btn-danger' onClick={this.delete2}>ลบรูปภาพ</button>
+                  </div>
                 ) : (
                   <></>
                 )}
                 {this.state.photo3 ? (
-                  <img src={this.state.photo3} width='400' height='300'></img>
+                  <div className="Editimg">
+                    <img src={this.state.photo3} width='400' height='300'></img>
+                    <br />
+                    <button className='btn btn-danger' onClick={this.delete3}>ลบรูปภาพ</button>
+                  </div>
                 ) : (
                   <></>
                 )}
                 {this.state.photo4 ? (
-                  <img src={this.state.photo4} width='400' height='300'></img>
+                  <div className="Editimg">
+                    <img src={this.state.photo4} width='400' height='300'></img>
+                    <br />
+                    <button className='btn btn-danger' onClick={this.delete4}>ลบรูปภาพ</button>
+                  </div>
                 ) : (
                   <></>
                 )}
                 {this.state.photo5 ? (
-                  <img src={this.state.photo5} width='400' height='300'></img>
+                  <div className="Editimg">
+                    <img src={this.state.photo5} width='400' height='300'></img>
+                    <br />
+                    <button className='btn btn-danger' onClick={this.delete5}>ลบรูปภาพ</button>
+                  </div>
                 ) : (
                   <></>
                 )}
                 {this.state.photo6 ? (
-                  <img src={this.state.photo6} width='400' height='300'></img>
+                  <div className="Editimg">
+                    <img src={this.state.photo6} width='400' height='300'></img>
+                    <br />
+                    <button className='btn btn-danger' onClick={this.delete6}>ลบรูปภาพ</button>
+                  </div>
                 ) : (
                   <></>
                 )}
                 {this.state.photo7 ? (
-                  <img src={this.state.photo7} width='400' height='300'></img>
+                  <div className="Editimg">
+                    <img src={this.state.photo7} width='400' height='300'></img>
+                    <br />
+                    <button className='btn btn-danger' onClick={this.delete7}>ลบรูปภาพ</button>
+                  </div>
                 ) : (
                   <></>
                 )}
                 {this.state.photo8 ? (
-                  <img src={this.state.photo8} width='400' height='300'></img>
+                  <div className="Editimg">
+                    <img src={this.state.photo8} width='400' height='300'></img>
+                    <br />
+                    <button className='btn btn-danger' onClick={this.delete8}>ลบรูปภาพ</button>
+                  </div>
                 ) : (
                   <></>
                 )}
                 {this.state.photo9 ? (
-                  <img src={this.state.photo9} width='400' height='300'></img>
+                  <div className="Editimg">
+                    <img src={this.state.photo9} width='400' height='300'></img>
+                    <br />
+                    <button className='btn btn-danger' onClick={this.delete9}>ลบรูปภาพ</button>
+                  </div>
                 ) : (
                   <></>
                 )}
                 {this.state.photo10 ? (
-                  <img src={this.state.photo10} width='400' height='300'></img>
+                  <div className="Editimg">
+                    <img src={this.state.photo10} width='400' height='300'></img>
+                    <br />
+                    <button className='btn btn-danger' onClick={this.delete10}>ลบรูปภาพ</button>
+                  </div>
                 ) : (
                   <></>
                 )}
@@ -667,65 +1154,65 @@ class EditPlace extends Component {
               <br />
             </center>
             <center>
-            <div>
-              <button className='btn btn-success' onClick={this.toggle}>
-                แก้ไขรูปภาพ: {this.state.show ? 'แสดง' : 'ซ่อน'}
-              </button>
-              {this.state.show &&
-                <center>
-                   <br/>
-                  <form onSubmit={this.handleUpload}>
-                    <input type="file" onChange={this.handleChange} />
-                    <button className='btn btn-success' >ยืนยันอัปโหลด</button>
-                  </form>
-                  <br />
-                  <form onSubmit={this.handleUpload2}>
-                    <input type="file" onChange={this.handleChange2} />
-                    <button className='btn btn-success' >ยืนยันอัปโหลด</button>
-                  </form>
-                  <br />
-                  <form onSubmit={this.handleUpload3}>
-                    <input type="file" onChange={this.handleChange3} />
-                    <button className='btn btn-success' >ยืนยันอัปโหลด</button>
-                  </form>
-                  <br />
-                  <form onSubmit={this.handleUpload4}>
-                    <input type="file" onChange={this.handleChange4} />
-                    <button className='btn btn-success' >ยืนยันอัปโหลด</button>
-                  </form>
-                  <br />
-                  <form onSubmit={this.handleUpload5}>
-                    <input type="file" onChange={this.handleChange5} />
-                    <button className='btn btn-success' >ยืนยันอัปโหลด</button>
-                  </form>
-                  <br />
-                  <form onSubmit={this.handleUpload6}>
-                    <input type="file" onChange={this.handleChange6} />
-                    <button className='btn btn-success' >ยืนยันอัปโหลด</button>
-                  </form>
-                  <br />
-                  <form onSubmit={this.handleUpload7}>
-                    <input type="file" onChange={this.handleChange7} />
-                    <button className='btn btn-success' >ยืนยันอัปโหลด</button>
-                  </form>
-                  <br />
-                  <form onSubmit={this.handleUpload8}>
-                    <input type="file" onChange={this.handleChange8} />
-                    <button className='btn btn-success' >ยืนยันอัปโหลด</button>
-                  </form>
-                  <br />
-                  <form onSubmit={this.handleUpload9}>
-                    <input type="file" onChange={this.handleChange9} />
-                    <button className='btn btn-success' >ยืนยันอัปโหลด</button>
-                  </form>
-                  <br />
-                  <form onSubmit={this.handleUpload10}>
-                    <input type="file" onChange={this.handleChange10} />
-                    <button className='btn btn-success' >ยืนยันอัปโหลด</button>
-                  </form>
-                </center>
-              }
-            </div>
+              <div>
+                <button className='btn btn-success' onClick={this.toggle}>
+                  แก้ไขรูปภาพ: {this.state.show ? 'แสดง' : 'ซ่อน'}
+                </button>
+                {this.state.show &&
+                  <center>
+                    <br />
+                    <form onSubmit={this.handleUpload}>
+                      <input type="file" onChange={this.handleChange} />
+                      <button className='btn btn-success' >ยืนยันอัปโหลด</button>
+                    </form>
+                    <br />
+                    <form onSubmit={this.handleUpload2}>
+                      <input type="file" onChange={this.handleChange2} />
+                      <button className='btn btn-success' >ยืนยันอัปโหลด</button>
+                    </form>
+                    <br />
+                    <form onSubmit={this.handleUpload3}>
+                      <input type="file" onChange={this.handleChange3} />
+                      <button className='btn btn-success' >ยืนยันอัปโหลด</button>
+                    </form>
+                    <br />
+                    <form onSubmit={this.handleUpload4}>
+                      <input type="file" onChange={this.handleChange4} />
+                      <button className='btn btn-success' >ยืนยันอัปโหลด</button>
+                    </form>
+                    <br />
+                    <form onSubmit={this.handleUpload5}>
+                      <input type="file" onChange={this.handleChange5} />
+                      <button className='btn btn-success' >ยืนยันอัปโหลด</button>
+                    </form>
+                    <br />
+                    <form onSubmit={this.handleUpload6}>
+                      <input type="file" onChange={this.handleChange6} />
+                      <button className='btn btn-success' >ยืนยันอัปโหลด</button>
+                    </form>
+                    <br />
+                    <form onSubmit={this.handleUpload7}>
+                      <input type="file" onChange={this.handleChange7} />
+                      <button className='btn btn-success' >ยืนยันอัปโหลด</button>
+                    </form>
+                    <br />
+                    <form onSubmit={this.handleUpload8}>
+                      <input type="file" onChange={this.handleChange8} />
+                      <button className='btn btn-success' >ยืนยันอัปโหลด</button>
+                    </form>
+                    <br />
+                    <form onSubmit={this.handleUpload9}>
+                      <input type="file" onChange={this.handleChange9} />
+                      <button className='btn btn-success' >ยืนยันอัปโหลด</button>
+                    </form>
+                    <br />
+                    <form onSubmit={this.handleUpload10}>
+                      <input type="file" onChange={this.handleChange10} />
+                      <button className='btn btn-success' >ยืนยันอัปโหลด</button>
+                    </form>
+                  </center>
+                }
+              </div>
             </center>
             <br />
             <br />
@@ -752,11 +1239,15 @@ class EditPlace extends Component {
                   <input type="text" className="form-control" name="business_name_english" value={this.state.business_name_english} onChange={this.onChange} placeholder="business_name_english" />
                 </div>
                 <div className="form-group">
-                  <label for="tel">Time:</label>
-                  <input type="text" className="form-control" name="tel" value={this.state.time} onChange={this.onChange} placeholder="Time" />
+                  <label for="Day">Time:</label>
+                  <input type="text" className="form-control" name="day" value={this.state.day} onChange={this.onChange} placeholder="Day" />
                 </div>
                 <div className="form-group">
-                  <label for="tel">email:</label>
+                  <label for="tel">Time:</label>
+                  <input type="text" className="form-control" name="time" value={this.state.time} onChange={this.onChange} placeholder="Time" />
+                </div>
+                <div className="form-group">
+                  <label for="tel">Email:</label>
                   <input type="email" className="form-control" name="email" value={this.state.email} onChange={this.onChange} placeholder="Email" />
                 </div>
                 <div className="form-group">

@@ -3,7 +3,7 @@ import firebase, { storage } from './config';
 import { Link } from 'react-router-dom';
 import DashBoard from './components/Dashboard';
 import Swal from 'sweetalert2'
-
+import './Edit.css'
 
 class Edit extends Component {
 
@@ -134,12 +134,14 @@ class Edit extends Component {
         <br />
         <div className="container">
           <div className="panel panel-default">
+          <div className="cardEdit">
             <div className="panel-heading">
               <h3 className="panel-title">
                 EDIT USER
               </h3>
             </div>
             <div>
+            <div className="profileEdit">
               <center>
                 {showphoto ? (
                   <img src={this.state.photo} width='200' height='200'></img>
@@ -147,6 +149,7 @@ class Edit extends Component {
                   <label>ไม่มีรูปภาพ</label>
                 )}
               </center>
+              </div>
               <br />
               <form onSubmit={this.handleUpload}>
                 <center>
@@ -183,11 +186,14 @@ class Edit extends Component {
                   <input type="password" id="myInput" className="form-control" name="password" value={this.state.password} onChange={this.onChange} placeholder="username" />
                 </div>
                 <br />
+                <center>
                 <button type="submit" className="btn btn-success">Submit</button>
+                </center>
               </form>
             </div>
           </div>
         </div>
+      </div>
       </div>
     );
   }

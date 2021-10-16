@@ -13,8 +13,14 @@
 }
 .photourl{
     border: 1px solid black;
+    border-radius: 10px;
     display: flex;
     height: 300px;
     width: 1300px;
     overflow: auto;
+}
+.photourl img{
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 10px;
 }

@@ -8,6 +8,7 @@
     justify-content: end;
     padding-right: 10rem;
 } */
-.addplace{
-    padding-left: 1rem;
+.placehead{
+   justify-content: end;
+   margin-right: 285px;
 }

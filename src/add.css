@@ -6,3 +6,7 @@
 .upimage{
     padding: 30px;
 }
+.photoacu img{
+    border: 1px solid black;
+    border-radius: 100px;
+}

@@ -64,11 +64,13 @@ class Show extends Component {
               <dl>
                 <dt>Photo</dt>
                 <dd>
+                  <div className='profile'>
                   {showphoto ? (
                     <img src={this.state.user.photo} width='200' height='200'></img>
                   ) : (
                     <label>ไม่มีรูปภาพ</label>
                   )}
+                  </div>
                 </dd>
                 <br></br>
                 <dt>User_id:</dt>

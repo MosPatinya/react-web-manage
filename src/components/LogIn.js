@@ -4,6 +4,7 @@ import { AuthContext } from './Auth'
 import firebaseConfig from '../config'
 import { Link } from 'react-router-dom'
 import "./Login.css"
+import Swal from 'sweetalert2'
 
 const LogIn = () => {
 
@@ -15,7 +16,6 @@ const LogIn = () => {
         try {
 
             firebaseConfig.auth().signInWithEmailAndPassword(email.value, password.value);
-
         } catch(error) {
             alert(error);
         }

@@ -1,0 +1,10 @@
+.cardEdit{
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(230, 230, 230);
+}
+.profileEdit img{
+    border: 1px solid black;
+    border-radius: 100px;
+}

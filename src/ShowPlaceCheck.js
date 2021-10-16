@@ -3,6 +3,7 @@ import firebase from './config';
 import { Link } from 'react-router-dom';
 import DashBoard from './components/Dashboard';
 import Swal from 'sweetalert2'
+
 class ShowPlaceCheck extends Component {
 
   constructor(props) {
@@ -28,10 +29,23 @@ class ShowPlaceCheck extends Component {
       facebook: '',
       instagram: '',
       type: '',
+      type2: '',
+      type3: '',
+      type4: '',
+      type5: '',
+      type6: '',
+      type7: '',
+      type8: '',
+      type9: '',
+      type10: '',
       detail: '',
       latitude: '',
       longitude: '',
       tel: '',
+      photodetail: '',
+      time: '',
+      day: '',
+      open: '',
     };
   }
 
@@ -61,10 +75,23 @@ class ShowPlaceCheck extends Component {
           facebook: place.facebook,
           instagram: place.instagram,
           type: place.type,
+          type2: place.type2,
+          type3: place.type3,
+          type4: place.type5,
+          type5: place.type5,
+          type6: place.type6,
+          type7: place.type7,
+          type8: place.type8,
+          type9: place.type9,
+          type10: place.type10,
           detail: place.detail,
           latitude: place.latitude,
           longitude: place.longitude,
           tel: place.tel,
+          photodetail: place.photodetail,
+          time: place.time,
+          day: place.day,
+          open: place.open,
         });
       } else {
         console.log("No such document!");
@@ -161,32 +188,64 @@ class ShowPlaceCheck extends Component {
           </div>
           <div className="body">
             <dl>
-              <dt>ชื่อร้านค้า/สถานที่:</dt>
+              <dt>ชื่อร้านค้า/สถานที่</dt>
               <dd>{this.state.business_name}</dd>
-              <dt>ชื่อแฝง:</dt>
+              <dt>ชื่อแฝง</dt>
               <dd>{this.state.business_name1}</dd>
-              <dt>ชื่อแฝง2:</dt>
+              <dt>ชื่อแฝง2</dt>
               <dd>{this.state.business_name2}</dd>
-              <dt>ชื่อแฝง3:</dt>
+              <dt>ชื่อแฝง3</dt>
               <dd>{this.state.business_name3}</dd>
-              <dt>ชื่อภาษาอังกฤษ:</dt>
+              <dt>ชื่อภาษาอังกฤษ</dt>
               <dd>{this.state.business_name_english}</dd>
-              <dt>อีเมล:</dt>
+              <dt>อีเมล</dt>
               <dd>{this.state.email}</dd>
-              <dt>Facebook:</dt>
+              <dt>Facebook</dt>
               <dd>{this.state.facebook}</dd>
-              <dt>instagram:</dt>
+              <dt>instagram</dt>
               <dd>{this.state.instagram}</dd>
-              <dt>เบอร์โทร:</dt>
+              <dt>เบอร์โทร</dt>
               <dd>{this.state.tel}</dd>
-              <dt>หมวดหมู่:</dt>
+              <dt>Status</dt>
+                <dd>
+                  {this.state.open == true ? (
+                    <div className = 'open'>สถานที่เปิดอยู่</div>
+                ) : (
+                  <div className = 'close'>สถานที่ปิดอยู่</div>
+                )}
+                </dd>
+              <dt>หมวดหมู่</dt>
               <dd>{this.state.type}</dd>
-              <dt>รายะเอียด:</dt>
+              <dd>{this.state.type2}</dd>
+              <dd>{this.state.type3}</dd>
+              <dd>{this.state.type4}</dd>
+              <dd>{this.state.type5}</dd>
+              <dd>{this.state.type6}</dd>
+              <dd>{this.state.type7}</dd>
+              <dd>{this.state.type8}</dd>
+              <dd>{this.state.type9}</dd>
+              <dd>{this.state.type10}</dd>
+              <dt>รายะเอียด</dt>
               <dd>{this.state.detail}</dd>
-              <dt>ละติจูด:</dt>
+              <dt>เวลาเปิด/ปิด</dt>
+              <dd>{this.state.time}</dd>
+              <dt>วันที่เปิด/ปิด</dt>
+              <dd>{this.state.day}</dd>
+              <dt>ละติจูด</dt>
               <dd>{this.state.latitude}</dd>
-              <dt>ลองจิจูด:</dt>
+              <dt>ลองจิจูด</dt>
               <dd>{this.state.longitude}</dd>
+              <dt>รายะเอียดรูปภาพ</dt>
+              <dd>{this.state.photodetail}</dd>
+              <dt>สถานะ</dt>
+              <dd>
+                {this.state.check == true ? (
+                  'ตรวจสอบเเล้ว'
+                ) : (
+                  'ยังไม่ตรวจสอบ'
+                )}
+              </dd>
+              <br />
               <form onSubmit={this.onSubmit}>
                 <button type="submit" className="btn btn-success">เผยเเพร่</button>
               </form>

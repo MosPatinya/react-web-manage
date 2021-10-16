@@ -13,14 +13,15 @@ export class User extends Component {
                 <header>
                     <DashBoard />
                 </header>
-                <div className='detail_user'>
-                    <div className='userhead'>
+                <br/>
+                <center>
                     <h2>ข้อมูลผู้ใช้งาน</h2>
+                </center>
+                <div className='adduser'>
+                        <Link to='/add'><button type="button" class="btn btn-success">เพิ่มผู้ใช้งาน</button></Link>
                     </div>
+                <div className='detail_user'>
                     <Create_List />
-                    <div className='adduser'>
-                    <Link to='/add'><button type="button" class="btn btn-success">เพิ่มผู้ใช้งาน</button></Link>
-                    </div>
                 </div>
             </div>
         )

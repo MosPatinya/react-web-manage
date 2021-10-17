@@ -9,6 +9,12 @@
     padding-right: 10rem;
 } */
 .placehead{
-   justify-content: end;
-   margin-right: 285px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(196, 196, 196);
+    margin-left: 304px;
+    margin-right: 304px;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }

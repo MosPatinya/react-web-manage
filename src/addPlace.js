@@ -444,14 +444,14 @@ function Addplace() {
                         </div>
                         <div className="form-group">
                             <label>Day:</label>
-                            <input type="day" className="form-control"
+                            <input type="text" className="form-control"
                                 value={day}
                                 onChange={(e) => setDay(e.target.value)}
                                 placeholder="วันที่เปิด จ.-อา." />
                         </div>
                         <div className="form-group">
                             <label>Time:</label>
-                            <input type="day" className="form-control"
+                            <input type="text" className="form-control"
                                 value={time}
                                 onChange={(e) => setTime(e.target.value)}
                                 placeholder="เวลาที่เปิด" />

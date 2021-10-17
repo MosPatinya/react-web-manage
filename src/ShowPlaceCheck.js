@@ -134,6 +134,7 @@ class ShowPlaceCheck extends Component {
           <DashBoard />
         </header>
         <div class="container1">
+          <div className='area'>
           <div className='photo'>
             {photo1 ? (
               <img className='photo1' src={this.state.photo1} width="400" height="200"></img>
@@ -250,6 +251,7 @@ class ShowPlaceCheck extends Component {
                 <button type="submit" className="btn btn-success">เผยเเพร่</button>
               </form>
             </dl>
+          </div>
           </div>
         </div>
       </div>

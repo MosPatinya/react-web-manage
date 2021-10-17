@@ -6,6 +6,10 @@
 .adduser{
     padding: 20px;
     display: flex;
-    justify-content: center;
-    margin-left: 1190px;
+    justify-content: space-between;
+    background-color: rgb(196, 196, 196);
+    margin-left: 312px;
+    margin-right: 312px;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }

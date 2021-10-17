@@ -6,5 +6,9 @@
     background-color: rgb(92, 92, 92);
     color: white;
     font-size: 20px;
-    
+}
+.panel-body{
+    border: 1px solid rgb(92, 92, 92);
+    border-end-start-radius: 10px;
+    border-end-end-radius: 10px;
 }

@@ -1216,7 +1216,7 @@ class EditPlace extends Component {
             </center>
             <br />
             <br />
-            <div className="panel-body">
+            <div className="panel-body1">
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <label for="business_name">business_name:</label>

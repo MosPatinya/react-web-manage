@@ -1,5 +1,13 @@
 .table thead{
     background-color:  rgb(92, 92, 92);
+    margin: 30px;
     color: white;
     font-size: 20px;
+}
+.text-head{
+    background-color: rgb(196, 196, 196);
+    margin: 15px;
+    margin-left: 312px;
+    margin-right: 312px;
+    border-radius: 10px;
 }

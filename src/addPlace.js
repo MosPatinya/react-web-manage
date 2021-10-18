@@ -44,6 +44,7 @@ function Addplace() {
     const [progress, setProgress] = useState(0);
     const [photodetail, setPhotodetail] = useState('')
     const [map,setMap] = useState('')
+    const view =0;
     var photo1
     var photo2
     var photo3
@@ -233,6 +234,7 @@ function Addplace() {
             photo10: photo10,
             photodetail: photodetail,
             map: map,
+            view: view,
         };
         console.log(obj)
         setBusiness_name('');

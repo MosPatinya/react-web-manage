@@ -94,6 +94,11 @@ class ShowPlace extends Component {
     const type3 = this.state.place.type3
     const type4 = this.state.place.type4
     const type5 = this.state.place.type5
+    const type6 = this.state.place.type6
+    const type7 = this.state.place.type7
+    const type8 = this.state.place.type8
+    const type9 = this.state.place.type9
+    const type10 = this.state.place.type10
     return (
       <div>
         <DashBoard />
@@ -212,6 +217,44 @@ class ShowPlace extends Component {
                     <></>
                   )}
                   {type5 ? (
+                    <div>
+                      <label>{type5}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                </dd>
+                <dt>ประเภท:</dt>
+                <dd>
+                  {type6 ? (
+                    <div>
+                      <label>{type}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {type7 ? (
+                    <div>
+                      <label>{type2}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {type8 ? (
+                    <div>
+                      <label>{type3}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {type9 ? (
+                    <div>
+                      <label>{type4}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {type10 ? (
                     <div>
                       <label>{type5}</label><br />
                     </div>

@@ -8,7 +8,7 @@ class Chartgeneral extends Component {
     constructor(props) {
         super(props);
         this.ref = firebase.firestore().collection('place')
-            .where('type', '==', 'สถานที่ทั่วไป')
+            .where('type', '==', 'ร้านทั่วไป')
             .orderBy('rating', 'desc')
             .limit(10)
             .onSnapshot(this.onCollection)

@@ -25,7 +25,10 @@ const DashBoard = () => {
                     <Link className="nav-link" to="/place">ข้อมูลร้านค้า</Link>
                 </li>
                 <li className="nav-item">
-                <Link className="nav-link" to="/graf">อันดับสถานที่</Link>
+                    <Link className="nav-link" to="/graf">อันดับสถานที่(Rating)</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/view">อันดับสถานที่(View)</Link>
                 </li>
                 <li className="nav-item">
                     <button onClick={() => firebaseConfig.auth().signOut()} class="btn btn-danger">Sign Out</button>

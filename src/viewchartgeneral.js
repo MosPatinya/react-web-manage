@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import firebase from './config';
-import { Bar } from 'react-chartjs-2'
+import { Bar, Line } from 'react-chartjs-2'
 import { Link, Redirect, Route, Router } from 'react-router-dom'
 import './chart.css'
 
-class Chartrmutt extends Component {
+class Viewchartgeneral extends Component {
     constructor(props) {
         super(props);
         this.ref = firebase.firestore().collection('place')
-            .where('type', '==', 'สถานที่ใน Rmutt')
-            .orderBy('rating', 'desc')
+            .where('type', '==', 'ร้านทั่วไป')
+            .orderBy('view', 'desc')
             .limit(10)
             .onSnapshot(this.onCollection)
         this.state = {
@@ -20,9 +20,9 @@ class Chartrmutt extends Component {
     onCollection = (querySnapshot) => {
         const place = [];
         querySnapshot.forEach((doc) => {
-            const { rating, business_name } = doc.data();
+            const { view, business_name } = doc.data();
             place.push({
-                rating,
+                view,
                 business_name
             });
         });
@@ -35,8 +35,8 @@ class Chartrmutt extends Component {
     render() {
         const label = this.state.place.map(place => place.business_name);
         console.log(label);
-        const rating = this.state.place.map(place => place.rating);
-        console.log(rating);
+        const view = this.state.place.map(place => place.view);
+        console.log(view);
         return (
             <div>
                 <div className='label-header'>
@@ -45,8 +45,8 @@ class Chartrmutt extends Component {
                     data={{
                         labels: label,
                         datasets: [{
-                            label: 'สถานที่ในRMUTT',
-                            data: rating,
+                            label: 'ร้านทั่วไป',
+                            data: view,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
@@ -55,42 +55,37 @@ class Chartrmutt extends Component {
                                 'rgba(153, 102, 255, 0.2)',
                             ],
                             borderWidth: 1
-                        },
-                        // {
-                        //     label: label,
-                        //     data:[100,200,300,400]
-                        // }
-                        ],
+                        }]
                     }}
                     height={105}
                     width={260}
                 />
                 <br />
                 <div>
-                    <ul className="chart-header">
+                <ul className="chart-header">
                         <li className="chart-bar">
-                            <Link className="chart-link" to="/grafshop">ร้านอาหาร</Link>
+                            <Link className="chart-link" to="/viewshop">ร้านอาหาร</Link>
                         </li>
                         <li className="chart-bar">
-                            <Link className="chart-link" to="/grafcoffee">ร้านกาแฟ</Link>
+                            <Link className="chart-link" to="/viewcoffee">ร้านกาแฟ</Link>
                         </li>
                         <li className="chart-bar">
-                            <Link className="chart-link" to="/grafstationery">ร้านเครื่องเขียน</Link>
+                            <Link className="chart-link" to="/viewstationery">ร้านเครื่องเขียน</Link>
                         </li>
                         <li className="chart-bar">
-                            <Link className="chart-link" to="/grafbeautiful" >ร้านเสริมสวย</Link>
+                            <Link className="chart-link" to="/viewbeautiful">ร้านเสริมสวย</Link>
                         </li>
                         <li className="chart-bar">
-                            <Link className="chart-link" to="/graf">คลินิก/ขายยา</Link>
+                            <Link className="chart-link" to="/view">คลินิก/ขายยา</Link>
                         </li>
                         <li className="chart-bar">
-                            <Link className="chart-link" to="/grafgeneral">ร้านทั่วไป</Link>
+                            <Link className="chart-link" to="/viewgeneral">ร้านทั่วไป</Link>
                         </li>
                         <li className="chart-bar">
-                            <Link className="chart-link" to="/grafplacegeneral">สถานที่ทั่วไป</Link>
+                            <Link className="chart-link" to="/viewplacegeneral">สถานที่ทั่วไป</Link>
                         </li>
                         <li className="chart-bar">
-                            <Link className="chart-link" to="/grafrmutt">สถานที่ในRMUTT</Link>
+                            <Link className="chart-link" to="/viewrmutt">สถานที่ในRMUTT</Link>
                         </li>
                     </ul>
                 </div>
@@ -99,4 +94,4 @@ class Chartrmutt extends Component {
     }
 }
 
-export default Chartrmutt;
+export default Viewchartgeneral;

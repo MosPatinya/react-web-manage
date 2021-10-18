@@ -473,6 +473,8 @@ function Addplace() {
                         <div className="form-group">
                             <label>Email:</label>
                             <input type="text" className="form-control"
+                                required
+                                pattern="[^ @]*@[^ @]*" 
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Email" />
@@ -609,7 +611,7 @@ function Addplace() {
                             </select>
                         </div>
                         <div className="select">
-                            <label for="category">หมวดหมู่ย่อย:</label><br />
+                            <label for="category">ประเภท:</label><br />
                             <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={(e) => setType6(e.target.value)}>
                                 <option >เลือกหมวดหมู่</option>
                                 <option value="คาเฟ่">คาเฟ่</option>

@@ -26,6 +26,14 @@ import Grafgeneral from './Navbar/grafgeneral';
 import Grafstationery from './Navbar/grafstationery';
 import Grafrmutt from './Navbar/grafrmutt';
 import Grafplacegeneral from './Navbar/grafplacegeneral';
+import View from './view';
+import Viewbeautiful from './viewbeautiful';
+import Viewcoffee from './viewcoffee';
+import Viewgeneral from './viewgeneral';
+import Viewplacegeneral from './viewplacegeneral';
+import Viewrmutt from './viewrmutt';
+import Viewshop from './viewshop';
+import Viewstationery from './viewstationery';
 function App() {
   return (
     <AuthProvider>
@@ -54,6 +62,14 @@ function App() {
           <Route exact path='/grafstationery' component={Grafstationery}/>
           <Route exact path='/grafrmutt' component={Grafrmutt}/>
           <Route exact path='/grafplacegeneral' component={Grafplacegeneral}/>
+          <Route exact path='/view' component={View}/>
+          <Route exact path='/viewbeautiful' component={Viewbeautiful}/>
+          <Route exact path='/viewcoffee' component={Viewcoffee}/>
+          <Route exact path='/viewgeneral' component={Viewgeneral}/>
+          <Route exact path='/viewplacegeneral' component={Viewplacegeneral}/>
+          <Route exact path='/viewrmutt' component={Viewrmutt}/>
+          <Route exact path='/viewshop' component={Viewshop}/>
+          <Route exact path='/viewstationery' component={Viewstationery}/>
         </Switch>
       </Router>
     </AuthProvider>

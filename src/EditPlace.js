@@ -39,6 +39,14 @@ class EditPlace extends Component {
       detail: '',
       latitude: '',
       longitude: '',
+      latitude2: '',
+      longitude2: '',
+      latitude3: '',
+      longitude3: '',
+      latitude4: '',
+      longitude4: '',
+      latitude5: '',
+      longitude5: '',
       type: '',
       type2: '',
       type3: '',
@@ -50,6 +58,8 @@ class EditPlace extends Component {
       type9: '',
       type10: '',
       photodetail: '',
+      time_open: '',
+      time_close: '',
       file: null,
       url: null,
       file2: null,
@@ -73,6 +83,8 @@ class EditPlace extends Component {
       show: false,
     };
   }
+
+
 
   componentDidMount() {
     const ref = firebase.firestore().collection('place').doc(this.props.match.params.id);
@@ -103,6 +115,14 @@ class EditPlace extends Component {
           detail: place.detail,
           latitude: place.latitude,
           longitude: place.longitude,
+          latitude2: place.latitude2,
+          longitude2: place.longitude2,
+          latitude3: place.latitude3,
+          longitude3: place.longitude3,
+          latitude4: place.latitude4,
+          longitude4: place.longitude4,
+          latitude5: place.latitude5,
+          longitude5: place.longitude5,
           type: place.type,
           type2: place.type2,
           type3: place.type3,
@@ -117,6 +137,8 @@ class EditPlace extends Component {
           day: place.day,
           time: place.time,
           address: place.address,
+          time_open: place.time_open,
+          time_close: place.time_close,
         });
       } else {
         console.log("No such document!");
@@ -129,6 +151,12 @@ class EditPlace extends Component {
     state[e.target.name] = e.target.value;
     this.setState({ place: state });
   }
+  onChange1 = (e) => {
+    const state = this.state
+    state[e.target.name] = parseFloat(e.target.value);
+    this.setState({ place: state });
+  }
+ 
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -145,6 +173,14 @@ class EditPlace extends Component {
       detail,
       latitude,
       longitude,
+      latitude2,
+      longitude2,
+      latitude3,
+      longitude3,
+      latitude4,
+      longitude4,
+      latitude5,
+      longitude5,
       type,
       type2,
       type3,
@@ -159,6 +195,8 @@ class EditPlace extends Component {
       time,
       address,
       day,
+      time_close,
+      time_open,
 
     } = this.state;
 
@@ -176,6 +214,14 @@ class EditPlace extends Component {
       detail,
       latitude,
       longitude,
+      latitude2,
+      longitude2,
+      latitude3,
+      longitude3,
+      latitude4,
+      longitude4,
+      latitude5,
+      longitude5,
       type,
       type2,
       type3,
@@ -190,6 +236,8 @@ class EditPlace extends Component {
       time,
       address,
       day,
+      time_close,
+      time_open,
     }).then((docRef) => {
       this.setState({
         key: '',
@@ -1239,12 +1287,20 @@ class EditPlace extends Component {
                   <input type="text" className="form-control" name="business_name_english" value={this.state.business_name_english} onChange={this.onChange} placeholder="business_name_english" />
                 </div>
                 <div className="form-group">
-                  <label for="Day">Time:</label>
+                  <label for="Day">Day:</label>
                   <input type="text" className="form-control" name="day" value={this.state.day} onChange={this.onChange} placeholder="Day" />
                 </div>
                 <div className="form-group">
                   <label for="tel">Time:</label>
                   <input type="text" className="form-control" name="time" value={this.state.time} onChange={this.onChange} placeholder="Time" />
+                </div>
+                <div className="form-group">
+                  <label for="tel">Time_open:</label>
+                  <input type="number" className="form-control" name="time_open" value={this.state.time_open} onChange={this.onChange1} placeholder="Time" />
+                </div>
+                <div className="form-group">
+                  <label for="tel">Time_close:</label>
+                  <input type="number" className="form-control" name="time_close" value={this.state.time_close} onChange={this.onChange1} placeholder="Time" />
                 </div>
                 <div className="form-group">
                   <label for="tel">Email:</label>
@@ -1264,11 +1320,47 @@ class EditPlace extends Component {
                 </div>
                 <div className="form-group">
                   <label for="latitude">ละติจูด:</label>
-                  <input type="text" className="form-control" name="latitude" value={this.state.latitude} onChange={this.onChange} placeholder="latitude" />
+                  <input type="number" className="form-control" name="latitude" value={this.state.latitude} onChange={this.onChange1} placeholder="latitude" />
                 </div>
                 <div className="form-group">
                   <label for="longitude">ลองจิจูด:</label>
-                  <input type="text" className="form-control" name="longitude" value={this.state.longitude} onChange={this.onChange} placeholder="longitude" />
+                  <input type="number" className="form-control" name="longitude" value={this.state.longitude} onChange={this.onChange1} placeholder="longitude" />
+                </div>
+
+                <div className="form-group">
+                  <label for="latitude">ละติจูด2:</label>
+                  <input type="number" className="form-control" name="latitude2" value={this.state.latitude2} onChange={this.onChange1} placeholder="latitude" />
+                </div>
+                <div className="form-group">
+                  <label for="longitude">ลองจิจูด2:</label>
+                  <input type="number" className="form-control" name="longitude2" value={this.state.longitude2} onChange={this.onChange1} placeholder="longitude" />
+                </div>
+
+                <div className="form-group">
+                  <label for="latitude">ละติจูด3:</label>
+                  <input type="number" className="form-control" name="latitude3" value={this.state.latitude3} onChange={this.onChange1} placeholder="latitude" />
+                </div>
+                <div className="form-group">
+                  <label for="longitude">ลองจิจูด3:</label>
+                  <input type="number" className="form-control" name="longitude3" value={this.state.longitude3} onChange={this.onChange1} placeholder="longitude" />
+                </div>
+
+                <div className="form-group">
+                  <label for="latitude">ละติจูด4:</label>
+                  <input type="number" className="form-control" name="latitude4" value={this.state.latitude4} onChange={this.onChange1} placeholder="latitude" />
+                </div>
+                <div className="form-group">
+                  <label for="longitude">ลองจิจูด4:</label>
+                  <input type="number" className="form-control" name="longitude4" value={this.state.longitude4} onChange={this.onChange1} placeholder="longitude" />
+                </div>
+
+                <div className="form-group">
+                  <label for="latitude">ละติจูด5:</label>
+                  <input type="number" className="form-control" name="latitude5" value={this.state.latitude5} onChange={this.onChange1} placeholder="latitude" />
+                </div>
+                <div className="form-group">
+                  <label for="longitude">ลองจิจูด5:</label>
+                  <input type="number" className="form-control" name="longitude5" value={this.state.longitude5} onChange={this.onChange1} placeholder="longitude" />
                 </div>
                 <div className="form-group">
                   <label for="photodetail">รายละเอียดรูปภาพ:</label>

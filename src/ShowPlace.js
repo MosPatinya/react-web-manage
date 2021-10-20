@@ -162,29 +162,77 @@ class ShowPlace extends Component {
               <dl>
                 <dt>ชื่อร้านค้า/สถานที่:</dt>
                 <dd>{this.state.place.business_name}</dd>
-                <dt>ชื่อแฝง:</dt>
-                <dd>{this.state.place.business_name1}</dd>
-                <dt>ชื่อแฝง2:</dt>
-                <dd>{this.state.place.business_name2}</dd>
-                <dt>ชื่อแฝง3:</dt>
-                <dd>{this.state.place.business_name3}</dd>
-                <dt>ชื่อภาษาอังกฤษ:</dt>
-                <dd>{this.state.place.business_name_english}</dd>
-                <dt>เบอร์โทร:</dt>
-                <dd>{this.state.place.tel}</dd>
-                <dt>อีเมล:</dt>
-                <dd>{this.state.place.email}</dd>
-                <dt>Facebook:</dt>
-                <dd>{this.state.place.facebook}</dd>
-                <dt>instagram:</dt>
-                <dd>{this.state.place.instagram}</dd>
+                {this.state.place.business_name1 ? (
+                  <div>
+                    <dt>ชื่อแฝง:</dt>
+                    <dd>{this.state.place.business_name1}</dd>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                {this.state.place.business_name2 ? (
+                  <div>
+                    <dt>ชื่อแฝง2:</dt>
+                    <dd>{this.state.place.business_name2}</dd>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                {this.state.place.business_name3 ? (
+                  <div>
+                    <dt>ชื่อแฝง3:</dt>
+                    <dd>{this.state.place.business_name3}</dd>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                {this.state.place.business_name_english ? (
+                  <div>
+                    <dt>ชื่อภาษาอังกฤษ:</dt>
+                    <dd>{this.state.place.business_name_english}</dd>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                {this.state.place.tel ? (
+                  <div>
+                    <dt>เบอร์โทร:</dt>
+                    <dd>{this.state.place.tel}</dd>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                {this.state.place.email ? (
+                  <div>
+                    <dt>อีเมล:</dt>
+                    <dd>{this.state.place.email}</dd>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                {this.state.place.facebook ? (
+                  <div>
+                    <dt>Facebook:</dt>
+                    <dd>{this.state.place.facebook}</dd>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                {this.state.place.instagram ? (
+                  <div>
+                    <dt>instagram:</dt>
+                    <dd>{this.state.place.instagram}</dd>
+                  </div>
+                ) : (
+                  <></>
+                )}
                 <dt>Status</dt>
                 <dd>
                   {this.state.place.open == true ? (
-                    <div className = 'open'>สถานที่เปิดอยู่</div>
-                ) : (
-                  <div className = 'close'>สถานที่ปิดอยู่</div>
-                )}
+                    <div className='open'>สถานที่เปิดอยู่</div>
+                  ) : (
+                    <div className='close'>สถานที่ปิดอยู่</div>
+                  )}
                 </dd>
                 <dt>หมวดหมู่:</dt>
                 <dd>
@@ -262,24 +310,118 @@ class ShowPlace extends Component {
                     <></>
                   )}
                 </dd>
-                <dt>รายะเอียด:</dt>
-                <dd>{this.state.place.detail}</dd>
-                <dt>คำอธิบายรูปภาพ:</dt>
-                <dd>{this.state.place.photodetail}</dd>
-                <dt>วันที่เปิด/ปิด:</dt>
-                <dd>{this.state.place.day}</dd>
-                <dt>เวลาเปิด/ปิด:</dt>
+                {this.state.place.detail ? (
+                  <div>
+                    <dt>รายะเอียด:</dt>
+                    <dd>{this.state.place.detail}</dd>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                {this.state.place.photodetail ? (
+                  <div>
+                    <dt>คำอธิบายรูปภาพ:</dt>
+                    <dd>{this.state.place.photodetail}</dd>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                {this.state.place.time_open && this.state.place.time_close ? (
+                  <div>
+                    <dt>เวลาเปิด - เวลาปิด</dt>
+                    <dd>{this.state.place.time_open} - {this.state.place.time_close} นาฬิกา </dd>
+                  </div>
+                ) : (
+                  <>
+                  </>
+                )}
+                {this.state.place.day ? (
+                  <div>
+                    <dt>วันที่เปิด/ปิด:</dt>
+                    <dd>{this.state.place.day}</dd>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                {this.state.place.time ? (
+                  <div>
+                    <dt>เวลาเปิด/ปิด:</dt>
                 <dd>{this.state.place.time}</dd>
-                <dt>ที่อยู่:</dt>
-                <dd>{this.state.place.address}</dd>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                {this.state.place.address ? (
+                  <div>
+                    <dt>ที่อยู่:</dt>
+                    <dd>{this.state.place.address}</dd>
+                  </div>
+                ) : (
+                  <></>
+                )}
                 <dt>สถานะ :</dt>
                 <dd>
                   {this.state.place.check == true ? (
                     'ตรวจสอบเเล้ว'
                   ) : (
                     'ยังไม่ตรวจสอบ'
-                )}
+                  )}
                 </dd>
+                {this.state.place.latitude !== 0.1 && this.state.place.longitude !== 0.1 ? (
+                  <div>
+                    <dt>ละติจูด</dt>
+                    <dd>{this.state.place.latitude}</dd>
+                    <dt>ลองจิจูด</dt>
+                    <dd>{this.state.place.longitude}</dd>
+                  </div>
+                ) : (
+                  <>
+                  </>
+                )}
+                {this.state.place.latitude2 !== 0.1 && this.state.place.longitude2 !== 0.1 ? (
+                  <div>
+                    <dt>ละติจูด</dt>
+                    <dd>{this.state.place.latitude2}</dd>
+                    <dt>ลองจิจูด</dt>
+                    <dd>{this.state.place.longitude2}</dd>
+                  </div>
+                ) : (
+                  <>
+                  </>
+                )}
+                {this.state.place.latitude3 !== 0.1 && this.state.place.longitude3 !== 0.1 ? (
+                  <div>
+                    <dt>ละติจูด</dt>
+                    <dd>{this.state.place.latitude3}</dd>
+                    <dt>ลองจิจูด</dt>
+                    <dd>{this.state.place.longitude3}</dd>
+                  </div>
+                ) : (
+                  <>
+                  </>
+                )}
+                {this.state.place.latitude4 !== 0.1 && this.state.place.longitude4 !== 0.1 ? (
+                  <div>
+                    <dt>ละติจูด</dt>
+                    <dd>{this.state.place.latitude4}</dd>
+                    <dt>ลองจิจูด</dt>
+                    <dd>{this.state.place.longitude4}</dd>
+                  </div>
+                ) : (
+                  <>
+                  </>
+                )}
+                {this.state.place.latitude5 !== 0.1 && this.state.place.longitude5 !== 0.1 ? (
+                  <div>
+                    <dt>ละติจูด</dt>
+                    <dd>{this.state.place.latitude5}</dd>
+                    <dt>ลองจิจูด</dt>
+                    <dd>{this.state.place.longitude5}</dd>
+                  </div>
+                ) : (
+                  <>
+                  </>
+                )}
                 <br></br>
                 <div className='button-area'>
                   <div className='btn'>

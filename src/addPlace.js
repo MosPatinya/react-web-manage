@@ -4,6 +4,8 @@ import firebase from './config';
 import firebaseConfig, { storage } from "./config";
 import './addPlace.css';
 import Swal from 'sweetalert2'
+
+
 function Addplace() {
     const user_id = '';
     const place_id = '';
@@ -38,13 +40,24 @@ function Addplace() {
     const [type10, setType10] = useState('');
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
+    const [latitude2, setLatitude2] = useState('');
+    const [longitude2, setLongitude2] = useState('');
+    const [latitude3, setLatitude3] = useState('');
+    const [longitude3, setLongitude3] = useState('');
+    const [latitude4, setLatitude4] = useState('');
+    const [longitude4, setLongitude4] = useState('');
+    const [latitude5, setLatitude5] = useState('');
+    const [longitude5, setLongitude5] = useState('');
     const [tel, setTel] = useState('');
     const [images, setImages] = useState([]);
     const [urls, setUrls] = useState([]);
     const [progress, setProgress] = useState(0);
-    const [photodetail, setPhotodetail] = useState('')
-    const [map,setMap] = useState('')
-    const view =0;
+    const [photodetail, setPhotodetail] = useState('');
+    const [map,setMap] = useState('');
+    const view = 0;
+    const auto = true;
+    const [time_open, setTime_open] = useState('');
+    const [time_close, setTime_close] = useState('');
     var photo1
     var photo2
     var photo3
@@ -221,6 +234,14 @@ function Addplace() {
             type10: type10,
             latitude: parseFloat(latitude),
             longitude: parseFloat(longitude),
+            latitude2: parseFloat(latitude2),
+            longitude2: parseFloat(longitude2),
+            latitude3: parseFloat(latitude3),
+            longitude3: parseFloat(longitude3),
+            latitude4: parseFloat(latitude4),
+            longitude4: parseFloat(longitude4),
+            latitude5: parseFloat(latitude5),
+            longitude5: parseFloat(longitude5),
             tel: tel,
             photo1: photo1,
             photo2: photo2,
@@ -235,6 +256,9 @@ function Addplace() {
             photodetail: photodetail,
             map: map,
             view: view,
+            auto: auto,
+            time_open: parseFloat(time_open),
+            time_close: parseFloat(time_close),
         };
         console.log(obj)
         setBusiness_name('');
@@ -373,7 +397,15 @@ function Addplace() {
             );
         });
         Promise.all(promises)
-            .then(() => alert("อัพโหลดรูปสำเร็จ"))
+            .then(() => 
+            Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'อัพโหลดสำเร็จ',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            )
             .catch((err) => console.log(err));
     };
 
@@ -447,16 +479,34 @@ function Addplace() {
                         <div className="form-group">
                             <label>Day:</label>
                             <input type="text" className="form-control"
+                                required
                                 value={day}
                                 onChange={(e) => setDay(e.target.value)}
-                                placeholder="วันที่เปิด จ.-อา." />
+                                placeholder="วันที่เปิด จ.-อา. , ทุกวัน" />
                         </div>
                         <div className="form-group">
                             <label>Time:</label>
                             <input type="text" className="form-control"
+                                required
                                 value={time}
                                 onChange={(e) => setTime(e.target.value)}
-                                placeholder="เวลาที่เปิด" />
+                                placeholder="ตัวอย่าง 8.00 - 19.00" />
+                        </div>
+                        <div className="form-group">
+                            <label>Time open:</label>
+                            <input type="number" className="form-control"
+                                required
+                                value={time_open}
+                                onChange={(e) => setTime_open(e.target.value)}
+                                placeholder="ตัวอย่าง 8.00" />
+                        </div>
+                        <div className="form-group">
+                            <label>Time close:</label>
+                            <input type="number" className="form-control"
+                                required
+                                value={time_close}
+                                onChange={(e) => setTime_close(e.target.value)}
+                                placeholder="ตัวอย่าง  19.00" />
                         </div>
                         <div className="form-group">
                             <label>Detail:</label>
@@ -523,6 +573,8 @@ function Addplace() {
                                 onChange={(e) => setTel(e.target.value)}
                                 placeholder="เบอร์โทรศัพท์" />
                         </div>
+
+
                         <div className="form-group">
                             <label>Latitude:</label>
                             <input type="Latitude" className="form-control"
@@ -539,6 +591,71 @@ function Addplace() {
                                 onChange={(e) => setLongitude(e.target.value)}
                                 placeholder="ตัวอย่าง 100.7354359" />
                         </div>
+
+
+                        <div className="form-group">
+                            <label>Latitude2:</label>
+                            <input type="Latitude" className="form-control"
+                                value={latitude2}
+                                onChange={(e) => setLatitude2(e.target.value)}
+                                placeholder="ตัวอย่าง 14.0372643" />
+                        </div>
+                        <div className="form-group">
+                            <label>Longitude:</label>
+                            <input type="Longitude" className="form-control"
+                                value={longitude2}
+                                onChange={(e) => setLongitude2(e.target.value)}
+                                placeholder="ตัวอย่าง 100.7354359" />
+                        </div>
+
+
+                        <div className="form-group">
+                            <label>Latitude3:</label>
+                            <input type="Latitude" className="form-control"
+                                value={latitude3}
+                                onChange={(e) => setLatitude3(e.target.value)}
+                                placeholder="ตัวอย่าง 14.0372643" />
+                        </div>
+                        <div className="form-group">
+                            <label>Longitude3:</label>
+                            <input type="Longitude" className="form-control"
+                                value={longitude3}
+                                onChange={(e) => setLongitude3(e.target.value)}
+                                placeholder="ตัวอย่าง 100.7354359" />
+                        </div>
+
+                        <div className="form-group">
+                            <label>Latitude4:</label>
+                            <input type="Latitude" className="form-control"
+                                value={latitude4}
+                                onChange={(e) => setLatitude4(e.target.value)}
+                                placeholder="ตัวอย่าง 14.0372643" />
+                        </div>
+                        <div className="form-group">
+                            <label>Longitude4:</label>
+                            <input type="Longitude" className="form-control"
+                                value={longitude4}
+                                onChange={(e) => setLongitude4(e.target.value)}
+                                placeholder="ตัวอย่าง 100.7354359" />
+                        </div>
+
+
+                        <div className="form-group">
+                            <label>Latitude5:</label>
+                            <input type="Latitude" className="form-control"
+                                value={latitude5}
+                                onChange={(e) => setLatitude5(e.target.value)}
+                                placeholder="ตัวอย่าง 14.0372643" />
+                        </div>
+                        <div className="form-group">
+                            <label>Longitude5:</label>
+                            <input type="Longitude" className="form-control"
+                                value={longitude5}
+                                onChange={(e) => setLongitude5(e.target.value)}
+                                placeholder="ตัวอย่าง 100.7354359" />
+                        </div>
+
+
                         <div className="form-group">
                             <label>Photodetail:</label>
                             <input type="Photodetail" className="form-control"

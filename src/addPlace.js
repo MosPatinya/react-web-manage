@@ -55,7 +55,7 @@ function Addplace() {
     const [photodetail, setPhotodetail] = useState('');
     const [map,setMap] = useState('');
     const view = 0;
-    const auto = true;
+    const auto = 'true';
     const [time_open, setTime_open] = useState('');
     const [time_close, setTime_close] = useState('');
     var photo1

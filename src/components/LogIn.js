@@ -46,7 +46,7 @@ const LogIn = () => {
             <div className="mb-2">
                 <label for="Password" className="form-label">Password</label>
                 <input
-                required min='1' 
+                required  
                 type="password" 
                 name="password" 
                 className="form-control"

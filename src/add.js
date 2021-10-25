@@ -11,7 +11,7 @@ function Add() {
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [tel, setTel] = useState('');
-    const type = 'ผู้ใช้งานระบบ';
+    const type = 'ผู้ใช้งานทั่วไป';
     const [file, setFile] = useState('');
     const [url, setURL] = useState('');
 

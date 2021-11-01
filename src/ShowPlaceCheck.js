@@ -56,6 +56,7 @@ class ShowPlaceCheck extends Component {
       time_close: '',
       day: '',
       open: '',
+      address: '',
     };
   }
 
@@ -112,6 +113,7 @@ class ShowPlaceCheck extends Component {
           open: place.open,
           time_open: place.time_open,
           time_close: place.time_close,
+          address: place.address,
         });
       } else {
         console.log("No such document!");
@@ -283,6 +285,7 @@ class ShowPlaceCheck extends Component {
                   <>
                   </>
                 )}
+                
                 <dt>Status</dt>
                 <dd>
                   {this.state.open == true ? (
@@ -335,6 +338,15 @@ class ShowPlaceCheck extends Component {
                   <div>
                     <dt>วันที่เปิด/ปิด</dt>
                     <dd>{this.state.day}</dd>
+                  </div>
+                ) : (
+                  <>
+                  </>
+                )}
+                {this.state.address ? (
+                  <div>
+                    <dt>ที่อยู่</dt>
+                    <dd>{this.state.address}</dd>
                   </div>
                 ) : (
                   <>

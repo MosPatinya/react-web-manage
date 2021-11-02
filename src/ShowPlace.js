@@ -276,35 +276,35 @@ class ShowPlace extends Component {
                 <dd>
                   {type6 ? (
                     <div>
-                      <label>{type}</label><br />
+                      <label>{type6}</label><br />
                     </div>
                   ) : (
                     <></>
                   )}
                   {type7 ? (
                     <div>
-                      <label>{type2}</label><br />
+                      <label>{type7}</label><br />
                     </div>
                   ) : (
                     <></>
                   )}
                   {type8 ? (
                     <div>
-                      <label>{type3}</label><br />
+                      <label>{type8}</label><br />
                     </div>
                   ) : (
                     <></>
                   )}
                   {type9 ? (
                     <div>
-                      <label>{type4}</label><br />
+                      <label>{type9}</label><br />
                     </div>
                   ) : (
                     <></>
                   )}
                   {type10 ? (
                     <div>
-                      <label>{type5}</label><br />
+                      <label>{type10}</label><br />
                     </div>
                   ) : (
                     <></>

@@ -1382,7 +1382,7 @@ class EditPlace extends Component {
                 <div className="form-group">
                   <label for="category">หมวดหมู่:</label><br />
                   <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={this.onChange} name="type" >
-                    <option value="">----{this.state.type}----</option>
+                    <option>----{this.state.type}----</option>
                     <option ></option>
                     <option value="ร้านอาหาร">ร้านอาหาร</option>
                     <option value="ร้านกาแฟ">ร้านกาแฟ</option>
@@ -1392,13 +1392,13 @@ class EditPlace extends Component {
                     <option value="ร้านทั่วไป">ร้านทั่วไป</option>
                     <option value="สถานที่ใน Rmutt">สถานที่ในRMUTT</option>
                     <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
-                    <option value=""> - </option>
+                    <option value="โปรดระบุหมวดหมู่"> - </option>
                   </select>
                 </div>
                 <div className="form-group">
                   <label for="category">หมวดหมู่:</label><br />
                   <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={this.onChange} name="type2" >
-                    <option value="">----{this.state.type2}----</option>
+                    <option>----{this.state.type2}----</option>
                     <option ></option>
                     <option value="ร้านอาหาร">ร้านอาหาร</option>
                     <option value="ร้านกาแฟ">ร้านกาแฟ</option>
@@ -1408,13 +1408,13 @@ class EditPlace extends Component {
                     <option value="ร้านทั่วไป">ร้านทั่วไป</option>
                     <option value="สถานที่ใน Rmutt">สถานที่ในRMUTT</option>
                     <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
-                    <option value=""> - </option>
+                    <option value="โปรดระบุหมวดหมู่"> - </option>
                   </select>
                 </div>
                 <div className="form-group">
                   <label for="category">หมวดหมู่:</label><br />
                   <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={this.onChange} name="type3" >
-                    <option value="">----{this.state.type3}----</option>
+                    <option>----{this.state.type3}----</option>
                     <option ></option>
                     <option value="ร้านอาหาร">ร้านอาหาร</option>
                     <option value="ร้านกาแฟ">ร้านกาแฟ</option>
@@ -1424,13 +1424,13 @@ class EditPlace extends Component {
                     <option value="ร้านทั่วไป">ร้านทั่วไป</option>
                     <option value="สถานที่ใน Rmutt">สถานที่ในRMUTT</option>
                     <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
-                    <option value=""> - </option>
+                    <option value="โปรดระบุหมวดหมู่"> - </option>
                   </select>
                 </div>
                 <div className="form-group">
                   <label for="category">หมวดหมู่:</label><br />
                   <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={this.onChange} name="type4" >
-                    <option value="">----{this.state.type4}----</option>
+                    <option>----{this.state.type4}----</option>
                     <option ></option>
                     <option value="ร้านอาหาร">ร้านอาหาร</option>
                     <option value="ร้านกาแฟ">ร้านกาแฟ</option>
@@ -1440,13 +1440,13 @@ class EditPlace extends Component {
                     <option value="ร้านทั่วไป">ร้านทั่วไป</option>
                     <option value="สถานที่ใน Rmutt">สถานที่ในRMUTT</option>
                     <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
-                    <option value=""> - </option>
+                    <option value="โปรดระบุหมวดหมู่"> - </option>
                   </select>
                 </div>
                 <div className="form-group">
                   <label for="category">หมวดหมู่:</label><br />
                   <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={this.onChange} name="type5" >
-                    <option value="">----{this.state.type5}----</option>
+                    <option>----{this.state.type5}----</option>
                     <option ></option>
                     <option value="ร้านอาหาร">ร้านอาหาร</option>
                     <option value="ร้านกาแฟ">ร้านกาแฟ</option>
@@ -1456,13 +1456,13 @@ class EditPlace extends Component {
                     <option value="ร้านทั่วไป">ร้านทั่วไป</option>
                     <option value="สถานที่ใน Rmutt">สถานที่ในRMUTT</option>
                     <option value="สถานที่ทั่วไป">สถานที่ทั่วไป</option>
-                    <option value=""> - </option>
+                    <option value="โปรดระบุหมวดหมู่"> - </option>
                   </select>
                 </div>
                 <div className="form-group">
                   <label for="category">หมวดหมู่ย่อย:</label><br />
                   <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={this.onChange} name="type6" >
-                    <option value="">----{this.state.type6}----</option>
+                    <option>----{this.state.type6}----</option>
                     <option ></option>
                     <option value="คาเฟ่">คาเฟ่</option>
                     <option value="ชานมไข่มุก">ชานมไข่มุก</option>
@@ -1476,13 +1476,13 @@ class EditPlace extends Component {
                     <option value="ของหวาน">ของหวาน</option>
                     <option value="ฟาสต์ฟูด">ฟาสต์ฟูด</option>
                     <option value="อื่นๆ">อื่นๆ</option>
-                    <option value=""> - </option>
+                    <option value="โปรดระบุประเภท"> - </option>
                   </select>
                 </div>
                 <div className="form-group">
                   <label for="category">หมวดหมู่ย่อย:</label><br />
                   <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={this.onChange} name="type7" >
-                    <option value="">----{this.state.type7}----</option>
+                    <option>----{this.state.type7}----</option>
                     <option ></option>
                     <option value="คาเฟ่">คาเฟ่</option>
                     <option value="ชานมไข่มุก">ชานมไข่มุก</option>
@@ -1496,13 +1496,13 @@ class EditPlace extends Component {
                     <option value="ของหวาน">ของหวาน</option>
                     <option value="ฟาสต์ฟูด">ฟาสต์ฟูด</option>
                     <option value="อื่นๆ">อื่นๆ</option>
-                    <option value=""> - </option>
+                    <option value="โปรดระบุประเภท"> - </option>
                   </select>
                 </div>
                 <div className="form-group">
                   <label for="category">หมวดหมู่ย่อย:</label><br />
                   <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={this.onChange} name="type8" >
-                    <option value="">----{this.state.type8}----</option>
+                    <option>----{this.state.type8}----</option>
                     <option ></option>
                     <option value="คาเฟ่">คาเฟ่</option>
                     <option value="ชานมไข่มุก">ชานมไข่มุก</option>
@@ -1516,13 +1516,13 @@ class EditPlace extends Component {
                     <option value="ของหวาน">ของหวาน</option>
                     <option value="ฟาสต์ฟูด">ฟาสต์ฟูด</option>
                     <option value="อื่นๆ">อื่นๆ</option>
-                    <option value=""> - </option>
+                    <option value="โปรดระบุประเภท"> - </option>
                   </select>
                 </div>
                 <div className="form-group">
                   <label for="category">หมวดหมู่ย่อย:</label><br />
                   <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={this.onChange} name="type9" >
-                    <option value="">----{this.state.type9}----</option>
+                    <option>----{this.state.type9}----</option>
                     <option ></option>
                     <option value="คาเฟ่">คาเฟ่</option>
                     <option value="ชานมไข่มุก">ชานมไข่มุก</option>
@@ -1536,13 +1536,13 @@ class EditPlace extends Component {
                     <option value="ของหวาน">ของหวาน</option>
                     <option value="ฟาสต์ฟูด">ฟาสต์ฟูด</option>
                     <option value="อื่นๆ">อื่นๆ</option>
-                    <option value=""> - </option>
+                    <option value="โปรดระบุประเภท"> - </option>
                   </select>
                 </div>
                 <div className="form-group">
                   <label for="category">หมวดหมู่ย่อย:</label><br />
                   <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={this.onChange} name="type10" >
-                    <option value="">----{this.state.type10}----</option>
+                    <option>----{this.state.type10}----</option>
                     <option ></option>
                     <option value="คาเฟ่">คาเฟ่</option>
                     <option value="ชานมไข่มุก">ชานมไข่มุก</option>
@@ -1556,7 +1556,7 @@ class EditPlace extends Component {
                     <option value="ของหวาน">ของหวาน</option>
                     <option value="ฟาสต์ฟูด">ฟาสต์ฟูด</option>
                     <option value="อื่นๆ">อื่นๆ</option>
-                    <option value=""> - </option>
+                    <option value="โปรดระบุประเภท"> - </option>
                   </select>
                 </div>
                 <br />

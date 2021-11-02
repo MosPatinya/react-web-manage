@@ -236,35 +236,35 @@ class ShowPlace extends Component {
                 </dd>
                 <dt>หมวดหมู่:</dt>
                 <dd>
-                  {type ? (
+                  {type !== 'โปรดระบุหมวดหมู่' ? (
                     <div>
                       <label>{type}</label><br />
                     </div>
                   ) : (
                     <></>
                   )}
-                  {type2 ? (
+                  {type2 !== 'โปรดระบุหมวดหมู่' ? (
                     <div>
                       <label>{type2}</label><br />
                     </div>
                   ) : (
                     <></>
                   )}
-                  {type3 ? (
+                  {type3 !== 'โปรดระบุหมวดหมู่' ? (
                     <div>
                       <label>{type3}</label><br />
                     </div>
                   ) : (
                     <></>
                   )}
-                  {type4 ? (
+                  {type4 !== 'โปรดระบุหมวดหมู่' ? (
                     <div>
                       <label>{type4}</label><br />
                     </div>
                   ) : (
                     <></>
                   )}
-                  {type5 ? (
+                  {type5 !== 'โปรดระบุหมวดหมู่' ? (
                     <div>
                       <label>{type5}</label><br />
                     </div>
@@ -274,35 +274,35 @@ class ShowPlace extends Component {
                 </dd>
                 <dt>ประเภท:</dt>
                 <dd>
-                  {type6 ? (
+                  {type6 !== 'โปรดระบุประเภท' ? (
                     <div>
                       <label>{type6}</label><br />
                     </div>
                   ) : (
                     <></>
                   )}
-                  {type7 ? (
+                  {type7 !== 'โปรดระบุประเภท' ? (
                     <div>
                       <label>{type7}</label><br />
                     </div>
                   ) : (
                     <></>
                   )}
-                  {type8 ? (
+                  {type8 !== 'โปรดระบุประเภท' ? (
                     <div>
                       <label>{type8}</label><br />
                     </div>
                   ) : (
                     <></>
                   )}
-                  {type9 ? (
+                  {type9 !== 'โปรดระบุประเภท' ? (
                     <div>
                       <label>{type9}</label><br />
                     </div>
                   ) : (
                     <></>
                   )}
-                  {type10 ? (
+                  {type10 !== 'โปรดระบุประเภท' ? (
                     <div>
                       <label>{type10}</label><br />
                     </div>

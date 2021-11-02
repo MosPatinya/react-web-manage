@@ -60,6 +60,7 @@ class EditPlace extends Component {
       photodetail: '',
       time_open: '',
       time_close: '',
+      tel: '',
       file: null,
       url: null,
       file2: null,
@@ -139,6 +140,7 @@ class EditPlace extends Component {
           address: place.address,
           time_open: place.time_open,
           time_close: place.time_close,
+          tel:place.tel,
         });
       } else {
         console.log("No such document!");
@@ -197,6 +199,7 @@ class EditPlace extends Component {
       day,
       time_close,
       time_open,
+      tel,
 
     } = this.state;
 
@@ -238,6 +241,7 @@ class EditPlace extends Component {
       day,
       time_close,
       time_open,
+      tel,
     }).then((docRef) => {
       this.setState({
         key: '',
@@ -256,6 +260,7 @@ class EditPlace extends Component {
         photodetail: '',
         time: '',
         address: '',
+        tel: '',
       });
       this.props.history.push("/showPlace/" + this.props.match.params.id)
     })
@@ -1313,6 +1318,10 @@ class EditPlace extends Component {
                 <div className="form-group">
                   <label for="password">instagram:</label>
                   <input type="text" className="form-control" name="instagram" value={this.state.instagram} onChange={this.onChange} placeholder="instagram" />
+                </div>
+                <div className="form-group">
+                  <label for="tel">Tel:</label>
+                  <input type="tel" className="form-control" name="tel" value={this.state.tel} onChange={this.onChange} placeholder="tel" />
                 </div>
                 <div className="form-group">
                   <label for="password">รายละเอียด:</label>

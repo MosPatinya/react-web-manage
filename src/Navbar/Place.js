@@ -2,10 +2,20 @@ import React, { Component } from 'react'
 import DashBoard from '../components/Dashboard'
 import List_Place from '../List_place'
 import { Link } from 'react-router-dom';
+import firebase from '../config';
 import './Place.css'
 
+
 export class Place extends Component {
+
+
+    count(){
+        firebase.firestore().collection('place').get().then(function(querySnapshot){
+            console.log(querySnapshot.size)
+        })
+    }
     render() {
+        console.log(this.count())
         return (
             <div>
                 <header>

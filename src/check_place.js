@@ -56,7 +56,7 @@ class Check_Place extends Component {
                                     <tr>
                                         <td><img src={place.photo1} width="210" height="110"></img></td>
                                         <td>{place.business_name}</td>
-                                        <td>{place.type}{place.type2}</td>
+                                        <td>{place.type}</td>
                                         <td>{place.email}</td>
                                         <td>{place.tel}</td>
                                         <td><Link to={`/showplacecheck/${place.key}`}><button type="button" class="btn btn-outline-warning">รายละเอียด</button></Link></td>

@@ -285,7 +285,7 @@ class ShowPlaceCheck extends Component {
                   <>
                   </>
                 )}
-                
+
                 <dt>Status</dt>
                 <dd>
                   {this.state.open == true ? (
@@ -295,18 +295,81 @@ class ShowPlaceCheck extends Component {
                   )}
                 </dd>
                 <dt>หมวดหมู่</dt>
-                <dd>{this.state.type}</dd>
-                <dd>{this.state.type2}</dd>
-                <dd>{this.state.type3}</dd>
-                <dd>{this.state.type4}</dd>
-                <dd>{this.state.type5}</dd>
+                <dd>
+                  {this.state.type !== 'โปรดระบุหมวดหมู่' ? (
+                    <div>
+                      <label>{this.state.type}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {this.state.type2 !== 'โปรดระบุหมวดหมู่' ? (
+                    <div>
+                      <label>{this.state.type2}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {this.state.type3 !== 'โปรดระบุหมวดหมู่' ? (
+                    <div>
+                      <label>{this.state.type3}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {this.state.type4 !== 'โปรดระบุหมวดหมู่' ? (
+                    <div>
+                      <label>{this.state.type4}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {this.state.type5 !== 'โปรดระบุหมวดหมู่' ? (
+                    <div>
+                      <label>{this.state.type5}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                </dd>
                 <dt>ประเภท</dt>
-                <dd>{this.state.type6}</dd>
-                <dd>{this.state.type7}</dd>
-                <dd>{this.state.type8}</dd>
-                <dd>{this.state.type9}</dd>
-                <dd>{this.state.type10}</dd>
-
+                <dd>
+                  {this.state.type6 !== 'โปรดระบุประเภท' ? (
+                    <div>
+                      <label>{this.state.type6}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {this.state.type7 !== 'โปรดระบุประเภท' ? (
+                    <div>
+                      <label>{this.state.type7}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {this.state.type8 !== 'โปรดระบุประเภท' ? (
+                    <div>
+                      <label>{this.state.type8}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {this.state.type9 !== 'โปรดระบุประเภท' ? (
+                    <div>
+                      <label>{this.state.type9}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {this.state.type10 !== 'โปรดระบุประเภท' ? (
+                    <div>
+                      <label>{this.state.type10}</label><br />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                </dd>
                 {this.state.detail ? (
                   <div>
                     <dt>รายะเอียด</dt>

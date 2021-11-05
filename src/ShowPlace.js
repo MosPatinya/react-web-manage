@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import DashBoard from './components/Dashboard';
 import './ShowPlace.css';
 import Swal from 'sweetalert2'
+import { version } from 'react-dom';
 class ShowPlace extends Component {
 
   constructor(props) {
@@ -27,6 +28,22 @@ class ShowPlace extends Component {
         console.log("No such document!");
       }
     });
+  }
+
+  unconfirm = (e) =>{
+    e.preventDefault();
+    const updateRef = firebase.firestore().collection('place').doc(this.state.key);
+    updateRef.update({
+      check: false,
+    });
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'ยกเลิกเผยเเพร่ข้อมูล',
+      showConfirmButton: false,
+      timer: 1500
+    })
+    this.props.history.push("/showplacecheck/" + this.props.match.params.id)
   }
 
   delete(id) {
@@ -65,19 +82,6 @@ class ShowPlace extends Component {
 
 
   render() {
-    var photoArray = [
-      this.state.place.photo1,
-      this.state.place.photo2,
-      this.state.place.photo3,
-      this.state.place.photo4,
-      this.state.place.photo5,
-      this.state.place.photo6,
-      this.state.place.photo7,
-      this.state.place.photo8,
-      this.state.place.photo9,
-      this.state.place.photo10,
-    ]
-    console.log(photoArray)
     console.log(this.state.place.check)
     const photo1 = this.state.place.photo1;
     const photo2 = this.state.place.photo2;
@@ -430,6 +434,11 @@ class ShowPlace extends Component {
                   <div className='btn'>
                     <button onClick={this.delete.bind(this, this.state.key)} class="btn btn-danger">Delete</button>
                   </div>
+                  <div className='btn'>
+                  <form onSubmit={this.unconfirm}>
+                  <button type="submit" className="btn btn-warning">ยกเลิกการเผยเเพร่ข้อมูล</button>
+                </form>
+                </div>
                 </div>
               </dl>
             </div>

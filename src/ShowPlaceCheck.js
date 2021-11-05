@@ -130,7 +130,7 @@ class ShowPlaceCheck extends Component {
       check: true,
     });
     Swal.fire({
-      position: 'top',
+      position: 'center',
       icon: 'success',
       title: 'เผยเเพร่ข้อมูลสำเร็จ',
       showConfirmButton: false,
@@ -479,6 +479,8 @@ class ShowPlaceCheck extends Component {
                   <>
                   </>
                 )}
+                <label className = 'text'> ! กรุณาทำการตรวจสอบข้อมูลก่อนการเผยแพร่ข้อมูล</label>
+                <br />
                 <br />
                 <form onSubmit={this.onSubmit}>
                   <button type="submit" className="btn btn-success">เผยเเพร่</button>

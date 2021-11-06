@@ -82,6 +82,7 @@ class EditPlace extends Component {
       file10: null,
       url10: null,
       show: false,
+      map: '',
     };
   }
 
@@ -141,6 +142,7 @@ class EditPlace extends Component {
           time_open: place.time_open,
           time_close: place.time_close,
           tel:place.tel,
+          map: place.map,
         });
       } else {
         console.log("No such document!");
@@ -200,6 +202,7 @@ class EditPlace extends Component {
       time_close,
       time_open,
       tel,
+      map,
 
     } = this.state;
 
@@ -242,6 +245,7 @@ class EditPlace extends Component {
       time_close,
       time_open,
       tel,
+      map,
     }).then((docRef) => {
       this.setState({
         key: '',
@@ -261,6 +265,7 @@ class EditPlace extends Component {
         time: '',
         address: '',
         tel: '',
+        map: '',
       });
       this.props.history.push("/showPlace/" + this.props.match.params.id)
     })
@@ -1273,7 +1278,7 @@ class EditPlace extends Component {
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <label for="business_name">business_name:</label>
-                  <input type="text" className="form-control" name="business_name" value={this.state.business_name} onChange={this.onChange} placeholder="email" />
+                  <input type="text" className="form-control" name="business_name" required value={this.state.business_name} onChange={this.onChange} placeholder="Placename" />
                 </div>
                 <div className="form-group">
                   <label for="business_name1">business_name1:</label>
@@ -1293,11 +1298,11 @@ class EditPlace extends Component {
                 </div>
                 <div className="form-group">
                   <label for="Day">Day:</label>
-                  <input type="text" className="form-control" name="day" value={this.state.day} onChange={this.onChange} placeholder="Day" />
+                  <input type="text" className="form-control" name="day" required value={this.state.day} onChange={this.onChange} placeholder="Day" />
                 </div>
                 <div className="form-group">
                   <label for="tel">Time:</label>
-                  <input type="text" className="form-control" name="time" value={this.state.time} onChange={this.onChange} placeholder="Time" />
+                  <input type="text" className="form-control" name="time" required value={this.state.time} onChange={this.onChange} placeholder="Time" />
                 </div>
                 <div className="form-group">
                   <label for="tel">Time_open:</label>
@@ -1309,7 +1314,7 @@ class EditPlace extends Component {
                 </div>
                 <div className="form-group">
                   <label for="tel">Email:</label>
-                  <input type="email" className="form-control" name="email" value={this.state.email} onChange={this.onChange} placeholder="Email" />
+                  <input type="email" className="form-control" name="email" required value={this.state.email} onChange={this.onChange} placeholder="Email" />
                 </div>
                 <div className="form-group">
                   <label for="username">Facebook:</label>
@@ -1329,11 +1334,11 @@ class EditPlace extends Component {
                 </div>
                 <div className="form-group">
                   <label for="latitude">ละติจูด:</label>
-                  <input type="number" className="form-control" name="latitude" value={this.state.latitude} onChange={this.onChange1} placeholder="latitude" />
+                  <input type="number" className="form-control" name="latitude" required value={this.state.latitude} onChange={this.onChange1} placeholder="latitude" />
                 </div>
                 <div className="form-group">
                   <label for="longitude">ลองจิจูด:</label>
-                  <input type="number" className="form-control" name="longitude" value={this.state.longitude} onChange={this.onChange1} placeholder="longitude" />
+                  <input type="number" className="form-control" name="longitude" required value={this.state.longitude} onChange={this.onChange1} placeholder="longitude" />
                 </div>
 
                 <div className="form-group">
@@ -1380,8 +1385,12 @@ class EditPlace extends Component {
                   <input type="text" className="form-control" name="address" value={this.state.address} onChange={this.onChange} placeholder="address" />
                 </div>
                 <div className="form-group">
+                  <label for="Address">URL Map:</label>
+                  <input type="url" className="form-control" name="map" value={this.state.map} required onChange={this.onChange} placeholder="URL Map" />
+                </div>
+                <div className="form-group">
                   <label for="category">หมวดหมู่:</label><br />
-                  <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} onChange={this.onChange} name="type" >
+                  <select style={{ width: 300, height: 30, borderRadius: 5, textAlign: "center" }} required onChange={this.onChange} name="type" >
                     <option>----{this.state.type}----</option>
                     <option ></option>
                     <option value="ร้านอาหาร">ร้านอาหาร</option>

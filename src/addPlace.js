@@ -655,10 +655,18 @@ function Addplace() {
                                 placeholder="ตัวอย่าง 100.7354359" />
                         </div>
 
+                        <div className="form-group">
+                            <label>URL Map:</label>
+                            <input type="url" className="form-control"
+                                required
+                                value={map}
+                                onChange={(e) => setMap(e.target.value)}
+                                placeholder="ลิ้งค์ Map" />
+                        </div>
 
                         <div className="form-group">
                             <label>Photodetail:</label>
-                            <input type="Photodetail" className="form-control"
+                            <input type="text" className="form-control"
                                 value={photodetail}
                                 onChange={(e) => setPhotodetail(e.target.value)}
                                 placeholder="รายละเอียดรูปภาพ" />

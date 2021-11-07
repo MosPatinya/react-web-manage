@@ -232,7 +232,7 @@ class ShowPlace extends Component {
                 )}
                 <dt>Status</dt>
                 <dd>
-                  {this.state.place.open == true ? (
+                  {this.state.place.open == 'true' ? (
                     <div className='open'>สถานที่เปิดอยู่</div>
                   ) : (
                     <div className='close'>สถานที่ปิดอยู่</div>

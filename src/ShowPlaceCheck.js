@@ -288,7 +288,7 @@ class ShowPlaceCheck extends Component {
 
                 <dt>Status</dt>
                 <dd>
-                  {this.state.open == true ? (
+                  {this.state.open == 'true' ? (
                     <div className='open'>สถานที่เปิดอยู่</div>
                   ) : (
                     <div className='close'>สถานที่ปิดอยู่</div>

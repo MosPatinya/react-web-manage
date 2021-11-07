@@ -864,6 +864,8 @@ class EditPlace extends Component {
                 timer: 1500
               })
               // window.location.reload();
+            }).then(() => {
+              window.location.reload();
             })
           })
         });
@@ -881,6 +883,8 @@ class EditPlace extends Component {
                 timer: 1500
               })
               // window.location.reload();
+            }).then(() => {
+              window.location.reload();
             })
           })
         });
@@ -912,6 +916,8 @@ class EditPlace extends Component {
             showConfirmButton: false,
             timer: 1500
           })
+        }).then(() => {
+          window.location.reload();
         })
       })
     }
@@ -932,6 +938,8 @@ class EditPlace extends Component {
             showConfirmButton: false,
             timer: 1500
           })
+        }).then(() => {
+          window.location.reload();
         })
       })
     }
@@ -952,6 +960,8 @@ class EditPlace extends Component {
             showConfirmButton: false,
             timer: 1500
           })
+        }).then(() => {
+          window.location.reload();
         })
       })
     }
@@ -972,6 +982,8 @@ class EditPlace extends Component {
             showConfirmButton: false,
             timer: 1500
           })
+        }).then(() => {
+          window.location.reload();
         })
       })
     }
@@ -992,6 +1004,8 @@ class EditPlace extends Component {
             showConfirmButton: false,
             timer: 1500
           })
+        }).then(() => {
+          window.location.reload();
         })
       })
     }
@@ -1012,6 +1026,8 @@ class EditPlace extends Component {
             showConfirmButton: false,
             timer: 1500
           })
+        }).then(() => {
+          window.location.reload();
         })
       })
     }
@@ -1032,6 +1048,8 @@ class EditPlace extends Component {
             showConfirmButton: false,
             timer: 1500
           })
+        }).then(() => {
+          window.location.reload();
         })
       })
     }
@@ -1052,6 +1070,8 @@ class EditPlace extends Component {
             showConfirmButton: false,
             timer: 1500
           })
+        }).then(() => {
+          window.location.reload();
         })
       })
     }
@@ -1072,6 +1092,8 @@ class EditPlace extends Component {
             showConfirmButton: false,
             timer: 1500
           })
+        }).then(() => {
+          window.location.reload();
         })
       })
     }
@@ -1092,6 +1114,8 @@ class EditPlace extends Component {
             showConfirmButton: false,
             timer: 1500
           })
+        }).then(() => {
+          window.location.reload();
         })
       })
     }

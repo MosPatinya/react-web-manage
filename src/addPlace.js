@@ -533,7 +533,7 @@ function Addplace() {
                         </div>
                         <div className="form-group">
                             <label>Facebook:</label>
-                            <input type="text" className="form-control"
+                            <input type="url" className="form-control"
                                 value={facebook}
                                 onChange={(e) => setFacebook(e.target.value)}
                                 placeholder="Facebook" />

@@ -24,7 +24,7 @@ function Addplace() {
     const [instagram, setInstagram] = useState('');
     const [line, setLine] = useState('');
     const [website, setWebsite] = useState('');
-    const open = false;
+    const open = 'false';
     const [price, setPrice] = useState('');
     const rating = 0;
     const status = 'false';

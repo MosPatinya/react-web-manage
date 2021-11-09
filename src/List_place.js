@@ -6,7 +6,7 @@ import './List_place.css'
 class List_Place extends Component {
     constructor(props) {
         super(props);
-        this.ref = firebase.firestore().collection('place').orderBy('array','asc').where('check','==',true);
+        this.ref = firebase.firestore().collection('place').orderBy('array','desc').where('check','==',true);
         this.unsubscribe = null;
         this.state = {
             place: []
